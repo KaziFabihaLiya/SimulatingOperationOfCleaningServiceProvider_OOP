@@ -28,7 +28,6 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
     }
     
 } */
-
 package simulating_operations_of_chain_cleaning_service_provider;
 
 import javafx.application.Application;
@@ -42,7 +41,7 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Meraj_Ahmed__2221557/HR_Manager/HR_Manager_DashBoard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Meraj_Ahmed__2221557/HR_Manager/Attendance_Performance.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Cleaning Service Provider Simulation");
@@ -55,5 +54,6 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
     public static void main(String[] args) {
         launch(args);
     }
-} 
+}
+
 

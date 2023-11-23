@@ -41,7 +41,8 @@ public class RecruitEmployeeController implements Initializable {
     }    
 
     @FXML
-    private void showPostButtonOnClicked(ActionEvent event) {String add = "";
+    private void showPostButtonOnClicked(ActionEvent event) {
+        String add = "";
         add = "";
         for (jobRecruitModel r : recList) {
             System.out.println(r.toString());

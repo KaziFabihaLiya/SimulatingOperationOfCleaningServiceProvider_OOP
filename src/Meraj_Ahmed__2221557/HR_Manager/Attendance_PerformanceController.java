@@ -5,6 +5,8 @@
 package Meraj_Ahmed__2221557.HR_Manager;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,11 +28,9 @@ public class Attendance_PerformanceController implements Initializable {
     @FXML
     private TextField codeTextField;
     @FXML
-    private TextField workingHoursTextField;
+    private ComboBox<Integer> checkInCombobox;
     @FXML
-    private ComboBox<?> checkInCombobox;
-    @FXML
-    private ComboBox<?> checkOutCombobox;
+    private ComboBox<Integer> checkOutCombobox;
     @FXML
     private DatePicker dateOfEntry;
     @FXML
@@ -40,36 +40,88 @@ public class Attendance_PerformanceController implements Initializable {
     @FXML
     private TextField performanceCodeTextField;
     @FXML
-    private ComboBox<?> PerformanceScoreCombobox;
+    private ComboBox<Integer> PerformanceScoreCombobox;
     @FXML
     private TextArea performanceTextArea;
     @FXML
-    private ComboBox<?> departmentCombobox;
+    private ComboBox<String> departmentCombobox;
     @FXML
-    private ComboBox<?> PerformanceDepartmentCombobox;
+    private ComboBox<String> PerformanceDepartmentCombobox;
 
-    /**
-     * Initializes the controller class.
-     */
+    private ArrayList<timePerformanceModel> timeList;
+    private ArrayList<timePerformanceModel> perfList;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        departmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
+        PerformanceDepartmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
+        PerformanceScoreCombobox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
+        checkInCombobox.getItems().addAll(9,10,11,12,13,14,15,16,17);
+        checkOutCombobox.getItems().addAll(10,11,12,13,14,15,16,17,18,19,20,21,22);
+        perfList = new ArrayList<>();
+        timeList = new ArrayList<>();
     }    
 
-    @FXML
-    private void doneShowButtonOnClicked(ActionEvent event) {
-    }
 
     @FXML
     private void showPerformanceScoreButtonOnClicked(ActionEvent event) {
+        String add = "";
+        add = "";
+        for (timePerformanceModel perf : perfList) {
+            //System.out.println(perf.toString());
+            add += perf.toString2();
+
+        }
+        performanceTextArea.setText(add);
+
     }
 
-    @FXML
-    private void addButtonOnClicked(ActionEvent event) {
-    }
 
     @FXML
     private void sendButtonOnClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addShowButtonOnClicked(ActionEvent event) {
+         String name = nametextField.getText(); 
+         int code =Integer.parseInt(codeTextField.getText());
+         int chkin =checkInCombobox.getValue();
+         int chkout =checkOutCombobox.getValue();
+         String dept = departmentCombobox.getValue(); 
+         LocalDate entry = dateOfEntry.getValue();
+         int work =  chkout - chkin;                           //Integer.parseInt(workingHoursTextField.getText());
+         
+        timePerformanceModel Attendance = new timePerformanceModel("",chkin,chkout,0,work,entry,code, dept, "address", null, name, "gender", "email", "Employee", "password", null, 0);
+        timeList.add(Attendance);
+        String addTime = "";
+        addTime="";
+        for (timePerformanceModel time : timeList) {
+            //System.out.println(perf.toString());
+            addTime += time.toString();
+
+        }
+        
+        attendanceTextArea.setText(addTime);
+         
+    }
+
+    @FXML
+    private void addPerformanceScoreButtonOnClicked(ActionEvent event) {
+        String name = performanceNameTextField.getText();
+        int code = Integer.parseInt(performanceCodeTextField.getText());
+        String pdept= PerformanceDepartmentCombobox.getValue();
+        int score= PerformanceScoreCombobox.getValue();
+        
+        
+        timePerformanceModel performance = new timePerformanceModel(pdept,0,0,score,0,null,code, "", "address", null, name, "gender", "email", "Employee", "password", null, 0);
+        perfList.add(performance);
+        
+        
+        
+        performanceNameTextField.clear();
+        performanceCodeTextField.clear();
+        PerformanceDepartmentCombobox.setValue(null);
+        PerformanceScoreCombobox.setValue(null);
     }
     
 }

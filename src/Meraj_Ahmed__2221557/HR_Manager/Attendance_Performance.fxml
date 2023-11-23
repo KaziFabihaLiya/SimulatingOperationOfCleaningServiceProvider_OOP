@@ -18,13 +18,12 @@
       <Label layoutX="28.0" layoutY="189.0" text="Date of Entry        :" />
       <TextField fx:id="nametextField" layoutX="162.0" layoutY="59.0" promptText="          Enter Name" />
       <TextField fx:id="codeTextField" layoutX="162.0" layoutY="143.0" prefHeight="31.0" prefWidth="74.0" promptText="  1234" />
-      <TextField fx:id="workingHoursTextField" layoutX="522.0" layoutY="140.0" promptText="         Working hours" />
-      <ComboBox fx:id="departmentCombobox" layoutX="162.0" layoutY="102.0" prefWidth="150.0" />
-      <ComboBox fx:id="checkInCombobox" layoutX="422.0" layoutY="92.0" prefHeight="31.0" prefWidth="158.0" promptText="check in time  " />
-      <ComboBox fx:id="checkOutCombobox" layoutX="634.0" layoutY="92.0" prefHeight="31.0" prefWidth="158.0" promptText="check out time" />
+      <ComboBox fx:id="departmentCombobox" layoutX="162.0" layoutY="102.0" prefWidth="150.0" promptText="Select One" />
+      <ComboBox fx:id="checkInCombobox" layoutX="422.0" layoutY="101.0" prefHeight="31.0" prefWidth="158.0" promptText="check in time  " />
+      <ComboBox fx:id="checkOutCombobox" layoutX="634.0" layoutY="101.0" prefHeight="31.0" prefWidth="158.0" promptText="check out time" />
       <DatePicker fx:id="dateOfEntry" layoutX="161.0" layoutY="184.0" prefHeight="31.0" prefWidth="187.0" />
       <Line endX="819.0" endY="378.0" startX="29.0" startY="378.0" />
-      <Button layoutX="558.0" layoutY="184.0" mnemonicParsing="false" onAction="#doneShowButtonOnClicked" text="Done &amp; Show" />
+      <Button layoutX="548.0" layoutY="172.0" mnemonicParsing="false" onAction="#addShowButtonOnClicked" prefHeight="42.0" prefWidth="125.0" text="Add &amp; Show" />
       <TextArea fx:id="attendanceTextArea" layoutX="25.0" layoutY="232.0" prefHeight="133.0" prefWidth="801.0" />
       <Label layoutX="28.0" layoutY="548.0" text="Performance score (out of 10)  :" />
       <Label layoutX="30.0" layoutY="447.0" text="Employee name   :" />
@@ -46,7 +45,7 @@
          </font>
       </Label>
       <ComboBox fx:id="PerformanceDepartmentCombobox" layoutX="299.0" layoutY="495.0" prefHeight="31.0" prefWidth="138.0" promptText="Department" />
-      <Button layoutX="351.0" layoutY="543.0" mnemonicParsing="false" onAction="#addButtonOnClicked" prefHeight="31.0" prefWidth="82.0" text="Add" />
+      <Button layoutX="351.0" layoutY="543.0" mnemonicParsing="false" onAction="#addPerformanceScoreButtonOnClicked" prefHeight="31.0" prefWidth="82.0" text="Add" />
       <Button layoutX="744.0" layoutY="432.0" mnemonicParsing="false" onAction="#sendButtonOnClicked" prefHeight="31.0" prefWidth="74.0" text="Send" />
    </children>
 </AnchorPane>
