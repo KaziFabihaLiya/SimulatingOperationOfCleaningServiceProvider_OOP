@@ -6,7 +6,6 @@ package Meraj_Ahmed__2221557;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-//Liya
 
 public class Employee extends User implements Serializable {
     protected int employeeCode,year;
