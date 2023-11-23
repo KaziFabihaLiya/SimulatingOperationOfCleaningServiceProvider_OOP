@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="611.0" prefWidth="740.0" style="-fx-background-color: Aqua;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion layoutX="53.0" layoutY="145.0" prefHeight="331.0" prefWidth="625.0">
+        <panes>
+            <TitledPane prefHeight="104.0" prefWidth="185.0" text="Transactions">
+               <content>
+                  <AnchorPane prefHeight="113.0" prefWidth="536.0" />
+               </content>
+            </TitledPane>
+          <TitledPane text="Profit Scaling">
+               <content>
+                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="201.0" text="Show Chart" />
+               </content>
+          </TitledPane>
+          <TitledPane text="Vendor Informations" />
+          <TitledPane prefHeight="84.0" prefWidth="160.0" text="Compensation Details">
+               <content>
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="212.0" text="Button" />
+               </content>
+          </TitledPane>
+            <TitledPane layoutX="10.0" layoutY="41.0" text="Salary Calculator" />
+            <TitledPane layoutX="10.0" layoutY="135.0" text="Generate receipt" />
+            <TitledPane layoutX="10.0" layoutY="219.0" text="Compensation Details">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="115.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutY="30.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="202.0" text="Button" />
+                        <Button layoutX="-1.0" layoutY="61.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="202.0" text="Button" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <Label layoutX="204.0" layoutY="73.0" text="Account Officer Dashboard">
+         <font>
+            <Font name="Leelawadee UI Bold" size="26.0" />
+         </font>
+      </Label>
+      <Line endX="142.0" layoutX="370.0" layoutY="112.0" startX="-140.0" />
+      <Button layoutX="594.0" layoutY="513.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="83.0" text="Logout" />
+   </children>
+</AnchorPane>
