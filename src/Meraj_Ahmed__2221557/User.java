@@ -26,6 +26,7 @@ public abstract class User implements Serializable {
         this.dateOfBirth = dateOfBirth;
         this.contact = contact;
     }
+    
 
     @Override
     public String toString() {

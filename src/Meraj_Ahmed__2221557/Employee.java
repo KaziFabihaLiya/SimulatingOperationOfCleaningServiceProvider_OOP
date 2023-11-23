@@ -8,21 +8,16 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Employee extends User implements Serializable {
-    protected int employeeCode,year;
-    protected long salary;
+    protected int employeeCode;
     protected String department;
     protected String address;
-    protected String month;
     protected LocalDate dateOfJoining;
 
-    public Employee(int employeeCode, int year, long salary, String department, String address, String month, LocalDate dateOfJoining, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
+    public Employee(int employeeCode, String department, String address, LocalDate dateOfJoining, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
         super(name, gender, email, userType, password, dateOfBirth, contact);
         this.employeeCode = employeeCode;
-        this.year = year;
-        this.salary = salary;
         this.department = department;
         this.address = address;
-        this.month = month;
         this.dateOfJoining = dateOfJoining;
     }
 
@@ -32,22 +27,6 @@ public class Employee extends User implements Serializable {
 
     public void setEmployeeCode(int employeeCode) {
         this.employeeCode = employeeCode;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(long salary) {
-        this.salary = salary;
     }
 
     public String getDepartment() {
@@ -64,14 +43,6 @@ public class Employee extends User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
     }
 
     public LocalDate getDateOfJoining() {
@@ -140,7 +111,8 @@ public class Employee extends User implements Serializable {
 
     @Override
     public String toString() {
-        return "Employee{" + "employeeCode=" + employeeCode + ", year=" + year + ", salary=" + salary + ", department=" + department + ", address=" + address + ", month=" + month + ", dateOfJoining=" + dateOfJoining + '}';
+        return "Employee{" + "employeeCode=" + employeeCode + ", department=" + department + ", address=" + address + ", dateOfJoining=" + dateOfJoining + '}';
     }
 
-}    
+    
+}

@@ -124,7 +124,7 @@ public class EmployeeInformationController implements Initializable {
     } else if (femaleRadioButton.isSelected()) {
         gender = "Female";
     }
-        Employee emplo = new Employee(code,0,0, dept, address,"mon", Doj, name, gender, email, "Employee", "password", Dob, contact);
+        Employee emplo = new Employee(code,dept, address, Doj, name, gender, email, "Employee", "password", Dob, contact);
 
         emp.add(emplo);
         empList.add(emplo);

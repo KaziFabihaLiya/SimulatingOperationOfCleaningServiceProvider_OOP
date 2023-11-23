@@ -6,6 +6,7 @@ package Meraj_Ahmed__2221557.HR_Manager;
 
 import Meraj_Ahmed__2221557.Employee;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -37,7 +38,7 @@ public class PaySalariesController implements Initializable {
     private TextField codeTextField;
     @FXML
     private ComboBox<String> departmentCombobox;
-    private ArrayList<Employee> payList;
+    private ArrayList<PaySalariesModelClass> payList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -45,7 +46,7 @@ public class PaySalariesController implements Initializable {
                 "July", "August", "September", "October", "November", "December");
         yearComboBox.getItems().addAll(2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030);
         departmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
-        payList = new ArrayList<Employee>();
+        payList = new ArrayList<PaySalariesModelClass>();
         
     }
 
@@ -57,7 +58,7 @@ public class PaySalariesController implements Initializable {
         String mon = monthComboBox.getValue();
         int year = yearComboBox.getValue();
         long sal = Long.parseLong(salaryTextField.getText());
-        Employee pay = new Employee(code, year,sal, dept, "address", mon, null, name, "gender", "email", "Employee", "password", null, 0);
+        PaySalariesModelClass pay = new PaySalariesModelClass(year,sal,mon,code, dept, "address", null, name, "gender", "email", "Employee", "password", null, 0);
         payList.add(pay);
         checkStatusTextArea.setText("PAID");
         
