@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.LoginSceneController">
+   <children>
+      <Label layoutX="158.0" layoutY="234.0" prefHeight="21.0" prefWidth="49.0" text="Email :" />
+      <Label layoutX="130.0" layoutY="283.0" text="Password :" />
+      <TextField fx:id="getEmailTextfield" layoutX="222.0" layoutY="229.0" />
+      <TextField fx:id="getPasswordTextField" layoutX="222.0" layoutY="278.0" />
+      <Button layoutX="338.0" layoutY="336.0" mnemonicParsing="false" onAction="#logInButtonOnClick" text="Log in" />
+      <Button layoutX="279.0" layoutY="429.0" mnemonicParsing="false" onAction="#signUpButtonOnClick" prefHeight="31.0" prefWidth="124.0" text="Signup" />
+      <ComboBox fx:id="selectUserComboBox" layoutX="222.0" layoutY="182.0" prefHeight="31.0" prefWidth="187.0" promptText="           Select here" />
+      <Button layoutX="147.0" layoutY="336.0" mnemonicParsing="false" onAction="#forgetPasswordButtonOnClick" prefHeight="31.0" prefWidth="150.0" text="Forget Password" />
+      <Label layoutX="111.0" layoutY="434.0" text="Don't have an account?" />
+      <Label layoutX="162.0" layoutY="187.0" text="User : " />
+      <Label layoutX="47.0" layoutY="77.0" prefHeight="44.0" prefWidth="195.0" text="Laundry Cheese ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="116.0" layoutY="121.0" prefHeight="21.0" prefWidth="257.0" text="We aim to remove your cheese marks" />
+   </children>
+</AnchorPane>

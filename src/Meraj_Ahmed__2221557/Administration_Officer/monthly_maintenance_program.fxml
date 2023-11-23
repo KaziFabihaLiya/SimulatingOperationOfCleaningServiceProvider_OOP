@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="356.0" prefWidth="555.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Meraj_Ahmed__2221557.Administration_Officer.Monthly_maintenance_programController">
+   <children>
+      <Label layoutX="36.0" layoutY="74.0" text="Maintenance needed  :" />
+      <ComboBox fx:id="maintenanceOptionCombobox" layoutX="199.0" layoutY="69.0" prefWidth="150.0" />
+      <Label layoutX="36.0" layoutY="134.0" text="Expected Date             :" />
+      <DatePicker fx:id="expectedDate" layoutX="198.0" layoutY="129.0" prefHeight="31.0" prefWidth="152.0" />
+      <Button layoutX="401.0" layoutY="69.0" mnemonicParsing="false" onAction="#showPostButtonOnClicked" prefHeight="92.0" prefWidth="115.0" text="Show &amp; Post" />
+      <TextArea fx:id="showTextArea" layoutX="12.0" layoutY="192.0" prefHeight="151.0" prefWidth="529.0" />
+      <Label layoutX="103.0" layoutY="22.0" text="Monthly/emergency maintenance program  ">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

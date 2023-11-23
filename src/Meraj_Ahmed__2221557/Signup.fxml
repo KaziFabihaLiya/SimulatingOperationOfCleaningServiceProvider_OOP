@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.SignupController">
+   <children>
+      <Label layoutX="28.0" layoutY="70.0" text="Name                   :" />
+      <Label layoutX="29.0" layoutY="116.0" text="Email                    :" />
+      <Label layoutX="28.0" layoutY="158.0" text="Contact No           :" />
+      <Label layoutX="28.0" layoutY="200.0" text="Date of birth         :" />
+      <Label layoutX="376.0" layoutY="70.0" prefHeight="21.0" prefWidth="75.0" text="Gender   :" />
+      <Label layoutX="25.0" layoutY="290.0" text="Select User Type    :" />
+      <RadioButton fx:id="maleRadioBtn" layoutX="452.0" layoutY="70.0" mnemonicParsing="false" text="Male " />
+      <ComboBox fx:id="selectUserCombobox" layoutX="165.0" layoutY="285.0" prefWidth="150.0" />
+      <RadioButton fx:id="femaleRadioBtn" layoutX="452.0" layoutY="106.0" mnemonicParsing="false" text="Female" />
+      <Button layoutX="451.0" layoutY="267.0" mnemonicParsing="false" onAction="#createAccountButtonONClick" prefHeight="54.0" prefWidth="107.0" text="Create Account" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="nameTextField" layoutX="165.0" layoutY="65.0" />
+      <TextField fx:id="emailTextField" layoutX="165.0" layoutY="111.0" />
+      <TextField fx:id="contactTextField" layoutX="165.0" layoutY="153.0" />
+      <DatePicker fx:id="dateOfBirth" layoutX="165.0" layoutY="195.0" prefHeight="31.0" prefWidth="187.0" />
+      <Label layoutX="25.0" layoutY="27.0" prefHeight="31.0" prefWidth="394.0" text="Fill up the fields to create an account." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="243.0" prefHeight="21.0" prefWidth="125.0" text="Password              :" />
+      <Button layoutX="451.0" layoutY="332.0" mnemonicParsing="false" onAction="#backToLoginButtonONClick" prefHeight="54.0" prefWidth="107.0" text="Back to Login page" textAlignment="CENTER" wrapText="true" />
+      <PasswordField fx:id="passwordTextField" layoutX="165.0" layoutY="238.0" />
+   </children>
+</AnchorPane>
