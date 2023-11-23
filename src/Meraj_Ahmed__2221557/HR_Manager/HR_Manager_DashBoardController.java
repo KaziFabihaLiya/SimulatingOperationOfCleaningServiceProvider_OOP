@@ -4,14 +4,13 @@
  */
 package Meraj_Ahmed__2221557.HR_Manager;
 
-import Meraj_Ahmed__2221557.SceneSwitching;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -19,6 +18,9 @@ import javafx.stage.Stage;
  * @author ahmed
  */
 public class HR_Manager_DashBoardController implements Initializable {
+
+    @FXML
+    private BorderPane borderPaneId;
 
     /**
      * Initializes the controller class.
@@ -29,36 +31,45 @@ public class HR_Manager_DashBoardController implements Initializable {
     }    
 
     @FXML
-    private void employeeInformationButtonOnCllicked(ActionEvent event) { 
+    private void employeeInformationMenuItemOnClick(ActionEvent event) throws IOException {
+           
     }
 
     @FXML
-    private void assignTrainingButtonClick(ActionEvent event) {
+    private void trainingWorkshopMenuItemOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void paySalariesButtonOnClick(ActionEvent event) {
-    }
-
-
-    @FXML
-    private void complaintsButtonOnClicked(ActionEvent event) {
+    private void paySalariesMenuItemOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void leaveRequestButtonOnClicked(ActionEvent event) {
+    private void jobRecruitmentMenuItemOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void timeAttendanceButtonOnClicked(ActionEvent event) {
+    private void leaveApproveMenuItemOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void perfomanceScoreButtonOnClicked(ActionEvent event) {
+    private void complaintsMenuItemOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void addJobRecruitmentButtonOnClick(ActionEvent event) {
+    private void timeAttendanceMenuItemOnClick(ActionEvent event) {
     }
+
+    @FXML
+    private void performanceMenuItemOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void logOutMenuItemOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void helpMenuItemOnClick(ActionEvent event) {
+    }
+
     
 }

@@ -42,7 +42,7 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Meraj_Ahmed__2221557/HR_Manager/paySalaries.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Meraj_Ahmed__2221557/HR_Manager/HR_Manager_DashBoard.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Cleaning Service Provider Simulation");

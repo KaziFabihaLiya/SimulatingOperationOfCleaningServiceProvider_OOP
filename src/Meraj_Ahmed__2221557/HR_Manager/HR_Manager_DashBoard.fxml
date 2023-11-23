@@ -1,59 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.HR_Manager.HR_Manager_DashBoardController">
-   <children>
-      <Label layoutX="23.0" layoutY="32.0" prefHeight="76.0" prefWidth="258.0" text="HR Manager Dashboard">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Accordion layoutX="23.0" layoutY="106.0">
-        <panes>
-          <TitledPane animated="false" text="Employee section">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button layoutX="-1.0" mnemonicParsing="false" onAction="#employeeInformationButtonOnCllicked" prefHeight="56.0" prefWidth="202.0" text=" Access to employee information." textAlignment="CENTER" wrapText="true" />
-                        <Button layoutY="56.0" mnemonicParsing="false" onAction="#assignTrainingButtonClick" prefHeight="52.0" prefWidth="202.0" text="Assign training and workshops." textAlignment="CENTER" wrapText="true" />
-                        <Button layoutY="108.0" mnemonicParsing="false" onAction="#paySalariesButtonOnClick" prefHeight="31.0" prefWidth="202.0" text="Pay salaries" />
-                        <Button layoutY="139.0" mnemonicParsing="false" onAction="#addJobRecruitmentButtonOnClick" prefHeight="40.0" prefWidth="202.0" text="Add Job Recruitment" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="Requests">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button layoutX="1.0" layoutY="61.0" mnemonicParsing="false" onAction="#complaintsButtonOnClicked" prefHeight="41.0" prefWidth="202.0" text="Complaints/Probems" />
-                        <Button layoutX="1.0" mnemonicParsing="false" onAction="#leaveRequestButtonOnClicked" prefHeight="61.0" prefWidth="202.0" text="leave requests and approvals" textAlignment="CENTER" wrapText="true" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="Time Management">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="200.0">
-                     <children>
-                        <Button layoutY="-1.0" mnemonicParsing="false" onAction="#timeAttendanceButtonOnClicked" prefHeight="31.0" prefWidth="202.0" text="Time and Attendance." />
-                        <Button layoutX="-1.0" layoutY="30.0" mnemonicParsing="false" onAction="#perfomanceScoreButtonOnClicked" prefHeight="31.0" prefWidth="202.0" text="Performance Score." />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </TitledPane>
-        </panes>
-      </Accordion>
-      <Label layoutX="320.0" layoutY="32.0" prefHeight="148.0" prefWidth="266.0" text="HR is the company's therapist. We listen, we understand, and we know where the coffee is." textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.HR_Manager.HR_Manager_DashBoardController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Employee Section">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#employeeInformationMenuItemOnClick" text="Access to employee information." />
+                  <MenuItem mnemonicParsing="false" onAction="#trainingWorkshopMenuItemOnClick" text="Assign training &amp; workshops." />
+                  <MenuItem mnemonicParsing="false" onAction="#paySalariesMenuItemOnClick" text="Pay salaries" />
+                  <MenuItem mnemonicParsing="false" onAction="#jobRecruitmentMenuItemOnClick" text="Add Job Recruitment." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Requests">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#leaveApproveMenuItemOnClick" text="Leave requests &amp; approvals." />
+                  <MenuItem mnemonicParsing="false" onAction="#complaintsMenuItemOnClick" text="Complaints/Problems." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Time Management">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#timeAttendanceMenuItemOnClick" text="Time &amp; Attendance." />
+                  <MenuItem mnemonicParsing="false" onAction="#performanceMenuItemOnClick" text="Performance Score." />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Log out">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#logOutMenuItemOnClick" text="Log out." />
+                  <MenuItem mnemonicParsing="false" onAction="#helpMenuItemOnClick" text="Help." />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
