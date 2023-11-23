@@ -47,13 +47,13 @@
                         <Font name="Segoe UI Bold Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="25.0" layoutY="68.0" text="User ID :">
+                  <Label layoutX="25.0" layoutY="68.0" text="User Code :">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font></Label>
-                  <TextField fx:id="username" layoutX="127.0" layoutY="22.0" />
-                  <TextField fx:id="userID" layoutX="128.0" layoutY="62.0" prefHeight="31.0" prefWidth="131.0" />
-                  <DatePicker layoutX="361.0" layoutY="63.0" prefHeight="111.0" prefWidth="213.0" />
+                  <TextField fx:id="nameTextField" layoutX="127.0" layoutY="22.0" />
+                  <TextField fx:id="codeTextField" layoutX="128.0" layoutY="62.0" prefHeight="31.0" prefWidth="131.0" />
+                  <DatePicker layoutX="361.0" layoutY="63.0" prefHeight="106.0" prefWidth="213.0" />
                   <Label layoutX="404.0" layoutY="28.0" text="Select Billing Date :">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
