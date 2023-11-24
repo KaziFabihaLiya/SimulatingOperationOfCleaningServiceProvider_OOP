@@ -29,7 +29,7 @@ public class EmployeeSalaryCalculatorController implements Initializable {
     @FXML
     private TextField BonusTextField;
     @FXML
-    private ComboBox<Integer> TaxPercentCombobox;
+    private ComboBox<Double> TaxPercentCombobox;
     @FXML
     private TextArea SalaryOutputTextArea;
     @FXML
