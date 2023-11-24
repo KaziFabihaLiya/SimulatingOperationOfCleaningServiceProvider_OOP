@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML.java to edit this template
  */
-package simulating_operations_of_chain_cleaning_service_provider;
+/*package simulating_operations_of_chain_cleaning_service_provider;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,9 +27,9 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
         launch(args);
     }
     
-} 
-/*package simulating_operations_of_chain_cleaning_service_provider;
+} */
 package simulating_operations_of_chain_cleaning_service_provider;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +55,6 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
     public static void main(String[] args) {
         launch(args);
     }
-}*/
+}
 
 

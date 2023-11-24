@@ -57,7 +57,7 @@ public class EmployeeSalaryCalculatorController implements Initializable {
             }          
             } catch (NumberFormatException e) {
             EmployeeNameShow.setText("(Error)");
-            Employee employee = new Employee()
+           
             
         }    
     }
@@ -71,7 +71,7 @@ public class EmployeeSalaryCalculatorController implements Initializable {
     @FXML
     private void CalculateNetSalaryOnButtonClicked(MouseEvent event) {
         NameTextField.getText();
-        Bonus
+        
         
         
         
