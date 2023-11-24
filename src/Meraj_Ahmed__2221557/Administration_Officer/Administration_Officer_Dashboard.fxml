@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
-</AnchorPane>
+
+<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.Administration_Officer.Administration_Officer_DashboardController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Employee Section">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#bestEmployeeMenuItemOnClick" text="Announce Best Employee" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Services">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#qualityControlMenuItemOnClick" text="Quality Control" />
+                  <MenuItem mnemonicParsing="false" onAction="#developementPlanMenuItemOnClick" text="Developement Plan" />
+                  <MenuItem mnemonicParsing="false" onAction="#monthlyMaintenanceMenuItemOnClick" text="Monthly maintenance." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Notice/Log Out">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#senNoticeMenuItemOnClick" text="Send Notice" />
+                  <MenuItem mnemonicParsing="false" text="Help" />
+                  <MenuItem mnemonicParsing="false" onAction="#logOutMenuItemOnClick" text="Log Out" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
