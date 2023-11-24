@@ -8,32 +8,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.EmployeeSalaryCalculatorController">
    <children>
-      <Button layoutX="215.0" layoutY="323.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="190.0" text="Calculate Net Salary" />
-      <TextField layoutX="414.0" layoutY="131.0" prefHeight="31.0" prefWidth="117.0" />
-      <TextField layoutX="133.0" layoutY="131.0" prefHeight="31.0" prefWidth="128.0" />
-      <Label layoutX="70.0" layoutY="136.0" text="Name :" />
-      <Label layoutX="287.0" layoutY="136.0" text="Employee Code :" />
-      <Label layoutX="70.0" layoutY="201.0" text="Salary :" />
-      <TextField layoutX="133.0" layoutY="196.0" prefHeight="31.0" prefWidth="128.0" />
-      <Label layoutX="318.0" layoutY="201.0" text="Bonus :" />
-      <TextField layoutX="414.0" layoutY="196.0" prefHeight="31.0" prefWidth="117.0" />
-      <Label layoutX="179.0" layoutY="260.0" text="Tax Percentage :" />
-      <ComboBox layoutX="298.0" layoutY="255.0" prefHeight="31.0" prefWidth="128.0" />
+      <Button layoutX="216.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#CalculateNetSalaryOnButtonClicked" prefHeight="53.0" prefWidth="190.0" text="Calculate Net Salary" />
+      <TextField fx:id="EmpIDTextField" layoutX="414.0" layoutY="116.0" prefHeight="31.0" prefWidth="117.0" promptText="Enter ID" />
+      <TextField fx:id="NameTextField" layoutX="105.0" layoutY="116.0" prefHeight="31.0" prefWidth="138.0" promptText="Enter Name" />
+      <Label layoutX="47.0" layoutY="121.0" text="Name :" />
+      <Label layoutX="286.0" layoutY="121.0" text="Employee Code :" />
+      <Label layoutX="47.0" layoutY="162.0" text="Salary :" />
+      <Label layoutX="286.0" layoutY="162.0" text="Bonus :" />
+      <TextField fx:id="BonusTextField" layoutX="414.0" layoutY="157.0" prefHeight="31.0" prefWidth="117.0" />
+      <Label layoutX="47.0" layoutY="204.0" text="Tax Percentage :" />
+      <ComboBox fx:id="TaxPercentCombobox" layoutX="169.0" layoutY="199.0" prefHeight="31.0" prefWidth="87.0" />
       <Label layoutX="147.0" layoutY="38.0" text="Employee Salary Calculator" textAlignment="CENTER">
          <font>
             <Font name="Ebrima Bold" size="24.0" />
          </font>
       </Label>
       <Line endX="215.0" layoutX="242.0" layoutY="78.0" startX="-100.0" />
-      <TextArea editable="false" layoutX="35.0" layoutY="435.0" prefHeight="82.0" prefWidth="533.0" />
-      <Label layoutX="35.0" layoutY="401.0" text="Calculated Salary is :">
+      <TextArea fx:id="SalaryOutputTextArea" editable="false" layoutX="35.0" layoutY="435.0" prefHeight="82.0" prefWidth="533.0" />
+      <Label layoutX="35.0" layoutY="401.0" text="Calculated Salary is of">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Label layoutX="286.0" layoutY="204.0" text="Department :" />
+      <ComboBox fx:id="DepartmentCombobox" layoutX="414.0" layoutY="200.0" prefHeight="31.0" prefWidth="117.0" />
+      <Text fx:id="EmployeeNameShow" layoutX="219.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EmployeeName">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="SalaryAmountShow" layoutX="107.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SalaryAmountShow" wrappingWidth="137.99999356269836" />
    </children>
 </AnchorPane>
