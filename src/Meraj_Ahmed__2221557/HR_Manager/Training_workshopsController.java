@@ -20,7 +20,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 // Meraj
-
 /**
  * FXML Controller class
  *
@@ -63,30 +62,33 @@ public class Training_workshopsController implements Initializable {
         String amPm = amPmComboBox.getValue();
         LocalDate tDate = trainingDate.getValue();
 
-        trainingModelClass empList = new trainingModelClass(title, name,  amPm, code, startTime, tDate);
+        trainingModelClass empList = new trainingModelClass(title, name, amPm, code, startTime, tDate);
         twlist.add(empList);
+        
         //for (trainingModelClass xy : twlist) {
         ReadWrite.writeObjectToFile("TrainingData.bin", empList);
         //}
-       
+        nameTextField.clear();
+        codeTextField.clear();
+
         employeeListTextArea.appendText(empList.toString() + "\n");
 
     }
 
     @FXML
-    private void showDetailsButtonOnClicked(ActionEvent event) throws IOException {        
-         trainingModelClass empList = new trainingModelClass("", "", "", 0, 0, LocalDate.of(2023, 03, 10)); 
-         ObservableList<trainingModelClass> worklist = (ObservableList<trainingModelClass>) ReadWrite.readObjectToFile("TrainingData.bin", empList);
-         for(trainingModelClass z :worklist ){
-            detailsTextArea.appendText(z.toString()+ "\n" );
-           // System.out.println(z.toString());
-         }
-        
+    private void showDetailsButtonOnClicked(ActionEvent event) throws IOException {
+
+        trainingModelClass empList = new trainingModelClass("", "", "", 0, 0, null);
+        ObservableList<trainingModelClass> worklist = (ObservableList<trainingModelClass>) ReadWrite.readObjectToFile("TrainingData.bin", empList);
+        for (trainingModelClass z : worklist) {
+            detailsTextArea.appendText(z.toString2() + "\n");
+            // System.out.println(z.toString());
+        }
+
         //twlist.add(empList);
         //String details = title + "  " + startTime + "   "; 
         ///detailsTextArea.appendText(details + "\n");
         //detailsTextArea.appendText(empList.toString() + "\n");
-
     }
 
     @FXML

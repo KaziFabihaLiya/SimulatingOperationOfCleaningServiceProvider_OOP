@@ -77,6 +77,9 @@ public class trainingModelClass implements Serializable  {
     public String toString() {
         return "Employee name : " + name +  " Employee code :  " + code;
     }
-    
+     
+    public String toString2() {
+        return "Title : " + title +  " Training Date :  " + tDate + " Start Time : " + startTime + ampm + " [Assigned Employees : "+ toString() + "]";
+    }
     
 }

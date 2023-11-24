@@ -80,7 +80,7 @@ public class timePerformanceModel  extends Employee implements Serializable {
     @Override
     public String toString() {
         return "" + "Name : " + name + "        Department : " + department + "          Employee Code : " + employeeCode + "       Date Of Entry : " + doe +  "\n" + 
-                 "                                Check in : " + checkin + "                  Check out : " + checkout + "                Work Hours : " + workhours ;                           
+                 "                                Check in : " + checkin + "                  Check out : " + checkout + "                Work Hours : " + workhours + "\n"+ "\n";                           
     }
 
   

@@ -98,6 +98,13 @@ public class Attendance_PerformanceController implements Initializable {
         for (timePerformanceModel time : timeList) {
             //System.out.println(perf.toString());
             addTime += time.toString();
+            
+            nametextField.clear();
+            codeTextField.clear();
+            checkInCombobox.setValue(null);
+            checkOutCombobox.setValue(null);
+            departmentCombobox.setValue(null);
+            dateOfEntry.setValue(null);
 
         }
         
