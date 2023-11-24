@@ -35,7 +35,7 @@
     </Tab>
     <Tab text="Bill adding">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #f5ece0;">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="361.0" prefWidth="827.0" style="-fx-background-color: #f5ece0;">
                <children>
                   <Button layoutX="161.0" layoutY="251.0" mnemonicParsing="false" onAction="#addToTransactionRecord" prefHeight="76.0" prefWidth="287.0" style="-fx-background-color: #7f675b;" text="Add to Transaction Record" textAlignment="CENTER" textFill="#f5ece0" wrapText="true">
                      <font>
