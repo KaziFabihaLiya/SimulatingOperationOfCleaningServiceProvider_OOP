@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML.java to edit this template
  */
-package simulating_operations_of_chain_cleaning_service_provider;
+/*package simulating_operations_of_chain_cleaning_service_provider;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,8 +27,8 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
         launch(args);
     }
     
-}
-/*package simulating_operations_of_chain_cleaning_service_provider;
+}*/
+package simulating_operations_of_chain_cleaning_service_provider;
 
 
 import javafx.application.Application;
@@ -42,7 +42,7 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
     @Override
     public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Meraj_Ahmed__2221557/Administration_Officer/BestEmployee.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Meraj_Ahmed__2221557/Administration_Officer/SendNotice.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Cleaning Service Provider Simulation");
@@ -55,6 +55,6 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
     public static void main(String[] args) {
         launch(args);
     }
-} */
+} 
 
 

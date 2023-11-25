@@ -4,6 +4,7 @@
  */
 package Meraj_Ahmed__2221557;
 
+import Meraj_Ahmed__2221557.Administration_Officer.sendNoticeModel;
 import Meraj_Ahmed__2221557.HR_Manager.trainingModelClass;
 import java.io.File;
 import java.io.FileInputStream;
@@ -65,6 +66,7 @@ public class ReadWrite {
         ObjectInputStream ois = null;
         ObservableList<SignupData> SData = FXCollections.observableArrayList();
         ObservableList<trainingModelClass> tmcData = FXCollections.observableArrayList();
+        ObservableList<sendNoticeModel> noticeData = FXCollections.observableArrayList();
         try {
             if (instance instanceof SignupData) {
                 f = new File(fileName);
@@ -92,7 +94,22 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
+            else if (instance instanceof sendNoticeModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        noticeData.add((sendNoticeModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj Send Notice exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+            
         }
+        
             catch(Exception e){
             System.out.println("Meraj False");
         }
@@ -107,8 +124,64 @@ public class ReadWrite {
             }
         }
         if ( instance instanceof trainingModelClass ) return tmcData;
-        //else if
+        else if ( instance instanceof sendNoticeModel ) return noticeData;
         return SData;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static <T> Boolean overWriteObjectToFile(String fileName, T instance){
+        ObjectOutputStream oos = null;
+        FileOutputStream fos = null;
+        File f = null;
+        try{
+            f = new File(fileName);
+            if (f.exists() ){
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+            try {
+                oos.writeObject(instance);
+                oos.close();
+                return true;
+            }
+            catch(IOException ex){
+                GenerateAlerts.unsuccessfulAlert("Error while writing the File." + "\n" +
+                                                "Please Check your Storage Efficiency, File type and name.");
+            }
+        }
+        catch (Exception e){
+            GenerateAlerts.unsuccessfulAlert("Data is Vulnerable." + "\n" + "Please try again rechecking your data" + 
+                                                "If you can't solve the issue. Contact Software maintainer.");
+        }
+        finally {
+            try{
+                if ( oos != null){
+                    oos.close();
+                }
+            }
+            catch (IOException ex){
+                GenerateAlerts.unsuccessfulAlert("Error while closing the Binary File.");
+                return false;
+            }
+        } 
+        return false;
+        
     }
 }
         
