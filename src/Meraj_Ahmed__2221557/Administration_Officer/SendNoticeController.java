@@ -90,7 +90,6 @@ public class SendNoticeController implements Initializable {
             noticeDescList.clear();
             noticeNameTextField.clear();
             subjectTextField.clear();
-            
             noticeDate.setValue(null);
             descriptionShowTextArea.clear();
         }

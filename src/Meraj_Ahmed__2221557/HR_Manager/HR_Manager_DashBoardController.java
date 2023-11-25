@@ -9,7 +9,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -32,7 +34,8 @@ public class HR_Manager_DashBoardController implements Initializable {
 
     @FXML
     private void employeeInformationMenuItemOnClick(ActionEvent event) throws IOException {
-           
+           Parent parent = FXMLLoader.load(getClass().getResource("employeeInformation.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
