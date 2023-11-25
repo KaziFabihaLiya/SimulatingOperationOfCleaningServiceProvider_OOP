@@ -11,11 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 
-/**
- * FXML Controller class
- *
- * @author ahmed
- */
+//meraj
+
 public class Administration_Officer_DashboardController implements Initializable {
 
     @FXML
