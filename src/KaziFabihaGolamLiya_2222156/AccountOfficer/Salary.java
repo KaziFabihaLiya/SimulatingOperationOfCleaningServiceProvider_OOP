@@ -15,45 +15,42 @@ import java.time.LocalDate;
  */
 public class Salary extends Employee implements Serializable {
     
-    int EmployeeSalary;
-    String empDepartment;
+    int empSalary, bonus;
+    int taxPercent;
 
-    public Salary(int EmployeeSalary, String empDepartment, int employeeCode, String department, String address, LocalDate dateOfJoining, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
+    public Salary(int empSalary, int bonus, int taxPercent, int employeeCode, String department, String address, LocalDate dateOfJoining, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
         super(employeeCode, department, address, dateOfJoining, name, gender, email, userType, password, dateOfBirth, contact);
-        this.EmployeeSalary = EmployeeSalary;
-        this.empDepartment = empDepartment;
+        this.empSalary = empSalary;
+        this.bonus = bonus;
+        this.taxPercent = taxPercent;
+    }
+    public int getEmpSalary() {
+        return empSalary;
     }
 
-    public int getEmployeeSalary() {
-        return EmployeeSalary;
+    public void setEmpSalary(int empSalary) {
+        this.empSalary = empSalary;
     }
 
-    public void setEmployeeSalary(int EmployeeSalary) {
-        this.EmployeeSalary = EmployeeSalary;
+    public int getBonus() {
+        return bonus;
     }
 
-    public String getEmpDepartment() {
-        return empDepartment;
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
     }
 
-    public void setEmpDepartment(String empDepartment) {
-        this.empDepartment = empDepartment;
+    public int getTaxPercent() {
+        return taxPercent;
     }
-    public int EmployeeSalary(String empDepartment){
-        
-        switch (empDepartment) {
-            case "Accounts":
-                return (EmployeeSalary=25000);
-            case "Cleaning Crew":
-                return (EmployeeSalary=10000);
-            case "Administration":
-                return (EmployeeSalary=50000);
-            default:
-                return (EmployeeSalary=30000);
-        }
-    
+
+    public void setTaxPercent(int taxPercent) {
+        this.taxPercent = taxPercent;
     }
     
-    
+    public int getNetSalary() {
+        int a = (empSalary+ bonus - (empSalary*taxPercent/100));
+                return a;
+    }
+    }
 
-}

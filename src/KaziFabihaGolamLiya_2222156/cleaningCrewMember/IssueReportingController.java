@@ -23,11 +23,11 @@ public class IssueReportingController implements Initializable {
     @FXML
     private TextField employeeNameTextField;
     @FXML
-    private ComboBox<?> workerTypeCombobox;
+    private ComboBox<String> workerTypeCombobox;
     @FXML
     private TextField employeeCodeTextField;
     @FXML
-    private ComboBox<?> pendingTaskCombobox;
+    private ComboBox<String> pendingTaskCombobox;
     @FXML
     private TextArea DescribeIssueTextArea;
 
