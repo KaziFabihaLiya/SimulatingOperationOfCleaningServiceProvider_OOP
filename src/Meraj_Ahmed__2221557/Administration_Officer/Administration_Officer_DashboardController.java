@@ -97,4 +97,10 @@ public class Administration_Officer_DashboardController implements Initializable
         newWindow.show();
     }
 
+    @FXML
+    private void applyLeaveMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("adminLeaveRequest.fxml"));
+        borderPaneId.setRight(parent);
+    }
+
 }

@@ -22,6 +22,12 @@
                   <MenuItem mnemonicParsing="false" onAction="#monthlyMaintenanceMenuItemOnClick" text="Monthly maintenance." />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Issue/Request">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Issue a Complaint" />
+                  <MenuItem mnemonicParsing="false" onAction="#applyLeaveMenuItemOnClick" text="Apply for leave" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Notice/Log Out">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#sendNoticeMenuItemOnClick" text="Send Notice" />
@@ -38,4 +44,7 @@
    <bottom>
       <AnchorPane prefHeight="100.0" prefWidth="537.0" BorderPane.alignment="CENTER" />
    </bottom>
+   <right>
+      <AnchorPane prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>

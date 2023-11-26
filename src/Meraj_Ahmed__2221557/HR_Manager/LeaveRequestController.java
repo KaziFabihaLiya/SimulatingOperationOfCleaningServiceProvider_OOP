@@ -75,9 +75,6 @@ public class LeaveRequestController implements Initializable {
     }
 
 
-    @FXML
-    private void dashboardButtonOnClicked(ActionEvent event) {
-    }
 
     @FXML
     private void acceptButtonOnClicked(ActionEvent event) {
@@ -121,9 +118,6 @@ public class LeaveRequestController implements Initializable {
     private void showTableButtonOnClicked(ActionEvent event) {
     }
 
-    @FXML
-    private void downloadPdfButtonOnClicked(ActionEvent event) {
-    }
 
 }
 

@@ -26,8 +26,6 @@ public class HR_Manager_DashBoardController implements Initializable {
 
     @FXML
     private BorderPane borderPaneId;
-    @FXML
-    private TextField statusTextField;
 
     /**
      * Initializes the controller class.
@@ -140,7 +138,17 @@ public class HR_Manager_DashBoardController implements Initializable {
     }
 
     @FXML
-    private void helpMenuItemOnClick(ActionEvent event) {
+    private void applyLeaveMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("HRleave.fxml"));
+        borderPaneId.setRight(parent);
+    }
+
+    @FXML
+    private void viewNoticeMenuItemOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void issueComplaintsMenuItemOnClick(ActionEvent event) {
     }
 
 }

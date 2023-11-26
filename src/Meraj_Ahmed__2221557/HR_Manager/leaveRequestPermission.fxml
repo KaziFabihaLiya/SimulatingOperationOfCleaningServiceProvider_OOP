@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="365.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.HR_Manager.LeaveRequestController">
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.HR_Manager.LeaveRequestController">
    <children>
       <TableView fx:id="leaveRequestsTableView" layoutX="14.0" layoutY="68.0" prefHeight="200.0" prefWidth="623.0">
         <columns>
@@ -23,10 +23,8 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Button layoutX="16.0" layoutY="283.0" mnemonicParsing="false" onAction="#dashboardButtonOnClicked" prefHeight="10.0" prefWidth="100.0" text="Dashboard" />
       <Button layoutX="466.0" layoutY="282.0" mnemonicParsing="false" onAction="#acceptButtonOnClicked" text="Accept" />
       <Button layoutX="544.0" layoutY="282.0" mnemonicParsing="false" onAction="#rejectButtonOnClicked" prefHeight="31.0" prefWidth="75.0" text="Reject" />
       <Button layoutX="509.0" layoutY="32.0" mnemonicParsing="false" onAction="#showTableButtonOnClicked" prefHeight="26.0" prefWidth="128.0" text="Show Table" />
-      <Button layoutX="243.0" layoutY="282.0" mnemonicParsing="false" onAction="#downloadPdfButtonOnClicked" prefHeight="26.0" prefWidth="128.0" text="Download PDF" />
    </children>
 </AnchorPane>
