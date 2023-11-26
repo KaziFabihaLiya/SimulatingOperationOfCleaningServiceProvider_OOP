@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.Administration_Officer.Administration_Officer_DashboardController">
+<BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.Administration_Officer.Administration_Officer_DashboardController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -24,7 +24,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Notice/Log Out">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#sendNoticeMenuItemOnClick" text="Send Notice" />
+                  <MenuItem mnemonicParsing="false" onAction="#sendNoticeMenuItemOnClick" text="Send Notice" />
                   <MenuItem mnemonicParsing="false" text="Help" />
                   <MenuItem mnemonicParsing="false" onAction="#logOutMenuItemOnClick" text="Log Out" />
             </items>
@@ -35,4 +35,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
+   <bottom>
+      <AnchorPane prefHeight="100.0" prefWidth="537.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

@@ -12,10 +12,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 //meraj
-
 public class Administration_Officer_DashboardController implements Initializable {
 
     @FXML
@@ -27,43 +28,73 @@ public class Administration_Officer_DashboardController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void bestEmployeeMenuItemOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("BestEmployee.fxml"));
-        borderPaneId.setCenter(parent);
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("BestEmployee.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Announce Best Employee");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
     }
 
     @FXML
     private void qualityControlMenuItemOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("qualityControl.fxml"));
-        borderPaneId.setCenter(parent);
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("qualityControl.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Quality Control Inspection");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
+
     }
 
     @FXML
     private void developementPlanMenuItemOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("developementPlan.fxml"));
-        borderPaneId.setCenter(parent);
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("developementPlan.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Add a Developement Plan");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
     }
 
     @FXML
     private void monthlyMaintenanceMenuItemOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("monthly_maintenance_program.fxml"));
-        borderPaneId.setCenter(parent);
-    }
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("monthly_maintenance_program.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
 
-    private void senNoticeMenuItemOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("SendNotice.fxml"));
-        borderPaneId.setCenter(parent);
-    }
-
-    @FXML
-    private void logOutMenuItemOnClick(ActionEvent event) {
+        newWindow.setTitle(" Schedule Monthly Maintenance Program");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
     }
 
     @FXML
-    private void sendNoticeMenuItemOnClick(ActionEvent event) {
+    private void logOutMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("AdminLogOut.fxml"));
+        borderPaneId.setBottom(parent);
     }
-    
+
+    @FXML
+    private void sendNoticeMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("SendNotice.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Send Notice");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
+    }
+
 }
