@@ -5,6 +5,8 @@
 package Meraj_Ahmed__2221557.Administration_Officer;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,22 +23,36 @@ import javafx.scene.control.TextArea;
 public class QualityControlController implements Initializable {
 
     @FXML
-    private ComboBox<?> departmentCombobox;
+    private ComboBox<String> departmentCombobox;
     @FXML
     private DatePicker selectDate;
     @FXML
     private TextArea showTextArea;
 
-    /**
-     * Initializes the controller class.
-     */
+    private ArrayList<qualityModel> qualityList;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        departmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
+        qualityList = new ArrayList<>();
     }    
 
     @FXML
     private void doneButtonOnClicked(ActionEvent event) {
+        String dept = departmentCombobox.getValue();
+        LocalDate sDate = selectDate.getValue();
+        
+        qualityModel insList = new qualityModel(dept, sDate);
+        qualityList.add(insList);
+        
+        String add = "";
+        for (qualityModel q : qualityList) {
+            System.out.println(q.toString());
+            add += q.toString();
+        }
+        showTextArea.setText(add);
+        
+        departmentCombobox.setValue(null);
+        selectDate.setValue(null);
     }
     
 }

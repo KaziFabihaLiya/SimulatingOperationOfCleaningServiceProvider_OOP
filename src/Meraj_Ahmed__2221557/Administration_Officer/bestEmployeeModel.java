@@ -4,11 +4,13 @@
  */
 package Meraj_Ahmed__2221557.Administration_Officer;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ahmed
  */
-public class bestEmployeeModel {
+public class bestEmployeeModel implements Serializable {
     protected String name,department;
     protected int code;
 
@@ -44,8 +46,8 @@ public class bestEmployeeModel {
 
     @Override
     public String toString() {
-        return "" + "The Best Employee is : " + name +
-        " From The " + department +" Department." + "\n"
+        return "" + "The Best Employee is : " + name + "\n"
+        +" Department : " + department  + "\n"
         +"Employee code : " + code;
     }
 

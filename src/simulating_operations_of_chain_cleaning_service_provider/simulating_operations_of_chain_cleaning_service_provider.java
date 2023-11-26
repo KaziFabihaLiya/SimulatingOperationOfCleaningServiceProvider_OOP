@@ -56,5 +56,3 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
         launch(args);
     }
 }*/
-
-

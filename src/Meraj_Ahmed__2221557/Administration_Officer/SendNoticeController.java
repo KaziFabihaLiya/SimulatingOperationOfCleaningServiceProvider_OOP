@@ -87,15 +87,16 @@ public class SendNoticeController implements Initializable {
             if ( GenerateAlerts.confirmationAlert() ) {
                 AdministrationOfficer.sendTheNotice(newNotice);
             }
+            
+        }
+        catch ( Exception e ){
+            GenerateAlerts.unsuccessfulAlert("Please Fill all the Information Carefully and try again.");
+        }
             noticeDescList.clear();
             noticeNameTextField.clear();
             subjectTextField.clear();
             noticeDate.setValue(null);
             descriptionShowTextArea.clear();
-        }
-        catch ( Exception e ){
-            GenerateAlerts.unsuccessfulAlert("Please Fill all the Information Carefully and try again.");
-        }
         
     }
 

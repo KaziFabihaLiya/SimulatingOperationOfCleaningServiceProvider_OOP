@@ -64,7 +64,10 @@ public class BestEmployeeController implements Initializable {
 
         }
         ShowBestemployeeTextArea.setText(add);
-
+        
+        announceTextField.clear();
+        departmentCombobox.setValue(null);
+        announceCodeTextField.clear();
     }
 
 }

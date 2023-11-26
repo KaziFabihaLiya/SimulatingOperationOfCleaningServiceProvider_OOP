@@ -30,49 +30,63 @@ public class HR_Manager_DashBoardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void employeeInformationMenuItemOnClick(ActionEvent event) throws IOException {
-           Parent parent = FXMLLoader.load(getClass().getResource("employeeInformation.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("employeeInformation.fxml"));
         borderPaneId.setCenter(parent);
     }
 
     @FXML
-    private void trainingWorkshopMenuItemOnClick(ActionEvent event) {
+    private void trainingWorkshopMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("training_workshops.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
-    private void paySalariesMenuItemOnClick(ActionEvent event) {
+    private void paySalariesMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("paySalaries.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
-    private void jobRecruitmentMenuItemOnClick(ActionEvent event) {
+    private void jobRecruitmentMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("recruitEmployee.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
-    private void leaveApproveMenuItemOnClick(ActionEvent event) {
+    private void leaveApproveMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("leaveRequestPermission.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
-    private void complaintsMenuItemOnClick(ActionEvent event) {
+    private void complaintsMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("employeeInformation.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
-    private void timeAttendanceMenuItemOnClick(ActionEvent event) {
+    private void timeAttendanceMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("Attendance_Performance.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
-    private void performanceMenuItemOnClick(ActionEvent event) {
+    private void performanceMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("Attendance_Performance.fxml"));
+        borderPaneId.setCenter(parent);
     }
 
     @FXML
     private void logOutMenuItemOnClick(ActionEvent event) {
+
     }
 
     @FXML
     private void helpMenuItemOnClick(ActionEvent event) {
     }
 
-    
 }
