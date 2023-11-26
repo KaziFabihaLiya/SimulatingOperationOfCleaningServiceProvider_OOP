@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.EmployeeSalaryCalculatorController">
    <children>
-      <Button layoutX="216.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#CalculateNetSalaryOnButtonClicked" prefHeight="53.0" prefWidth="190.0" text="Calculate Net Salary" />
+      <Button layoutX="216.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#CalculateNetSalaryOnButtonClicked" prefHeight="53.0" prefWidth="190.0" text="Calculate Net Salary" />
       <TextField fx:id="EmpIDTextField" layoutX="444.0" layoutY="116.0" prefHeight="31.0" prefWidth="117.0" promptText="Enter ID" />
       <TextField fx:id="NameTextField" layoutX="157.0" layoutY="116.0" prefHeight="31.0" prefWidth="145.0" promptText="Enter Name" />
       <Label layoutX="94.0" layoutY="121.0" text="Name :" />
@@ -28,19 +28,20 @@
          </font>
       </Label>
       <Line endX="215.0" layoutX="242.0" layoutY="78.0" startX="-100.0" />
-      <TextArea fx:id="SalaryOutputTextArea" editable="false" layoutX="35.0" layoutY="435.0" prefHeight="82.0" prefWidth="533.0" promptText="Calculated Net Salary will be shown here..." />
-      <Label layoutX="35.0" layoutY="401.0" text="Calculated Salary is of">
+      <TextArea fx:id="SalaryOutputTextArea" editable="false" layoutX="35.0" layoutY="374.0" prefHeight="82.0" prefWidth="533.0" promptText="Calculated Net Salary will be shown here..." />
+      <Label layoutX="35.0" layoutY="340.0" text="Calculated Salary is of">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Label layoutX="337.0" layoutY="204.0" text="Department :" />
       <ComboBox fx:id="DepartmentCombobox" layoutX="444.0" layoutY="200.0" prefHeight="31.0" prefWidth="130.0" promptText="Select one" />
-      <Text fx:id="EmployeeNameShow" fill="#9e9e9e" layoutX="216.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name">
+      <Text fx:id="EmployeeNameShow" fill="#9e9e9e" layoutX="216.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
       <Text fx:id="SalaryAmountShow" layoutX="157.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TBA" wrappingWidth="137.99999356269836" />
+      <Button layoutX="333.0" layoutY="484.0" mnemonicParsing="false" onAction="#SceneSwitchToPieChartButton" prefHeight="39.0" prefWidth="235.0" text="Show Pie Chart of Salary" />
    </children>
 </AnchorPane>

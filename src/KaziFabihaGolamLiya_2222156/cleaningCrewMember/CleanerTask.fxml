@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.cleaningCrewMember.CleanerTaskController">
    <children>
       <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -21,15 +20,15 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ComboBox layoutX="185.0" layoutY="61.0" prefHeight="31.0" prefWidth="213.0" promptText="List of Unassigned Task" />
+                        <ComboBox fx:id="unassignedTaskCombobox" layoutX="185.0" layoutY="61.0" prefHeight="31.0" prefWidth="213.0" promptText="List of Unassigned Task" />
                         <Label layoutX="97.0" layoutY="67.0" text="Select one :" />
-                        <Button layoutX="225.0" layoutY="265.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="134.0" text="Apply" />
+                        <Button fx:id="applyForTaskButton" layoutX="225.0" layoutY="265.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="134.0" text="Apply" />
                         <Label layoutX="64.0" layoutY="152.0" text="Employee Code :" />
                         <Label layoutX="58.0" layoutY="108.0" text="Employee Name :" />
-                        <TextField layoutX="185.0" layoutY="107.0" />
-                        <TextField layoutX="185.0" layoutY="149.0" />
+                        <TextField fx:id="employeeName" layoutX="185.0" layoutY="107.0" promptText="Enter your name" />
+                        <TextField fx:id="employeeCode" layoutX="185.0" layoutY="149.0" promptText="Enter your code" />
                         <Label layoutX="83.0" layoutY="198.0" text="Worker Type :" />
-                        <ComboBox layoutX="188.0" layoutY="192.0" prefHeight="36.0" prefWidth="215.0" promptText="Select your Type" />
+                        <ComboBox fx:id="selectWorkerTypeComboBox" layoutX="188.0" layoutY="192.0" prefHeight="36.0" prefWidth="215.0" promptText="Select your Type" />
                      </children>
                   </AnchorPane>
             </content>
@@ -40,12 +39,12 @@
                      <children>
                         <TableView layoutX="47.0" layoutY="120.0" prefHeight="200.0" prefWidth="509.0">
                           <columns>
-                            <TableColumn prefWidth="103.0" text="Task Data" />
-                            <TableColumn prefWidth="132.0" text="Worker Type" />
-                              <TableColumn prefWidth="283.0" text="Submission Date" />
+                            <TableColumn fx:id="taskDatacol" prefWidth="103.0" text="Task Data" />
+                            <TableColumn fx:id="workerTypeCol" prefWidth="132.0" text="Worker Type" />
+                              <TableColumn fx:id="submissionDateCol" prefWidth="283.0" text="Submission Date" />
                           </columns>
                         </TableView>
-                        <Button layoutX="195.0" layoutY="26.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="200.0" text="Load List of Task">
+                        <Button layoutX="195.0" layoutY="26.0" mnemonicParsing="false" onAction="#TaskLoaderOFUnassignedTaskButton" prefHeight="69.0" prefWidth="200.0" text="Load List of Task">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -58,23 +57,18 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <CheckBox layoutX="229.0" layoutY="250.0" mnemonicParsing="false" text="Mark If it is Done" />
-                        <ComboBox layoutX="202.0" layoutY="139.0" prefHeight="31.0" prefWidth="185.0" promptText="Select your Type" />
+                        <CheckBox fx:id="checkBoxOfTaskSubmission" layoutX="229.0" layoutY="250.0" mnemonicParsing="false" text="Mark If it is Done" />
+                        <ComboBox fx:id="workerTypeSubmissionComboBox" layoutX="202.0" layoutY="139.0" prefHeight="31.0" prefWidth="185.0" promptText="Select your Type" />
                         <Label layoutX="89.0" layoutY="53.0" text="Worker Name :" />
                         <Label layoutX="92.0" layoutY="100.0" text="Worker Code :" />
                         <Label layoutX="93.0" layoutY="144.0" text="Worker Type :" />
-                        <ComboBox layoutX="202.0" layoutY="181.0" prefHeight="31.0" prefWidth="226.0" promptText="Incomplete pending Task" />
-                        <TextField layoutX="202.0" layoutY="48.0" />
-                        <TextField layoutX="202.0" layoutY="95.0" />
+                        <ComboBox fx:id="pendingTaskListCombobox" layoutX="202.0" layoutY="181.0" prefHeight="31.0" prefWidth="226.0" promptText="Incomplete pending Task" />
+                        <TextField fx:id="workerName" layoutX="202.0" layoutY="48.0" />
+                        <TextField fx:id="workerCode" layoutX="202.0" layoutY="95.0" />
                         <Label layoutX="93.0" layoutY="186.0" text="Select Task :" />
-                        <Button layoutX="150.0" layoutY="290.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="299.0" text="Submit" />
+                        <Button layoutX="150.0" layoutY="290.0" mnemonicParsing="false" onAction="#TaskSubmitButton" prefHeight="31.0" prefWidth="299.0" text="Submit" />
                      </children>
                   </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Task Analytics">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
         </tabs>

@@ -6,6 +6,7 @@ package KaziFabihaGolamLiya_2222156.AccountOfficer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -48,6 +49,10 @@ public class EmployeeSalaryCalculatorController implements Initializable {
 
     @FXML
     private void CalculateNetSalaryOnButtonClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void SceneSwitchToPieChartButton(ActionEvent event) {
     }
     
 }
