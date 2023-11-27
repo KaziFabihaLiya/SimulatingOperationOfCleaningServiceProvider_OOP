@@ -55,7 +55,7 @@ public class SceneSwitching {
         stage.show();
     }
     
-    /*public void windowSwitchingWithoutDataPassing(String sceneName) throws IOException{
+    public void windowSwitchingWithoutDataPassing(String sceneName) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneName)); 
     
         Parent root = loader.load();
@@ -66,11 +66,12 @@ public class SceneSwitching {
         Stage stage = new Stage();
         stage.setScene(scene);
         
-        iconTitleclass sp = new iconTitleclass();
-        sp.setIconAndTitle(stage);
+//        //Changes made by Liya
+//        iconTitleclass sp = new iconTitleclass();
+//        sp.setIconAndTitle(stage);
         
         stage.show();
-    }*/
+    }
     
     /*public <T> void windowSwitchingWithDataPassing( String sceneName, String userClassName, T instance) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(sceneName)); 

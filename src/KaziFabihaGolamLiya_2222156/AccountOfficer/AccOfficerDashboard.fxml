@@ -5,36 +5,28 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane prefHeight="486.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="486.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.AccOfficerDashboardController">
    <top>
       <MenuBar prefHeight="38.0" prefWidth="740.0" BorderPane.alignment="CENTER">
         <menus>
-            <Menu mnemonicParsing="false" text="My Information Panel">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Generate receipt" />
-                  <MenuItem mnemonicParsing="false" text="Compensation Details" />
-                  <MenuItem mnemonicParsing="false" text="Salary Calculator" />
-               </items>
-            </Menu>
+            <Menu mnemonicParsing="false" text="My Information Panel" />
           <Menu mnemonicParsing="false" text="Transactions">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Generate receipt" />
+               <items>
                   <MenuItem mnemonicParsing="false" text="Compensation Details" />
-                  <MenuItem mnemonicParsing="false" text="Salary Calculator" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Profit Scaling">
+                  <MenuItem mnemonicParsing="false" onAction="#switchToTransactionButton" text="Salary Calculator" />
+                  <MenuItem mnemonicParsing="false" text="Generate receipt" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" onAction="#switchToProfileScalingButton" text="Profit Scaling">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Vendor Informations">
+          <Menu mnemonicParsing="false" onAction="#switchToVendorpanelButton" text="Vendor Informations">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Log Out">
+            <Menu mnemonicParsing="false" onAction="#switchToLoginSceneButton" text="Log Out">
                <items>
                   <MenuItem mnemonicParsing="false" text="About" />
                </items>
