@@ -22,7 +22,7 @@
                      <children>
                         <ComboBox fx:id="unassignedTaskCombobox" layoutX="185.0" layoutY="61.0" prefHeight="31.0" prefWidth="213.0" promptText="List of Unassigned Task" />
                         <Label layoutX="97.0" layoutY="67.0" text="Select one :" />
-                        <Button fx:id="applyForTaskButton" layoutX="225.0" layoutY="265.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="134.0" text="Apply" />
+                        <Button layoutX="225.0" layoutY="265.0" mnemonicParsing="false" onAction="#applyForTaskButton" prefHeight="72.0" prefWidth="134.0" text="Apply" />
                         <Label layoutX="64.0" layoutY="152.0" text="Employee Code :" />
                         <Label layoutX="58.0" layoutY="108.0" text="Employee Name :" />
                         <TextField fx:id="employeeName" layoutX="185.0" layoutY="107.0" promptText="Enter your name" />
@@ -37,11 +37,12 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="47.0" layoutY="120.0" prefHeight="200.0" prefWidth="509.0">
+                        <TableView fx:id="tableViewUnassignedTask" layoutX="47.0" layoutY="120.0" prefHeight="200.0" prefWidth="509.0">
                           <columns>
-                            <TableColumn fx:id="taskDatacol" prefWidth="103.0" text="Task Data" />
-                            <TableColumn fx:id="workerTypeCol" prefWidth="132.0" text="Worker Type" />
-                              <TableColumn fx:id="submissionDateCol" prefWidth="283.0" text="Submission Date" />
+                            <TableColumn fx:id="taskDatacol" prefWidth="112.0" text="Task Data" />
+                            <TableColumn fx:id="workerTypeCol" prefWidth="144.0" text="Worker Type" />
+                              <TableColumn fx:id="OrderDateCol" prefWidth="92.0" text="Order Date" />
+                              <TableColumn fx:id="taskCodeCol" prefWidth="160.0" text="Task Code" />
                           </columns>
                         </TableView>
                         <Button layoutX="195.0" layoutY="26.0" mnemonicParsing="false" onAction="#TaskLoaderOFUnassignedTaskButton" prefHeight="69.0" prefWidth="200.0" text="Load List of Task">
@@ -63,13 +64,32 @@
                         <Label layoutX="92.0" layoutY="100.0" text="Worker Code :" />
                         <Label layoutX="93.0" layoutY="144.0" text="Worker Type :" />
                         <ComboBox fx:id="pendingTaskListCombobox" layoutX="202.0" layoutY="181.0" prefHeight="31.0" prefWidth="226.0" promptText="Incomplete pending Task" />
-                        <TextField fx:id="workerName" layoutX="202.0" layoutY="48.0" />
-                        <TextField fx:id="workerCode" layoutX="202.0" layoutY="95.0" />
+                        <TextField fx:id="workerName" layoutX="202.0" layoutY="48.0" promptText="Enter Name" />
+                        <TextField fx:id="workerCode" layoutX="202.0" layoutY="95.0" promptText="Enter Code" />
                         <Label layoutX="93.0" layoutY="186.0" text="Select Task :" />
                         <Button layoutX="150.0" layoutY="290.0" mnemonicParsing="false" onAction="#TaskSubmitButton" prefHeight="31.0" prefWidth="299.0" text="Submit" />
+                        <Label layoutX="216.0" layoutY="326.0" prefHeight="21.0" prefWidth="168.0" text="Write Instance to .bin File" textFill="#8d8484" />
                      </children>
                   </AnchorPane>
                </content>
+            </Tab>
+            <Tab text="Complete Task Detailts">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="ReadBinToTableView" layoutX="24.0" layoutY="80.0" prefHeight="201.0" prefWidth="552.0">
+                          <columns>
+                            <TableColumn fx:id="workerNameCol" prefWidth="153.0" text="Worker Name" />
+                            <TableColumn fx:id="workerCodeCol" prefWidth="115.0" text="Worker Code" />
+                              <TableColumn fx:id="workerTypeCol" prefWidth="108.0" text="Worker Type" />
+                              <TableColumn fx:id="doneUndoneStatusCol" prefWidth="83.0" text="Status" />
+                              <TableColumn fx:id="TaskCodeCol" prefWidth="92.0" text="Task Code" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="204.0" layoutY="30.0" mnemonicParsing="false" onAction="#readFromBinTOTableView" text="Read from Worker.bin File" />
+                     </children>
+                  </AnchorPane>
+              </content>
             </Tab>
         </tabs>
       </TabPane>
