@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +37,8 @@ public class DevelopementPlanController implements Initializable {
     @FXML
     private TextField budgetTextField;
 
-    private ArrayList<developementModel> devList;
+    private ObservableList<developementModel> devList;
+    private ObservableList<developementModel> readdevList;
 
     /**
      * Initializes the controller class.
@@ -44,12 +46,13 @@ public class DevelopementPlanController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        devList = new ArrayList<>();
+        devList = FXCollections.observableArrayList();
+        readdevList = FXCollections.observableArrayList();
 
     }
 
     @FXML
-    private void donePublishButtonOnClicked(ActionEvent event) throws IOException {
+    private void doneButtonOnClicked(ActionEvent event) {
         String plan = planTextField.getText();
         long budget = Long.parseLong(budgetTextField.getText());
         LocalDate doi = dateOfIssue.getValue();
@@ -58,24 +61,23 @@ public class DevelopementPlanController implements Initializable {
 
         devList.add(newdev);
         ReadWrite.writeObjectToFile("dev.bin", newdev);
-        ObservableList<developementModel> planlist = (ObservableList<developementModel>)ReadWrite.readObjectToFile("dev.bin", newdev);
-
-        
-        String add = "";
-        for (developementModel d : devList) {
-            add += d.toString();
-        }
-        publishShowTextArea.setText(add);
-        
 
         planTextField.clear();
         budgetTextField.clear();
         dateOfIssue.setValue(null);
-
     }
 
     @FXML
-    private void downloadPdfButtonOnClicked(ActionEvent event) {
+    private void publishButtonOnClicked(ActionEvent event) throws IOException {
+        developementModel dummydev = new developementModel("", 0l, LocalDate.of(2023, 02, 02));
+        ObservableList<developementModel> readdevList = (ObservableList<developementModel>) ReadWrite.readObjectToFile("dev.bin", dummydev);
+
+        String add = "";
+        for (developementModel d : readdevList) {
+            add += d.toString();
+        }
+        publishShowTextArea.setText(add);
+
     }
 
 }

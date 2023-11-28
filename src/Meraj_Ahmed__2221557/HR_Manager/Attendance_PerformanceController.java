@@ -4,10 +4,17 @@
  */
 package Meraj_Ahmed__2221557.HR_Manager;
 
+import Meraj_Ahmed__2221557.ReadWrite;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -48,87 +55,107 @@ public class Attendance_PerformanceController implements Initializable {
     @FXML
     private ComboBox<String> PerformanceDepartmentCombobox;
 
-    private ArrayList<timePerformanceModel> timeList;
-    private ArrayList<timePerformanceModel> perfList;
-    
+    private ObservableList<timeAttendanceModel> timeList;
+    private ObservableList<timePerformanceModel> perfList;
+    private ObservableList<timePerformanceModel> readperfList;
+    private ObservableList<timeAttendanceModel> readtimeList;
+    @FXML
+    private ComboBox<String> monthComboBox;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         departmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
         PerformanceDepartmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
-        PerformanceScoreCombobox.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
-        checkInCombobox.getItems().addAll(9,10,11,12,13,14,15,16,17);
-        checkOutCombobox.getItems().addAll(10,11,12,13,14,15,16,17,18,19,20,21,22);
-        perfList = new ArrayList<>();
-        timeList = new ArrayList<>();
-    }    
+        PerformanceScoreCombobox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        checkInCombobox.getItems().addAll(9, 10, 11, 12, 13, 14, 15, 16, 17);
+        checkOutCombobox.getItems().addAll(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
+        monthComboBox.getItems().addAll("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        perfList = FXCollections.observableArrayList();
+        timeList = FXCollections.observableArrayList();
+        readperfList = FXCollections.observableArrayList();
+        readtimeList = FXCollections.observableArrayList();
 
+    }
 
     @FXML
-    private void showPerformanceScoreButtonOnClicked(ActionEvent event) {
+    private void showPerformanceScoreButtonOnClicked(ActionEvent event) throws IOException {
+        timePerformanceModel performancedummy = new timePerformanceModel("", "", "", 0, 0);
+
+        readperfList = (ObservableList<timePerformanceModel>) ReadWrite.readObjectToFile("PerformanceList.bin", performancedummy);
+
+        //System.out.println(readperfList.size());
         String add = "";
-        add = "";
-        for (timePerformanceModel perf : perfList) {
+        for (timePerformanceModel perf : readperfList) {
             //System.out.println(perf.toString());
-            add += perf.toString2();
+            add += perf.toString();
 
         }
-        performanceTextArea.setText(add);
+        performanceTextArea.appendText(add);
 
-    }
-
-
-    @FXML
-    private void sendButtonOnClicked(ActionEvent event) {
+        //ReadWrite.readObjectToFile("PerformanceList", performance);
     }
 
     @FXML
-    private void addShowButtonOnClicked(ActionEvent event) {
-         String name = nametextField.getText(); 
-         int code =Integer.parseInt(codeTextField.getText());
-         int chkin =checkInCombobox.getValue();
-         int chkout =checkOutCombobox.getValue();
-         String dept = departmentCombobox.getValue(); 
-         LocalDate entry = dateOfEntry.getValue();
-         int work =  chkout - chkin;                           //Integer.parseInt(workingHoursTextField.getText());
-         
-        timePerformanceModel Attendance = new timePerformanceModel("",chkin,chkout,0,work,entry,code, dept, "address", null, name, "gender", "email", "Employee", "password", null, 0);
-        timeList.add(Attendance);
-        String addTime = "";
-        addTime="";
-        for (timePerformanceModel time : timeList) {
+    private void sendButtonOnClicked(ActionEvent event) throws IOException {
+        timeAttendanceModel Attendancedummy = new timeAttendanceModel("","",0,0,0,0,LocalDate.of(2023, 02, 02));
+            ObservableList<timeAttendanceModel> readtimeList = (ObservableList<timeAttendanceModel>) ReadWrite.readObjectToFile("AttendanceList.bin", Attendancedummy);
+             String addTime = "";
+        for (timeAttendanceModel time : readtimeList) {
             //System.out.println(perf.toString());
             addTime += time.toString();
-            
-            nametextField.clear();
-            codeTextField.clear();
-            checkInCombobox.setValue(null);
-            checkOutCombobox.setValue(null);
-            departmentCombobox.setValue(null);
-            dateOfEntry.setValue(null);
-
         }
-        
-        attendanceTextArea.setText(addTime);
-         
+                attendanceTextArea.appendText(addTime);
+
     }
 
     @FXML
-    private void addPerformanceScoreButtonOnClicked(ActionEvent event) {
+    private void addShowButtonOnClicked(ActionEvent event) throws IOException {
+        String name = nametextField.getText();
+        int code = Integer.parseInt(codeTextField.getText());
+        int chkin = checkInCombobox.getValue();
+        int chkout = checkOutCombobox.getValue();
+        String dept = departmentCombobox.getValue();
+        LocalDate entry = dateOfEntry.getValue();
+        int work = chkout - chkin;      //Integer.parseInt(workingHoursTextField.getText());
+
+        timeAttendanceModel Attendance = new timeAttendanceModel(name, dept, chkin, chkout, code, work, entry);
+        ReadWrite.writeObjectToFile("AttendanceList.bin", Attendance);
+        timeList.add(Attendance);
+       
+
+            
+
+
+
+        nametextField.clear();
+        codeTextField.clear();
+        checkInCombobox.setValue(null);
+        checkOutCombobox.setValue(null);
+        departmentCombobox.setValue(null);
+        dateOfEntry.setValue(null);
+
+    }
+
+    @FXML
+    private void addPerformanceScoreButtonOnClicked(ActionEvent event) throws IOException {
+        performanceTextArea.clear();
         String name = performanceNameTextField.getText();
         int code = Integer.parseInt(performanceCodeTextField.getText());
-        String pdept= PerformanceDepartmentCombobox.getValue();
-        int score= PerformanceScoreCombobox.getValue();
-        
-        
-        timePerformanceModel performance = new timePerformanceModel(pdept,0,0,score,0,null,code, "", "address", null, name, "gender", "email", "Employee", "password", null, 0);
+        String pdept = PerformanceDepartmentCombobox.getValue();
+        int score = PerformanceScoreCombobox.getValue();
+        String mon = monthComboBox.getValue();
+
+        timePerformanceModel performance = new timePerformanceModel(name, pdept, mon, code, score);
+        //System.out.println(performance.toString2());
+        ReadWrite.writeObjectToFile("PerformanceList.bin", performance);
+
         perfList.add(performance);
-        
-        
-        
+
         performanceNameTextField.clear();
         performanceCodeTextField.clear();
         PerformanceDepartmentCombobox.setValue(null);
         PerformanceScoreCombobox.setValue(null);
+        monthComboBox.setValue(null);
     }
-    
+
 }

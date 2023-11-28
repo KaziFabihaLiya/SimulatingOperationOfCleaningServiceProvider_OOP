@@ -4,7 +4,14 @@
  */
 package Meraj_Ahmed__2221557;
 
+import Meraj_Ahmed__2221557.Administration_Officer.bestEmployeeModel;
+import Meraj_Ahmed__2221557.Administration_Officer.developementModel;
+import Meraj_Ahmed__2221557.Administration_Officer.monthlyMaintenanceModel;
+import Meraj_Ahmed__2221557.Administration_Officer.qualityModel;
 import Meraj_Ahmed__2221557.Administration_Officer.sendNoticeModel;
+import Meraj_Ahmed__2221557.HR_Manager.HRLeaveModel;
+import Meraj_Ahmed__2221557.HR_Manager.timeAttendanceModel;
+import Meraj_Ahmed__2221557.HR_Manager.timePerformanceModel;
 import Meraj_Ahmed__2221557.HR_Manager.trainingModelClass;
 import java.io.File;
 import java.io.FileInputStream;
@@ -67,6 +74,14 @@ public class ReadWrite {
         ObservableList<SignupData> SData = FXCollections.observableArrayList();
         ObservableList<trainingModelClass> tmcData = FXCollections.observableArrayList();
         ObservableList<sendNoticeModel> noticeData = FXCollections.observableArrayList();
+        ObservableList<HRLeaveModel> leaveData = FXCollections.observableArrayList();
+        ObservableList<timePerformanceModel> performanceData = FXCollections.observableArrayList();
+        ObservableList<timeAttendanceModel> AttendanceData = FXCollections.observableArrayList();
+        ObservableList<bestEmployeeModel> bestempData = FXCollections.observableArrayList();
+        ObservableList<developementModel> devplanData = FXCollections.observableArrayList();
+        ObservableList<monthlyMaintenanceModel> monthlymaintainData = FXCollections.observableArrayList();
+        ObservableList<qualityModel> qualityData = FXCollections.observableArrayList();
+
         try {
             if (instance instanceof SignupData) {
                 f = new File(fileName);
@@ -107,6 +122,97 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
+            else if (instance instanceof HRLeaveModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        leaveData.add((HRLeaveModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj Leave exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+                        else if (instance instanceof timePerformanceModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        performanceData.add((timePerformanceModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj Performance exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+            else if (instance instanceof timeAttendanceModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        AttendanceData.add((timeAttendanceModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj Attendance exe");
+                }
+                //  System.out.println("Meraj");               
+            }   
+            else if (instance instanceof bestEmployeeModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        bestempData.add((bestEmployeeModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj Attendance exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+            else if (instance instanceof developementModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        devplanData.add((developementModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj devplan exe");
+                }
+                //  System.out.println("Meraj");               
+            }   
+            else if (instance instanceof monthlyMaintenanceModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        monthlymaintainData.add((monthlyMaintenanceModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj devplan exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+            else if (instance instanceof qualityModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        qualityData.add((qualityModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj devplan exe");
+                }
+                //  System.out.println("Meraj");               
+            }
             
         }
         
@@ -125,6 +231,14 @@ public class ReadWrite {
         }
         if ( instance instanceof trainingModelClass ) return tmcData;
         else if ( instance instanceof sendNoticeModel ) return noticeData;
+        else if ( instance instanceof HRLeaveModel ) return leaveData;
+        else if ( instance instanceof timePerformanceModel ) return performanceData;
+        else if ( instance instanceof timeAttendanceModel ) return AttendanceData;
+        else if ( instance instanceof bestEmployeeModel ) return bestempData;
+        else if ( instance instanceof developementModel ) return devplanData;
+        else if ( instance instanceof monthlyMaintenanceModel ) return monthlymaintainData;
+        else if ( instance instanceof qualityModel ) return qualityData;
+        
         return SData;
     }
     

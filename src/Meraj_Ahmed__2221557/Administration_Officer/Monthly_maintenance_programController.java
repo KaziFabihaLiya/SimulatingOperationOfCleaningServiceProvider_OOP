@@ -4,6 +4,8 @@
  */
 package Meraj_Ahmed__2221557.Administration_Officer;
 
+import Meraj_Ahmed__2221557.ReadWrite;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -38,29 +40,46 @@ public class Monthly_maintenance_programController implements Initializable {
     @FXML
     private TableColumn<monthlyMaintenanceModel, LocalDate> expectedDateTableColumn;
     private ObservableList<monthlyMaintenanceModel> tableList;
+    private ObservableList<monthlyMaintenanceModel> readtableList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         maintenanceOptionCombobox.getItems().addAll("Plumbing", "Electrical", "Pump", "Generator", "Elevator");
         tableList = FXCollections.observableArrayList();
+        readtableList = FXCollections.observableArrayList();
         maintenanceNeedTableColumn.setCellValueFactory(new PropertyValueFactory<monthlyMaintenanceModel, String>("maintenanceneeded"));
         expectedDateTableColumn.setCellValueFactory(new PropertyValueFactory<monthlyMaintenanceModel, LocalDate>("expectedDate"));
 
     }
 
     @FXML
-    private void showPostButtonOnClicked(ActionEvent event) {
+    private void postButtonOnClicked(ActionEvent event) {
         String maintain = maintenanceOptionCombobox.getValue();
         LocalDate edate = expectedDate.getValue();
 
         monthlyMaintenanceModel mlist = new monthlyMaintenanceModel(maintain, edate);
         
         tableList.add(mlist);
+        ReadWrite.writeObjectToFile("MonthlyMaintenance.bin", mlist);
+        
         maintenanceTableView.setItems(tableList);
         
         
         maintenanceOptionCombobox.setValue(null);
         expectedDate.setValue(null);
+    }
+
+    @FXML
+    private void showButtonOnClicked(ActionEvent event) throws IOException {
+       monthlyMaintenanceModel dummymaintain = new monthlyMaintenanceModel("", LocalDate.of(2023, 02, 02));
+       ObservableList<monthlyMaintenanceModel>readtableList= (ObservableList<monthlyMaintenanceModel>) ReadWrite.readObjectToFile("MonthlyMaintenance.bin", dummymaintain);
+ 
+    
+        for (monthlyMaintenanceModel mm : readtableList) {
+            maintenanceTableView.setItems(readtableList);
+        }
+        
+        
     }
 
 }

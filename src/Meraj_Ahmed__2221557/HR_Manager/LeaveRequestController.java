@@ -28,49 +28,52 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class LeaveRequestController implements Initializable {
 
     @FXML
-    private TableView<leaveRequestPermissionModel> leaveRequestsTableView;
+    private TableView<HRLeaveModel> leaveRequestsTableView;
     @FXML
-    private TableColumn<leaveRequestPermissionModel, Integer> codeTableColumn;
+    private TableColumn<HRLeaveModel, Integer> codeTableColumn;
     @FXML
-    private TableColumn<leaveRequestPermissionModel, String> nameTableColumn;
+    private TableColumn<HRLeaveModel, String> nameTableColumn;
     @FXML
-    private TableColumn<leaveRequestPermissionModel, String> departmentTableColumn;
+    private TableColumn<HRLeaveModel, String> departmentTableColumn;
     @FXML
-    private TableColumn<leaveRequestPermissionModel, Integer> leaveDaysTableColumn;
+    private TableColumn<HRLeaveModel, Integer> leaveDaysTableColumn;
     @FXML
-    private TableColumn<leaveRequestPermissionModel, String> reqStatusTableColumn;
+    private TableColumn<HRLeaveModel, String> reqStatusTableColumn;
 
-    private ObservableList<leaveRequestPermissionModel> reqlist;
-    private ObservableList<leaveRequestPermissionModel> updatereqlist;
+    private ObservableList<HRLeaveModel> reqlist;
+    private ObservableList<HRLeaveModel> updatereqlist;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         reqlist=FXCollections.observableArrayList();
         updatereqlist = FXCollections.observableArrayList();
         
-        nameTableColumn.setCellValueFactory(new PropertyValueFactory<leaveRequestPermissionModel, String>("name"));
-        codeTableColumn.setCellValueFactory(new PropertyValueFactory<leaveRequestPermissionModel, Integer>("employeeCode"));
-        reqStatusTableColumn.setCellValueFactory(new PropertyValueFactory<leaveRequestPermissionModel, String>("reqstatus"));
-        departmentTableColumn.setCellValueFactory(new PropertyValueFactory<leaveRequestPermissionModel, String>("department"));
-        leaveDaysTableColumn.setCellValueFactory(new PropertyValueFactory<leaveRequestPermissionModel, Integer>("leavedays"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<HRLeaveModel, String>("name"));  
+        codeTableColumn.setCellValueFactory(new PropertyValueFactory<HRLeaveModel, Integer>("employeecode"));
+        reqStatusTableColumn.setCellValueFactory(new PropertyValueFactory<HRLeaveModel, String>("status"));
+        departmentTableColumn.setCellValueFactory(new PropertyValueFactory<HRLeaveModel, String>("department"));
+        leaveDaysTableColumn.setCellValueFactory(new PropertyValueFactory<HRLeaveModel, Integer>("selectdays"));
         
-        leaveRequestPermissionModel dummyIns = new leaveRequestPermissionModel(0,"",0,"","", null, "","", "", "", "",null, 0); 
+        HRLeaveModel dummyIns = new HRLeaveModel("","","",0,0); 
         
         try {
-            reqlist = (ObservableList<leaveRequestPermissionModel>) ReadWrite.readObjectToFile("leaveRequestPermissionModel.bin", dummyIns);
+            reqlist = (ObservableList<HRLeaveModel>) ReadWrite.readObjectToFile("ApplyLeave.bin", dummyIns);
         } catch (IOException ex) {
             Logger.getLogger(LeaveRequestController.class.getName()).log(Level.SEVERE, null, ex);
         }
+       ///for ( HRLeaveModel xv : reqlist  ){
+            //System.out.println(xv.toString());
+        //}
         
         leaveRequestsTableView.getItems().addAll(reqlist);
 
     }
     
     private void refreshTable(){
-        updatereqlist.clear();
+        // updatereqlist.clear();
         leaveRequestsTableView.getItems().clear();
         //updatereqlist = HR_Manager.acceptOrRejectPendingPermission(updatereqlist);//
-        leaveRequestsTableView.getItems().addAll(updatereqlist);
+        leaveRequestsTableView.getItems().addAll(reqlist);
         
     }
 
@@ -82,7 +85,7 @@ public class LeaveRequestController implements Initializable {
             if ( leaveRequestsTableView.getSelectionModel().getSelectedItem() == null ){
                 throw new RuntimeException("Table Selection cannot be empty.");
             }
-            for ( leaveRequestPermissionModel leaveReqData : reqlist ) {
+            for ( HRLeaveModel leaveReqData : reqlist ) {
                 if ( leaveReqData == leaveRequestsTableView.getSelectionModel().getSelectedItem() ){
                     leaveReqData.setPermissionStatus("Accepted");
                     break;
@@ -101,7 +104,7 @@ public class LeaveRequestController implements Initializable {
             if ( leaveRequestsTableView.getSelectionModel().getSelectedItem() == null ){
                 throw new RuntimeException("Table Selection cannot be empty.");
             }
-            for ( leaveRequestPermissionModel leaveReqData : reqlist ) {
+            for ( HRLeaveModel leaveReqData : reqlist ) {
                 if ( leaveReqData == leaveRequestsTableView.getSelectionModel().getSelectedItem() ){
                     leaveReqData.setPermissionStatus("Rejected");
                     break;
@@ -116,6 +119,7 @@ public class LeaveRequestController implements Initializable {
 
     @FXML
     private void showTableButtonOnClicked(ActionEvent event) {
+        
     }
 
 

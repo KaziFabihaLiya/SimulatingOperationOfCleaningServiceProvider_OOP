@@ -12,19 +12,24 @@ import java.time.LocalDate;
  *
  * @author ahmed
  */
-public class timePerformanceModel  extends Employee implements Serializable {
-    protected String perfDept;
-    protected int checkin, checkout,score, workhours;
-    protected LocalDate doe;
+public class timePerformanceModel  implements Serializable {
+    public String name ,perfDept,month ;
+    public int code,score;
 
-    public timePerformanceModel(String perfDept, int checkin, int checkout, int score, int workhours, LocalDate doe, int employeeCode, String department, String address, LocalDate dateOfJoining, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
-        super(employeeCode, department, address, dateOfJoining, name, gender, email, userType, password, dateOfBirth, contact);
+    public timePerformanceModel(String name, String perfDept, String month, int code, int score) {
+        this.name = name;
         this.perfDept = perfDept;
-        this.checkin = checkin;
-        this.checkout = checkout;
+        this.month = month;
+        this.code = code;
         this.score = score;
-        this.workhours = workhours;
-        this.doe = doe;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPerfDept() {
@@ -35,20 +40,20 @@ public class timePerformanceModel  extends Employee implements Serializable {
         this.perfDept = perfDept;
     }
 
-    public int getCheckin() {
-        return checkin;
+    public String getMonth() {
+        return month;
     }
 
-    public void setCheckin(int checkin) {
-        this.checkin = checkin;
+    public void setMonth(String month) {
+        this.month = month;
     }
 
-    public int getCheckout() {
-        return checkout;
+    public int getCode() {
+        return code;
     }
 
-    public void setCheckout(int checkout) {
-        this.checkout = checkout;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public int getScore() {
@@ -59,32 +64,14 @@ public class timePerformanceModel  extends Employee implements Serializable {
         this.score = score;
     }
 
-    public int getWorkhours() {
-        return workhours;
-    }
-
-    public void setWorkhours(int workhours) {
-        this.workhours = workhours;
-    }
-
-    public LocalDate getDoe() {
-        return doe;
-    }
-
-    public void setDoe(LocalDate doe) {
-        this.doe = doe;
-    }
-
-  
-
     @Override
     public String toString() {
-        return "" + "Name : " + name + "        Department : " + department + "          Employee Code : " + employeeCode + "       Date Of Entry : " + doe +  "\n" + 
-                 "                                Check in : " + checkin + "                  Check out : " + checkout + "                Work Hours : " + workhours + "\n"+ "\n";                           
+        return "" + "The Employee from the " + perfDept + " department" + "\n" + " with the name of " + name + " and code of " + code + " has performance score " + score + "on the month of "+ month+ "\n" + "\n";
     }
-
-  
-    public String toString2() {
-        return "" + "The Employee from the " + perfDept + " department" + "\n" + " with the name of " + name + " and code of " + employeeCode + " has performance score " + score + "\n" + "\n" ;
-    }
+    
 }
+
+    
+  
+
+    

@@ -47,5 +47,6 @@
       <ComboBox fx:id="PerformanceDepartmentCombobox" layoutX="299.0" layoutY="495.0" prefHeight="31.0" prefWidth="138.0" promptText="Department" />
       <Button layoutX="351.0" layoutY="543.0" mnemonicParsing="false" onAction="#addPerformanceScoreButtonOnClicked" prefHeight="31.0" prefWidth="82.0" text="Add" />
       <Button layoutX="744.0" layoutY="432.0" mnemonicParsing="false" onAction="#sendButtonOnClicked" prefHeight="31.0" prefWidth="74.0" text="Send" />
+      <ComboBox fx:id="monthComboBox" layoutX="362.0" layoutY="442.0" prefHeight="31.0" prefWidth="104.0" promptText="Month" />
    </children>
 </AnchorPane>

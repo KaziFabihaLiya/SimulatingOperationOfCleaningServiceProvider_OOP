@@ -35,6 +35,11 @@ public class monthlyMaintenanceModel  implements Serializable {
     public void setExpectedDate(LocalDate expectedDate) {
         this.expectedDate = expectedDate;
     }
+
+    @Override
+    public String toString() {
+        return "monthlyMaintenanceModel{" + "maintenanceneeded=" + maintenanceneeded + ", expectedDate=" + expectedDate + '}';
+    }
     
     
 }
