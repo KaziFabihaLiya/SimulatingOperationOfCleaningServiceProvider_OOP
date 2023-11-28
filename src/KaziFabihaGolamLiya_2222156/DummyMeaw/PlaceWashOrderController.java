@@ -4,9 +4,15 @@
  */
 package KaziFabihaGolamLiya_2222156.DummyMeaw;
 
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +21,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -55,21 +62,83 @@ public class PlaceWashOrderController implements Initializable {
     private DatePicker placingDate;
     @FXML
     private TextField contactNoTextField;
+    private ObservableList<Client> clientOrderList;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        clientOrderList = FXCollections.observableArrayList();
+        
+        clientNameCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("name"));
+        emailCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("email"));
+        dateCol.setCellValueFactory(new PropertyValueFactory <Client, LocalDate> ("OrderPlacingDate"));
+        contactCol.setCellValueFactory(new PropertyValueFactory <Client, Integer > ("contact"));
+        washTypeCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("washType"));
+        //TotalAmountCol.setCellValueFactory(new PropertyValueFactory <Client, > ("name"));
+        
         // TODO
     }    
 
     @FXML
     private void checkButtononClicked(ActionEvent event) {
+        
+        String clientName = clientNameTextField.getText();
+        String emailClient = clientEmailTextField.getText();
+        String washType = ironingCheckBox.getText();
+        String washType1 = LaundryCheckBox.getText();
+        String washType2 = stainCheckBox.getText();
+        String washType3 = dryCleanCheckBoc.getText();
+        String washType4 = wedCheckBox.getText();
+        LocalDate dateOforder = placingDate.getValue();
+        long No = Long.parseLong(contactNoTextField.getText());
+        
+        String wash = "";
+        if (ironingCheckBox.isSelected()) {
+            wash +=  ironingCheckBox.getText();        
+        } else if (LaundryCheckBox.isSelected()) {
+            wash +=  LaundryCheckBox.getText();
+        } else if (stainCheckBox.isSelected()) {
+            wash +=  stainCheckBox.getText();
+        } else if (dryCleanCheckBoc.isSelected()) {
+            wash +=  dryCleanCheckBoc.getText();
+        } else if (wedCheckBox.isSelected()) {
+            wash +=  wedCheckBox.getText();
+        }
+   
+        
+        Client customer = new Client(wash , dateOforder , clientName, " ", emailClient, "", "", null, No);
+        
+        clientOrderList.add(customer);
+        
+        orderInfoTableView.getItems().addAll(clientOrderList);
+        
+        
     }
 
     @FXML
-    private void binCreatingButton(ActionEvent event) {
+    private void binCreatingButton(ActionEvent event) throws FileNotFoundException, IOException {
+        
+        FileOutputStream fos = new FileOutputStream("Client.bin",true);
+        DataOutputStream dos = new DataOutputStream(fos);
+        
+        for (Client c: clientOrderList){
+            //dos.writeUTF(c.getName());
+            //dos.writeUTF(c.getEmail());
+            //dos.writeLong(c.getContact());
+            
+
+
+//SHOMOSSSSHAAAAAA
+            
+            
+            //dos.writeLong(c. long.parseLong(getOrderPlacingDate()));
+            dos.writeUTF(c.getWashType());
+        dos.close();
+        }
+        
     }
 
     @FXML

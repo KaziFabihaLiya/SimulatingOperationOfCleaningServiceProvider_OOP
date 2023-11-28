@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 
 /**
  * FXML Controller class
@@ -20,9 +21,9 @@ import javafx.scene.control.ScrollPane;
 public class MonthlySalaryStatusController implements Initializable {
 
     @FXML
-    private ScrollPane ScrollPaneOutputArea;
-    @FXML
     private ComboBox<?> monthCombobox;
+    @FXML
+    private TextArea salaryStatusShowOutputArea;
 
     /**
      * Initializes the controller class.
