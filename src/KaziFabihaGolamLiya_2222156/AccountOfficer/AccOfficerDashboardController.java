@@ -44,15 +44,7 @@ public class AccOfficerDashboardController implements Initializable {
     }
 
     @FXML
-    private void switchToProfileScalingButton(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ProfitScaling.fxml"));
-        Scene TranScene = new Scene (root);
-        
-        Stage newWin = new Stage ();
-        
-        newWin.setScene(TranScene);
-        newWin.setTitle("Profit Statistic Panel");
-        newWin.show();
+    private void switchToProfileScalingButton(ActionEvent event) {
     }
 
     @FXML
@@ -70,4 +62,5 @@ public class AccOfficerDashboardController implements Initializable {
     @FXML
     private void switchToLoginSceneButton(ActionEvent event) {
     }
+
 }

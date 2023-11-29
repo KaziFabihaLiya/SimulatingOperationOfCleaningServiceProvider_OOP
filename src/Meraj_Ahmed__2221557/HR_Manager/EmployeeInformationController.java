@@ -5,8 +5,6 @@
 package Meraj_Ahmed__2221557.HR_Manager;
 
 import Meraj_Ahmed__2221557.Employee;
-import Meraj_Ahmed__2221557.ReadWrite;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -73,7 +71,7 @@ public class EmployeeInformationController implements Initializable {
     @FXML
     private TableColumn<Employee, Integer> codeTableColoum;
     private ObservableList<Employee> emp;
-    private ObservableList<Employee> empList;
+    private ArrayList<Employee> empList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,7 +80,7 @@ public class EmployeeInformationController implements Initializable {
         femaleRadioButton.setToggleGroup(tg);
         emp = FXCollections.observableArrayList();
         departmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
-        empList = FXCollections.observableArrayList();
+        empList = new ArrayList<Employee>();
 
         codeTableColoum.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("employeeCode"));
         nameTableColoum.setCellValueFactory(new PropertyValueFactory<Employee, String>("name"));
@@ -96,12 +94,14 @@ public class EmployeeInformationController implements Initializable {
     }
 
     @FXML
-    private void showInformationButtonOnClicked(ActionEvent event) throws IOException {
-        
-        Employee dummyemployeeinfo = new Employee(0,"", "", LocalDate.of(2023, 02, 02),"", "", "", "", "", LocalDate.of(2023, 02, 02), 0L);
-        ObservableList<Employee> empList= (ObservableList<Employee>) ReadWrite.readObjectToFile("EmployeeINFO", dummyemployeeinfo);
-                
-        empInfoTableView.getItems().addAll(empList);
+    private void showInformationButtonOnClicked(ActionEvent event) {
+        String add = "";
+        for (Employee p : empList) {
+            System.out.println(p.toString());
+            add += p.toString();
+
+        }
+        empInfoTableView.setItems(emp);
     }
 
     @FXML
@@ -125,12 +125,9 @@ public class EmployeeInformationController implements Initializable {
         gender = "Female";
     }
         Employee emplo = new Employee(code,dept, address, Doj, name, gender, email, "Employee", "password", Dob, contact);
-        
-        emp.add(emplo);
 
-        
-        ReadWrite.writeObjectToFile("EmployeeINFO", emplo);
-        
+        emp.add(emplo);
+        empList.add(emplo);
         
         nameTextField.clear();
         employeeCodeTextField.clear();

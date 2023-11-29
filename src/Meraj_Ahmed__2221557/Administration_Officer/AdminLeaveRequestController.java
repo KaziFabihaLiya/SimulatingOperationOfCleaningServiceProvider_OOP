@@ -38,7 +38,7 @@ public class AdminLeaveRequestController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         daysCombobox.getItems().addAll(1,2,3,4,5,6,7,14,30);
-       departmentCombobox.getItems().addAll( "Administration");  
+       departmentCombobox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");  
     }    
 
     @FXML
