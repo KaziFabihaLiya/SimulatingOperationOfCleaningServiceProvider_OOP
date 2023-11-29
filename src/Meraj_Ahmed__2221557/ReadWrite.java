@@ -10,6 +10,7 @@ import Meraj_Ahmed__2221557.Administration_Officer.monthlyMaintenanceModel;
 import Meraj_Ahmed__2221557.Administration_Officer.qualityModel;
 import Meraj_Ahmed__2221557.Administration_Officer.sendNoticeModel;
 import Meraj_Ahmed__2221557.HR_Manager.HRLeaveModel;
+import Meraj_Ahmed__2221557.HR_Manager.jobRecruitModel;
 import Meraj_Ahmed__2221557.HR_Manager.timeAttendanceModel;
 import Meraj_Ahmed__2221557.HR_Manager.timePerformanceModel;
 import Meraj_Ahmed__2221557.HR_Manager.trainingModelClass;
@@ -81,7 +82,26 @@ public class ReadWrite {
         ObservableList<developementModel> devplanData = FXCollections.observableArrayList();
         ObservableList<monthlyMaintenanceModel> monthlymaintainData = FXCollections.observableArrayList();
         ObservableList<qualityModel> qualityData = FXCollections.observableArrayList();
-
+        ObservableList<jobRecruitModel> recruitData = FXCollections.observableArrayList();
+         
+        
+        
+        
+        
+        
+        
+        
+        
+ //Liya       
+        
+        
+        
+        
+        
+        
+      
+ 
+ 
         try {
             if (instance instanceof SignupData) {
                 f = new File(fileName);
@@ -196,7 +216,7 @@ public class ReadWrite {
                         monthlymaintainData.add((monthlyMaintenanceModel) ois.readObject());
                     }
                 } catch (Exception e) {
-                    System.out.println("Meraj devplan exe");
+                    System.out.println("Meraj maintennace exe");
                 }
                 //  System.out.println("Meraj");               
             }
@@ -209,7 +229,20 @@ public class ReadWrite {
                         qualityData.add((qualityModel) ois.readObject());
                     }
                 } catch (Exception e) {
-                    System.out.println("Meraj devplan exe");
+                    System.out.println("Meraj quality exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+            else if (instance instanceof jobRecruitModel) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        recruitData.add((jobRecruitModel) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj quality exe");
                 }
                 //  System.out.println("Meraj");               
             }
@@ -238,6 +271,7 @@ public class ReadWrite {
         else if ( instance instanceof developementModel ) return devplanData;
         else if ( instance instanceof monthlyMaintenanceModel ) return monthlymaintainData;
         else if ( instance instanceof qualityModel ) return qualityData;
+        else if ( instance instanceof jobRecruitModel ) return recruitData;
         
         return SData;
     }

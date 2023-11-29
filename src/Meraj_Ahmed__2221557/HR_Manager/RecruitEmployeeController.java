@@ -4,9 +4,13 @@
  */
 package Meraj_Ahmed__2221557.HR_Manager;
 
+import Meraj_Ahmed__2221557.ReadWrite;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,20 +36,25 @@ public class RecruitEmployeeController implements Initializable {
     @FXML
     private ComboBox<String> departmentComboBox;
 
-    private ArrayList<jobRecruitModel> recList;
+    private ObservableList<jobRecruitModel> recList;
+    private ObservableList<jobRecruitModel> readrecList;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         departmentComboBox.getItems().addAll("Accounts", "Cleaner", "Human Resource", "Administration");
-        recList = new ArrayList<jobRecruitModel>();
-
+        recList = FXCollections.observableArrayList();
+        readrecList= FXCollections.observableArrayList();
     }    
 
     @FXML
-    private void showPostButtonOnClicked(ActionEvent event) {
+    private void showPostButtonOnClicked(ActionEvent event) throws IOException {
+        jobRecruitModel dummyrecruit = new jobRecruitModel("","","",0L);
+        ObservableList<jobRecruitModel> readrecList= (ObservableList<jobRecruitModel>) ReadWrite.readObjectToFile("Recruit.bin", dummyrecruit);
+        
+        
         String add = "";
-        add = "";
-        for (jobRecruitModel r : recList) {
-            System.out.println(r.toString());
+        for (jobRecruitModel r : readrecList) {
+            //System.out.println(r.toString());
             add += r.toString();
 
         }
@@ -61,6 +70,9 @@ public class RecruitEmployeeController implements Initializable {
         
         jobRecruitModel recruit = new jobRecruitModel(dept,desc,req, salary);
         recList.add(recruit);
+        
+        ReadWrite.writeObjectToFile("Recruit.bin", recruit);
+        
         descriptionTextField.clear();
         requirementTextField.clear();
         salaryRangeTextField.clear();

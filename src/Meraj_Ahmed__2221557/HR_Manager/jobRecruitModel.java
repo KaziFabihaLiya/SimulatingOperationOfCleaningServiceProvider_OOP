@@ -4,11 +4,13 @@
  */
 package Meraj_Ahmed__2221557.HR_Manager;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ahmed
  */
-public class jobRecruitModel {
+public class jobRecruitModel implements Serializable {
     protected String department, description,requirement;
     protected long salary;
 
@@ -55,7 +57,7 @@ public class jobRecruitModel {
     public String toString() {
         return "We are looking for a employee in the " + department +" department with "
                  + description +" and degree of minimum " +  requirement + "\n" +
-                " Offered Salary : " + salary +" (Negotiable)";
+                " Offered Salary : " + salary +" (Negotiable)"+ "\n" + "\n";
     }
     
     
