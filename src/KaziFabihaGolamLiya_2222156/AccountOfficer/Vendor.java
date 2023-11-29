@@ -80,14 +80,7 @@ public class Vendor extends User implements Serializable {
 
     @Override
     public String toString() {
-        return "" + 
-                
-                "Vendor's Name : " + VendorName + 
-                "\n Vendor's Email : " + VendorEmail + 
-                "\n Category : " + category + 
-                "\n Contact Number : " + contactNo + 
-                " Status : " + status + 
-                " Registration Date : " + registrationDate + "" ;
+        return "Vendor{" + "VendorName=" + VendorName + ", VendorEmail=" + VendorEmail + ", category=" + category + ", contactNo=" + contactNo + ", status=" + status + ", registrationDate=" + registrationDate + '}';
     }
 
 }
