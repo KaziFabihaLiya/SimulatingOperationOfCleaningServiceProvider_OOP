@@ -144,7 +144,15 @@ public class HR_Manager_DashBoardController implements Initializable {
     }
 
     @FXML
-    private void viewNoticeMenuItemOnClick(ActionEvent event) {
+    private void viewNoticeMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("viewNotice.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Notice");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
     }
 
     @FXML

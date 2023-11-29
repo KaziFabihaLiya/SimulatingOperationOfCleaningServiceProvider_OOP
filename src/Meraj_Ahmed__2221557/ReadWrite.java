@@ -83,6 +83,7 @@ public class ReadWrite {
         ObservableList<monthlyMaintenanceModel> monthlymaintainData = FXCollections.observableArrayList();
         ObservableList<qualityModel> qualityData = FXCollections.observableArrayList();
         ObservableList<jobRecruitModel> recruitData = FXCollections.observableArrayList();
+        ObservableList<Employee> empInfoData = FXCollections.observableArrayList();
          
         
         
@@ -242,7 +243,20 @@ public class ReadWrite {
                         recruitData.add((jobRecruitModel) ois.readObject());
                     }
                 } catch (Exception e) {
-                    System.out.println("Meraj quality exe");
+                    System.out.println("Meraj recruit exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+            else if (instance instanceof Employee) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        empInfoData.add((Employee) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Meraj recruit exe");
                 }
                 //  System.out.println("Meraj");               
             }
@@ -423,6 +437,7 @@ public class ReadWrite {
         else if ( instance instanceof monthlyMaintenanceModel ) return monthlymaintainData;
         else if ( instance instanceof qualityModel ) return qualityData;
         else if ( instance instanceof jobRecruitModel ) return recruitData;
+        else if ( instance instanceof Employee ) return empInfoData;
         
         
         

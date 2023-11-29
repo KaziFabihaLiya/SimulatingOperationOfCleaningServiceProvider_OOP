@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package Meraj_Ahmed__2221557.Administration_Officer;
+package KaziFabihaGolamLiya_2222156.cleaningCrewMember;
 
 import Meraj_Ahmed__2221557.HR_Manager.HRLeaveModel;
 import Meraj_Ahmed__2221557.ReadWrite;
@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
  *
  * @author ahmed
  */
-public class AdminLeaveRequestController implements Initializable {
+public class CleaningLeaveController implements Initializable {
 
     @FXML
     private TextField statusTextField;
@@ -38,12 +38,13 @@ public class AdminLeaveRequestController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         daysCombobox.getItems().addAll(1,2,3,4,5,6,7,14,30);
-       departmentCombobox.getItems().addAll( "Administration");  
+       departmentCombobox.getItems().addAll( "Cleaner");
+        // TODO
     }    
 
     @FXML
     private void applyLeaveButtonOnClicked(ActionEvent event) {
-                int days =  daysCombobox.getValue();
+        int days =  daysCombobox.getValue();
         String name = nameTextField.getText();
         int code = Integer.parseInt(codeTextField.getText());
         String dept =departmentCombobox.getValue();
@@ -53,6 +54,7 @@ public class AdminLeaveRequestController implements Initializable {
         
         ReadWrite.writeObjectToFile("ApplyLeave.bin", leave);
         statusTextField.setText("Pending"); // for showing output pending.
+        
     }
     
 }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package Meraj_Ahmed__2221557.HR_Manager;
+package KaziFabihaGolamLiya_2222156.cleaningCrewMember;
 
 import Meraj_Ahmed__2221557.Administration_Officer.sendNoticeModel;
 import Meraj_Ahmed__2221557.GenerateAlerts;
@@ -18,11 +18,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -30,7 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author ahmed
  */
-public class ViewNoticeController implements Initializable {
+public class CleaningViewNoticeController implements Initializable {
 
     @FXML
     private TableView<sendNoticeModel> noticeTableView;
@@ -49,25 +47,23 @@ public class ViewNoticeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         noticeNameTableColumn.setCellValueFactory(new PropertyValueFactory<sendNoticeModel, String>("noticeName"));
         noticeSubjectTableColumn.setCellValueFactory(new PropertyValueFactory<sendNoticeModel, String>("noticeSubject"));
         noticeDateTableColumn.setCellValueFactory(new PropertyValueFactory<sendNoticeModel, LocalDate>("noticeDate"));
 
         sendNoticeModel notice = new sendNoticeModel("", "", null, new ArrayList<String>());
-
+        
         try {
             noticeList = (ObservableList<sendNoticeModel>) ReadWrite.readObjectToFile("LCNotice.bin", notice);
         } catch (IOException ex) {
-            Logger.getLogger(ViewNoticeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CleaningViewNoticeController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        noticeTableView.getItems().addAll(noticeList);
-    }
+         noticeTableView.getItems().addAll(noticeList);
+    }    
 
     @FXML
     private void loadNoticeButtonOnClicked(ActionEvent event) {
-        try {
+         try {
             // Throwing an Exception if Table row is not Selected.
             if (noticeTableView.getSelectionModel().getSelectedItem() == null) {
                 throw new RuntimeException("Exception");
@@ -99,5 +95,5 @@ public class ViewNoticeController implements Initializable {
         noticeList.addAll(noticeNewList);
         noticeTableView.getItems().addAll(noticeNewList);
     }
-
+    
 }
