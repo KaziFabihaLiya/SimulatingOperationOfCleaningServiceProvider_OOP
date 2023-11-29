@@ -94,6 +94,7 @@ public class CleanerTaskController implements Initializable {
 
     @FXML
     private void TaskLoaderOFUnassignedTaskButton(ActionEvent event) {
+        
     }
 
     @FXML
@@ -156,7 +157,7 @@ public class CleanerTaskController implements Initializable {
 
     @FXML
     private void readFromBinTOTableView(ActionEvent event) throws IOException {
-                ObjectInputStream ois=null;
+         ObjectInputStream ois=null;
          try {
             Cleaner c;
             ois = new ObjectInputStream(new FileInputStream("worker.bin"));

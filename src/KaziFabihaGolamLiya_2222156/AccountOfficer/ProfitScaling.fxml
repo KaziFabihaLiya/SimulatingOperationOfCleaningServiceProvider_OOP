@@ -3,18 +3,26 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="663.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.ProfitScalingController">
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.ProfitScalingController">
    <children>
-      <BarChart layoutX="90.0" layoutY="61.0" title="Profit Scaling">
+      <BarChart fx:id="barChartProfit" layoutX="331.0" layoutY="45.0" title="Profit Scaling">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="Month" side="BOTTOM" fx:id="xAxisMonth" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="yAxisNumber" side="LEFT" />
         </yAxis>
       </BarChart>
+      <TextField fx:id="costTextField" layoutX="74.0" layoutY="180.0" />
+      <ComboBox fx:id="monthComboBox" layoutX="72.0" layoutY="97.0" prefWidth="150.0" />
+      <Label layoutX="72.0" layoutY="66.0" text="Select month :" />
+      <Label layoutX="72.0" layoutY="149.0" text="Select Cost :" />
+      <Button layoutX="80.0" layoutY="368.0" mnemonicParsing="false" onAction="#loadBarChartButton" prefHeight="52.0" prefWidth="135.0" text="Load Bar Chart" />
    </children>
 </AnchorPane>

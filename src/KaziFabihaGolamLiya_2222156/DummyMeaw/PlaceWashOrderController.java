@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.ZoneOffset;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -120,6 +122,37 @@ public class PlaceWashOrderController implements Initializable {
 
     @FXML
     private void binCreatingButton(ActionEvent event) throws FileNotFoundException, IOException {
+        LocalDate dateOforder = placingDate.getValue();
+        String washType = ironingCheckBox.getText();
+        String washType1 = LaundryCheckBox.getText();
+        String washType2 = stainCheckBox.getText();
+        String washType3 = dryCleanCheckBoc.getText();
+        String washType4 = wedCheckBox.getText();
+        
+        long date = (placingDate.getValue()).atStartOfDay().toEpochSecond(ZoneOffset.UTC)*1000;
+        
+        
+        Date currentDate = new Date();
+        long stamp = currentDate.getTime();
+        
+                String wash = "";
+        if (ironingCheckBox.isSelected()) {
+            wash +=  ironingCheckBox.getText();        
+        } else if (LaundryCheckBox.isSelected()) {
+            wash +=  LaundryCheckBox.getText();
+        } else if (stainCheckBox.isSelected()) {
+            wash +=  stainCheckBox.getText();
+        } else if (dryCleanCheckBoc.isSelected()) {
+            wash +=  dryCleanCheckBoc.getText();
+        } else if (wedCheckBox.isSelected()) {
+            wash +=  wedCheckBox.getText();
+        }
+        
+        Client customer = new Client(wash , dateOforder , "", " ", "", "", "", null, 0);
+        
+        clientOrderList.add(customer);
+        
+        orderInfoTableView.getItems().addAll(clientOrderList);
         
         FileOutputStream fos = new FileOutputStream("Client.bin",true);
         DataOutputStream dos = new DataOutputStream(fos);
@@ -127,14 +160,14 @@ public class PlaceWashOrderController implements Initializable {
         for (Client c: clientOrderList){
             //dos.writeUTF(c.getName());
             //dos.writeUTF(c.getEmail());
-            //dos.writeLong(c.getContact());
+           //dos.writeLong(c.date());
             
 
 
 //SHOMOSSSSHAAAAAA
             
             
-            //dos.writeLong(c. long.parseLong(getOrderPlacingDate()));
+          //  dos.writeLong(c. dateFormat.long.parseLong(getOrderPlacingDate()));
             dos.writeUTF(c.getWashType());
         dos.close();
         }

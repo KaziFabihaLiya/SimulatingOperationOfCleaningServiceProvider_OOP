@@ -32,6 +32,7 @@ public class CleanerDashboardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         // TODO
     }    
 
@@ -72,20 +73,41 @@ public class CleanerDashboardController implements Initializable {
     }
 
     @FXML
-    private void taskSUbmitBTn(ActionEvent event) {
+    private void taskSUbmitBTn(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("CleanerTask.fxml"));
+        Scene rootScene = new Scene(root);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
 
+        newWindow.setTitle("Task Submission");
+        newWindow.setScene(rootScene);
+        newWindow.show();
     }
 
     @FXML
     private void goToNoticeBoradBTN(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("NoticeBoardForCleaners.fxml"));
         Scene rootScene = new Scene(root);
-        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
         Stage newWindow = new Stage();
 
         newWindow.setTitle("Cleaners Notice Board");
         newWindow.setScene(rootScene);
         newWindow.show();
+    }
+
+    @FXML
+    private void goBacktoLogInInterfaceButton(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+        Scene rootScene = new Scene(root);
+
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Laundry Cheese");
+        newWindow.setScene(rootScene);
+        newWindow.show();
+        
     }
     
 }

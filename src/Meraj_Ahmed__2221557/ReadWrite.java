@@ -4,6 +4,7 @@
  */
 package Meraj_Ahmed__2221557;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.Request;
 import Meraj_Ahmed__2221557.Administration_Officer.bestEmployeeModel;
 import Meraj_Ahmed__2221557.Administration_Officer.developementModel;
 import Meraj_Ahmed__2221557.Administration_Officer.monthlyMaintenanceModel;
@@ -83,6 +84,7 @@ public class ReadWrite {
         ObservableList<monthlyMaintenanceModel> monthlymaintainData = FXCollections.observableArrayList();
         ObservableList<qualityModel> qualityData = FXCollections.observableArrayList();
         ObservableList<jobRecruitModel> recruitData = FXCollections.observableArrayList();
+
          
         
         
@@ -90,9 +92,9 @@ public class ReadWrite {
         
         
         
-        
-        
+             
  //Liya       
+        ObservableList<Request> requestData = FXCollections.observableArrayList();
         
         
         
@@ -246,6 +248,7 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
+
             
             
             
@@ -299,7 +302,18 @@ public class ReadWrite {
             
 //liya           
             
-            
+            else if (instance instanceof Request) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        requestData.add((Request) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Liya Req exe");
+                }              
+            }            
             
             
             
@@ -432,7 +446,7 @@ public class ReadWrite {
         
         
 //liya        
-        
+        else if ( instance instanceof Request ) return requestData;
         
         
         
