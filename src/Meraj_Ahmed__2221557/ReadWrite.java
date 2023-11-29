@@ -84,7 +84,11 @@ public class ReadWrite {
         ObservableList<monthlyMaintenanceModel> monthlymaintainData = FXCollections.observableArrayList();
         ObservableList<qualityModel> qualityData = FXCollections.observableArrayList();
         ObservableList<jobRecruitModel> recruitData = FXCollections.observableArrayList();
+<<<<<<< HEAD
         ObservableList<Employee> empInfoData = FXCollections.observableArrayList();
+=======
+
+>>>>>>> origin/simulating_operations_of_chain_cleaning_service_provider
          
         
         
@@ -248,6 +252,7 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
+<<<<<<< HEAD
             else if (instance instanceof Employee) {
                 f = new File(fileName);
                 fw = new FileInputStream(f);
@@ -261,6 +266,8 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
+=======
+>>>>>>> origin/simulating_operations_of_chain_cleaning_service_provider
 
             
             
