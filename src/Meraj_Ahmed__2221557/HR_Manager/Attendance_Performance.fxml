@@ -31,7 +31,7 @@
       <Label layoutX="29.0" layoutY="500.0" text="Employee code     :" />
       <TextField fx:id="performanceCodeTextField" layoutX="162.0" layoutY="495.0" prefHeight="31.0" prefWidth="74.0" promptText="  1234" />
       <ComboBox fx:id="PerformanceScoreCombobox" layoutX="247.0" layoutY="543.0" prefHeight="31.0" prefWidth="89.0" promptText="1-10" />
-      <Button layoutX="517.0" layoutY="432.0" mnemonicParsing="false" onAction="#showPerformanceScoreButtonOnClicked" text="Show performance score" />
+      <Button layoutX="517.0" layoutY="432.0" mnemonicParsing="false" onAction="#showPerformanceScoreButtonOnClicked" prefHeight="31.0" prefWidth="158.0" text="Show performance score" />
       <TextArea fx:id="performanceTextArea" layoutX="517.0" layoutY="477.0" prefHeight="101.0" prefWidth="303.0" />
       <Line endX="-54.0" endY="151.0" layoutX="542.0" layoutY="442.0" startX="-54.0" startY="1.0" />
       <Label layoutX="368.0" layoutY="388.0" text="Performance Score">
@@ -46,7 +46,8 @@
       </Label>
       <ComboBox fx:id="PerformanceDepartmentCombobox" layoutX="299.0" layoutY="495.0" prefHeight="31.0" prefWidth="138.0" promptText="Department" />
       <Button layoutX="351.0" layoutY="543.0" mnemonicParsing="false" onAction="#addPerformanceScoreButtonOnClicked" prefHeight="31.0" prefWidth="82.0" text="Add" />
-      <Button layoutX="744.0" layoutY="432.0" mnemonicParsing="false" onAction="#sendButtonOnClicked" prefHeight="31.0" prefWidth="74.0" text="Send" />
+      <Button layoutX="738.0" layoutY="178.0" mnemonicParsing="false" onAction="#sendButtonOnClicked" prefHeight="31.0" prefWidth="74.0" text="Send" />
       <ComboBox fx:id="monthComboBox" layoutX="362.0" layoutY="442.0" prefHeight="31.0" prefWidth="104.0" promptText="Month" />
+      <Button layoutX="701.0" layoutY="432.0" mnemonicParsing="false" onAction="#pieChartButtonOnClicked" text="Load Pie Chart" />
    </children>
 </AnchorPane>

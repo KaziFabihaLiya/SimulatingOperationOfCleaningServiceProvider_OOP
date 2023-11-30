@@ -158,4 +158,8 @@ public class Attendance_PerformanceController implements Initializable {
         monthComboBox.setValue(null);
     }
 
+    @FXML
+    private void pieChartButtonOnClicked(ActionEvent event) {
+    }
+
 }

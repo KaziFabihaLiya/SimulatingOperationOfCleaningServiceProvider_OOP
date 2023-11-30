@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="841.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Meraj_Ahmed__2221557.HR_Manager.PerformancePieChartController">
+   <children>
+      <Label layoutX="470.0" layoutY="29.0" prefHeight="49.0" prefWidth="291.0" text="Performance Pie Chart" />
+      <PieChart layoutX="294.0" layoutY="86.0" />
+   </children>
+</AnchorPane>
