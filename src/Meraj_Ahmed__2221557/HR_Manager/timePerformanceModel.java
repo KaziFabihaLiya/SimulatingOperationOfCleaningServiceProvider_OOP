@@ -66,7 +66,8 @@ public class timePerformanceModel  implements Serializable {
 
     @Override
     public String toString() {
-        return "" + "The Employee from the " + perfDept + " department" + "\n" + " with the name of " + name + " and code of " + code + " has performance score " + score + "on the month of "+ month+ "\n" + "\n";
+        return "" + "The Employee from the " + perfDept + " department" + "\n" + " with the name of " + name + " and code of " + code +  "\n" 
+                + "has performance score " + score + " on the month of "+ month+ "\n" + "\n";
     }
     
 }

@@ -59,6 +59,7 @@ public class Attendance_PerformanceController implements Initializable {
     private ObservableList<timePerformanceModel> perfList;
     private ObservableList<timePerformanceModel> readperfList;
     private ObservableList<timeAttendanceModel> readtimeList;
+    
     @FXML
     private ComboBox<String> monthComboBox;
 
@@ -159,7 +160,7 @@ public class Attendance_PerformanceController implements Initializable {
     }
 
     @FXML
-    private void pieChartButtonOnClicked(ActionEvent event) {
+    private void pieChartButtonOnClicked(ActionEvent event) {       
     }
 
 }
