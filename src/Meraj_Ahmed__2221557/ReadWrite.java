@@ -4,6 +4,7 @@
  */
 package Meraj_Ahmed__2221557;
 
+import KaziFabihaGolamLiya_2222156.AccountOfficer.TransactionModelClass;
 import Meraj_Ahmed__2221557.Administration_Officer.bestEmployeeModel;
 import Meraj_Ahmed__2221557.Administration_Officer.developementModel;
 import Meraj_Ahmed__2221557.Administration_Officer.monthlyMaintenanceModel;
@@ -84,25 +85,8 @@ public class ReadWrite {
         ObservableList<qualityModel> qualityData = FXCollections.observableArrayList();
         ObservableList<jobRecruitModel> recruitData = FXCollections.observableArrayList();
         ObservableList<Employee> employeeinfoData = FXCollections.observableArrayList();
-         
-        
-        
-        
-        
-        
-        
-        
-        
- //Liya       
-        
-        
-        
-        
-        
-        
-      
- 
- 
+        ObservableList<TransactionModelClass> transactionData = FXCollections.observableArrayList();
+
         try {
             if (instance instanceof SignupData) {
                 f = new File(fileName);
@@ -243,7 +227,7 @@ public class ReadWrite {
                         recruitData.add((jobRecruitModel) ois.readObject());
                     }
                 } catch (Exception e) {
-                    System.out.println("Meraj quality exe");
+                    System.out.println("Meraj recruit exe");
                 }
                 //  System.out.println("Meraj");               
             }
@@ -256,162 +240,24 @@ public class ReadWrite {
                         employeeinfoData.add((Employee) ois.readObject());
                     }
                 } catch (Exception e) {
-                    System.out.println("Meraj quality exe");
+                    System.out.println("Meraj employeeinfo exe");
                 }
                 //  System.out.println("Meraj");               
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-//liya           
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            else if (instance instanceof TransactionModelClass) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        transactionData.add((TransactionModelClass) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Leah Transaction exe");
+                }
+                //  System.out.println("Meraj");               
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         
             catch(Exception e){
@@ -438,34 +284,7 @@ public class ReadWrite {
         else if ( instance instanceof qualityModel ) return qualityData;
         else if ( instance instanceof jobRecruitModel ) return recruitData;
         else if ( instance instanceof Employee ) return employeeinfoData;
-        
-        
-        
-        
-        
-        
-        
-        
-//liya        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        else if ( instance instanceof TransactionModelClass ) return transactionData;
         return SData;
     }
     

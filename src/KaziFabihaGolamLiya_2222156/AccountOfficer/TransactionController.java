@@ -4,6 +4,8 @@
  */
 package KaziFabihaGolamLiya_2222156.AccountOfficer;
 
+import Meraj_Ahmed__2221557.ReadWrite;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -49,33 +51,33 @@ public class TransactionController implements Initializable {
     private TableView<TransactionModelClass> TransactionTableView;
     @FXML
     private DatePicker BillingDateForAdd;
-    
+
     //private ObservableList<TransactionModelClass> Transaction;
-    private ArrayList<TransactionModelClass> TransactionList;
-    
-    
+    private ObservableList<TransactionModelClass> TransactionList;
+    private ObservableList<TransactionModelClass> readTransactionList;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         //Transaction = FXCollections.observableArrayList();
-        TransactionList = new ArrayList<TransactionModelClass>();
-        
-        causeOfBill.getItems().addAll("Vendor Payment", "Maintanence Fee", "Salary Payment","Promotional Fee", "Extra Expenses");
-        
-        
-       EmployeeNameCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, String>("name"));
-       EmployeeCodeCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, Integer>("employeeCode"));
-       BillTitleCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, String>("BillName"));
-       BillAmountCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, Integer>("BillAmount"));
-       DateofBillCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, LocalDate>("BillingDate"));
-    }    
+        TransactionList = FXCollections.observableArrayList();
+        readTransactionList = FXCollections.observableArrayList();
+
+        causeOfBill.getItems().addAll("Vendor Payment", "Maintanence Fee", "Salary Payment", "Promotional Fee", "Extra Expenses");
+
+        EmployeeNameCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, String>("name"));
+        EmployeeCodeCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, Integer>("employeeCode"));
+        BillTitleCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, String>("BillName"));
+        BillAmountCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, Integer>("BillAmount"));
+        DateofBillCol.setCellValueFactory(new PropertyValueFactory<TransactionModelClass, LocalDate>("BillingDate"));
+    }
 
     @FXML
-    private void showTransactionButton(ActionEvent event) {
-        
+    private void showTransactionButton(ActionEvent event) throws IOException {
+
 //        String empName = nameTextField.getText();
 //        int empCode = Integer.parseInt(codeTextField.getText());
 //        String billName = causeOfBill.getValue();
@@ -86,8 +88,11 @@ public class TransactionController implements Initializable {
 //        if (!TransactionTableView.getItems().contains(Employee1)) {
 //            TransactionTableView.getItems().add(Employee1);
 //        }
-        TransactionTableView.getItems().addAll(TransactionList);
-        
+        TransactionModelClass dummytransaction = new TransactionModelClass(LocalDate.of(2023, 02, 02), "", 0, 0, " ", " ", LocalDate.of(2023, 02, 02), "", "", "", "", "", LocalDate.of(2023, 02, 02), 0L);
+        ObservableList<TransactionModelClass> readTransactionList = (ObservableList<TransactionModelClass>) ReadWrite.readObjectToFile("Transaction.bin", dummytransaction);
+
+        TransactionTableView.getItems().addAll(readTransactionList);
+
     }
 
     @FXML
@@ -96,30 +101,25 @@ public class TransactionController implements Initializable {
 
     @FXML
     private void addToTransactionRecord(ActionEvent event) {
+        TransactionTableView.getItems().clear();
         String empName = nameTextField.getText();
         int empCode = Integer.parseInt(codeTextField.getText());
         String billName = causeOfBill.getValue();
         int bill = Integer.parseInt(billAmount.getText());
         LocalDate billDate = BillingDateForAdd.getValue();
-        
-        TransactionModelClass Employee1 = new TransactionModelClass(billDate,billName,bill,empCode," ", " ", null, empName,"", "","","",null,0);
-        
+
+        TransactionModelClass Employee1 = new TransactionModelClass(billDate, billName, bill, empCode, " ", " ", null, empName, "", "", "", "", null, 0);
+
         //Transaction.add(Employee1);
+        ReadWrite.writeObjectToFile("Transaction.bin", Employee1);
         TransactionList.add(Employee1);
-        
-        TransactionTableView.getItems().addAll(Employee1);
-        
+        readTransactionList.add(Employee1);
         causeOfBill.setValue(null);
         billAmount.clear();
         BillingDateForAdd.setValue(null);
         nameTextField.clear();
         codeTextField.clear();
-        
-        
-        
-        
-        
-        
+
     }
-    
+
 }
