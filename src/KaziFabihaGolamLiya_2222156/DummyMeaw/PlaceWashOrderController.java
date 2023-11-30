@@ -162,7 +162,7 @@ public class PlaceWashOrderController implements Initializable {
         dryCleanCheckBoc.isDisabled();
         wedCheckBox.isDisabled();
         placingDate.setValue(null);
-        
+        //
     }
 
     @FXML
