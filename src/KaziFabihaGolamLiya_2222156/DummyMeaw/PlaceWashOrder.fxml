@@ -43,9 +43,9 @@
             <Font name="Monospaced Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="182.0" layoutY="439.0" mnemonicParsing="false" onAction="#checkButtononClicked" prefHeight="31.0" prefWidth="113.0" text="Checkout" textOverrun="CENTER_ELLIPSIS" />
+      <Button layoutX="622.0" layoutY="439.0" mnemonicParsing="false" onAction="#doneButtononClicked" prefHeight="31.0" prefWidth="113.0" text="Done" textOverrun="CENTER_ELLIPSIS" />
       <Button layoutX="385.0" layoutY="439.0" mnemonicParsing="false" onAction="#binCreatingButton" prefHeight="31.0" prefWidth="113.0" text="Add to .bin" />
-      <Button layoutX="597.0" layoutY="439.0" mnemonicParsing="false" onAction="#placeAnOrderButtonOnClicked" prefHeight="31.0" prefWidth="130.0" text="Place an Order" />
+      <Button layoutX="169.0" layoutY="439.0" mnemonicParsing="false" onAction="#placeAnOrderButtonOnClicked" prefHeight="31.0" prefWidth="130.0" text="Place an Order" />
       <Label layoutX="46.0" layoutY="168.0" text="Date of placing order :" />
       <DatePicker fx:id="placingDate" layoutX="206.0" layoutY="161.0" prefHeight="31.0" prefWidth="130.0" />
       <Label layoutX="46.0" layoutY="213.0" text="Contact no. " />

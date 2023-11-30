@@ -85,13 +85,16 @@ public class PlaceWashOrderController implements Initializable {
         dateCol.setCellValueFactory(new PropertyValueFactory <Client, LocalDate> ("OrderPlacingDate"));
         contactCol.setCellValueFactory(new PropertyValueFactory <Client, Integer > ("contact"));
         washTypeCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("washType"));
-        //TotalAmountCol.setCellValueFactory(new PropertyValueFactory <Client, > ("name"));
-        
-        // TODO
-    }    
+
+    }
 
     @FXML
-    private void checkButtononClicked(ActionEvent event) {
+    private void binCreatingButton(ActionEvent event) throws FileNotFoundException, IOException {
+
+    }
+
+    @FXML
+    private void placeAnOrderButtonOnClicked(ActionEvent event) {
         orderInfoTableView.getItems().clear();
         String clientName = clientNameTextField.getText();
         String emailClient = clientEmailTextField.getText();
@@ -117,47 +120,16 @@ public class PlaceWashOrderController implements Initializable {
         }
    
         
-        Client customer = new Client(wash , dateOforder , clientName, " ", emailClient, "", "", null, No);
+        Client customer = new Client(wash , dateOforder , clientName, " ", emailClient, "", "", LocalDate.of(2000,01,01), No);
         
+        ReadWrite.writeObjectToFile("Place Order.bin", customer);
+
         clientOrderList.add(customer);
         
         orderInfoTableView.getItems().addAll(clientOrderList);
         
         
-    }
-
-    @FXML
-    private void binCreatingButton(ActionEvent event) throws FileNotFoundException, IOException {
-        
-        LocalDate dateOforder = placingDate.getValue();
-        String washType = ironingCheckBox.getText();
-        String washType1 = LaundryCheckBox.getText();
-        String washType2 = stainCheckBox.getText();
-        String washType3 = dryCleanCheckBoc.getText();
-        String washType4 = wedCheckBox.getText();
-        
-        String wash = "";
-        if (ironingCheckBox.isSelected()) {
-            wash +=  ironingCheckBox.getText();        
-        } else if (LaundryCheckBox.isSelected()) {
-            wash +=  LaundryCheckBox.getText();
-        } else if (stainCheckBox.isSelected()) {
-            wash +=  stainCheckBox.getText();
-        } else if (dryCleanCheckBoc.isSelected()) {
-            wash +=  dryCleanCheckBoc.getText();
-        } else if (wedCheckBox.isSelected()) {
-            wash +=  wedCheckBox.getText();
-        }
-        
-        Client customer = new Client(wash , dateOforder , "", " ", "", "", "", LocalDate.of(2000,01,01), 0);
-        
-        ReadWrite.writeObjectToFile("Place Order.bin", customer);
-        
-        placeOrderList.add(customer);
-        updateList.add(customer);
-        
         ironingCheckBox.isDisabled();
-
         LaundryCheckBox.isDisabled();
         stainCheckBox.isDisabled();
         dryCleanCheckBoc.isDisabled();
@@ -166,18 +138,15 @@ public class PlaceWashOrderController implements Initializable {
         clientNameTextField.clear();
         clientEmailTextField.clear();
         contactNoTextField.clear();
-        
-        //
     }
 
     @FXML
-    private void sendToCleanersButton(ActionEvent event) throws IOException {
+    private void doneButtononClicked(ActionEvent event) throws IOException {   
         orderInfoTableView.getItems().clear();
         Client dummy = new Client("" , LocalDate.of(2000,01,01) , "", " ", "", "", "", LocalDate.of(2000,01,01), 0);
         ObservableList<Client> updateList  = (ObservableList<Client>) ReadWrite.readObjectToFile("Place Order.bin", dummy);
 
         orderInfoTableView.getItems().addAll(updateList);
-        
     }
     
 }
