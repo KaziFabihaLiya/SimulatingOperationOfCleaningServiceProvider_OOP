@@ -31,6 +31,7 @@ public class CompensateRequestController implements Initializable {
     private TextField CompenAmountTextField;
     
     private ObservableList<Request> reqList;
+    private ObservableList<Request> UpdateReqList;
 
     /**
      * Initializes the controller class.
@@ -38,6 +39,7 @@ public class CompensateRequestController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         reqList = FXCollections.observableArrayList();
+        UpdateReqList = FXCollections.observableArrayList();
         
 
     }    
@@ -50,11 +52,15 @@ public class CompensateRequestController implements Initializable {
         String status = statusTextField.getText();
         int Amt = Integer.parseInt(CompenAmountTextField.getText());
         
-        Request one = new Request(reason,Amt,status);
+        Request one = new Request(reason,Amt, status);
         
-        reqList.add(one);
+        
         
         ReadWrite.writeObjectToFile("request.bin", one);
+        
+        reqList.add(one);
+        UpdateReqList.add(one);
+        
         
         CompensationReason.clear();
         statusTextField.clear();

@@ -5,6 +5,8 @@
 package Meraj_Ahmed__2221557;
 
 import KaziFabihaGolamLiya_2222156.AccountOfficer.TransactionModelClass;
+import KaziFabihaGolamLiya_2222156.DummyMeaw.Client;
+import KaziFabihaGolamLiya_2222156.DummyMeaw.Request;
 import Meraj_Ahmed__2221557.Administration_Officer.bestEmployeeModel;
 import Meraj_Ahmed__2221557.Administration_Officer.developementModel;
 import Meraj_Ahmed__2221557.Administration_Officer.monthlyMaintenanceModel;
@@ -86,6 +88,8 @@ public class ReadWrite {
         ObservableList<jobRecruitModel> recruitData = FXCollections.observableArrayList();
         ObservableList<Employee> employeeinfoData = FXCollections.observableArrayList();
         ObservableList<TransactionModelClass> transactionData = FXCollections.observableArrayList();
+        ObservableList<Request> reqData = FXCollections.observableArrayList();
+        ObservableList<Client> orderData = FXCollections.observableArrayList();
 
         try {
             if (instance instanceof SignupData) {
@@ -257,7 +261,32 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
-
+            else if (instance instanceof Request) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        reqData.add((Request) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Leah Compensation Request exe");
+                }
+                //  System.out.println("Meraj");               
+            }
+            else if (instance instanceof Client) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        orderData.add((Client) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Leah Order Request exe");
+                }
+                //  System.out.println("Meraj");               
+            }
         }
         
             catch(Exception e){
@@ -285,6 +314,9 @@ public class ReadWrite {
         else if ( instance instanceof jobRecruitModel ) return recruitData;
         else if ( instance instanceof Employee ) return employeeinfoData;
         else if ( instance instanceof TransactionModelClass ) return transactionData;
+        else if ( instance instanceof Request ) return reqData;
+        else if ( instance instanceof Client ) return orderData;
+        
         return SData;
     }
     

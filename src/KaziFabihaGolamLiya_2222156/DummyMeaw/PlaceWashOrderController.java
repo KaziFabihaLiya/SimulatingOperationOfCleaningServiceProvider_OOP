@@ -4,6 +4,7 @@
  */
 package KaziFabihaGolamLiya_2222156.DummyMeaw;
 
+import Meraj_Ahmed__2221557.ReadWrite;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -63,6 +64,11 @@ public class PlaceWashOrderController implements Initializable {
     @FXML
     private TextField contactNoTextField;
     private ObservableList<Client> clientOrderList;
+    
+    private ObservableList<Client> placeOrderList;
+    private ObservableList<Client> updateList;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -71,6 +77,8 @@ public class PlaceWashOrderController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         clientOrderList = FXCollections.observableArrayList();
+        placeOrderList = FXCollections.observableArrayList();
+        updateList = FXCollections.observableArrayList();
         
         clientNameCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("name"));
         emailCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("email"));
@@ -84,7 +92,7 @@ public class PlaceWashOrderController implements Initializable {
 
     @FXML
     private void checkButtononClicked(ActionEvent event) {
-        
+        orderInfoTableView.getItems().clear();
         String clientName = clientNameTextField.getText();
         String emailClient = clientEmailTextField.getText();
         String washType = ironingCheckBox.getText();
@@ -121,23 +129,39 @@ public class PlaceWashOrderController implements Initializable {
     @FXML
     private void binCreatingButton(ActionEvent event) throws FileNotFoundException, IOException {
         
-        FileOutputStream fos = new FileOutputStream("Client.bin",true);
-        DataOutputStream dos = new DataOutputStream(fos);
+        LocalDate dateOforder = placingDate.getValue();
+        String washType = ironingCheckBox.getText();
+        String washType1 = LaundryCheckBox.getText();
+        String washType2 = stainCheckBox.getText();
+        String washType3 = dryCleanCheckBoc.getText();
+        String washType4 = wedCheckBox.getText();
         
-        for (Client c: clientOrderList){
-            //dos.writeUTF(c.getName());
-            //dos.writeUTF(c.getEmail());
-            //dos.writeLong(c.getContact());
-            
-
-
-//SHOMOSSSSHAAAAAA
-            
-            
-            //dos.writeLong(c. long.parseLong(getOrderPlacingDate()));
-            dos.writeUTF(c.getWashType());
-        dos.close();
+        String wash = "";
+        if (ironingCheckBox.isSelected()) {
+            wash +=  ironingCheckBox.getText();        
+        } else if (LaundryCheckBox.isSelected()) {
+            wash +=  LaundryCheckBox.getText();
+        } else if (stainCheckBox.isSelected()) {
+            wash +=  stainCheckBox.getText();
+        } else if (dryCleanCheckBoc.isSelected()) {
+            wash +=  dryCleanCheckBoc.getText();
+        } else if (wedCheckBox.isSelected()) {
+            wash +=  wedCheckBox.getText();
         }
+        
+        Client customer = new Client(wash , dateOforder , "", " ", "", "", "", null, 0);
+        
+        ReadWrite.writeObjectToFile("Place Order.bin", customer);
+        
+        placeOrderList.add(customer);
+        updateList.add(customer);
+        
+        ironingCheckBox.isDisabled();
+        LaundryCheckBox.isDisabled();
+        stainCheckBox.isDisabled();
+        dryCleanCheckBoc.isDisabled();
+        wedCheckBox.isDisabled();
+        placingDate.setValue(null);
         
     }
 

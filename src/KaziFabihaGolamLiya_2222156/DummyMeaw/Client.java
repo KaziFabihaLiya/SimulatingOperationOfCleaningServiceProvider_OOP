@@ -17,7 +17,6 @@ public class Client extends User implements Serializable {
     String washType;
 
     LocalDate OrderPlacingDate;
-    long a;
 
     public Client(String washType, LocalDate OrderPlacingDate, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
         super(name, gender, email, userType, password, dateOfBirth, contact);

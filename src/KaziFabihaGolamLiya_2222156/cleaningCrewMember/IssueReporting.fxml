@@ -26,6 +26,5 @@
             <Font name="System Bold Italic" size="32.0" />
          </font>
       </Label>
-      <Button layoutX="464.0" layoutY="82.0" mnemonicParsing="false" onAction="#PDFGenerating" prefHeight="194.0" prefWidth="92.0" text="Download PDF" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

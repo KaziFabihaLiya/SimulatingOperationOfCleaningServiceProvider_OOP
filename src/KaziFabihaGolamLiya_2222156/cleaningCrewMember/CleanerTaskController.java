@@ -4,7 +4,9 @@
  */
 package KaziFabihaGolamLiya_2222156.cleaningCrewMember;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.Client;
 import Meraj_Ahmed__2221557.AppendableObjectOutputStream;
+import Meraj_Ahmed__2221557.ReadWrite;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -59,13 +61,11 @@ public class CleanerTaskController implements Initializable {
     @FXML
     private TextField workerCode;
     @FXML
-    private TableView<Cleaner> tableViewUnassignedTask;
+    private TableView<Client> tableViewUnassignedTask;
     @FXML
     private TableColumn<Cleaner, LocalDate> OrderDateCol;
 
     ObservableList<Cleaner> CleanerList;
-    @FXML
-    private TableColumn<Cleaner, Integer> taskCodeCol;
     @FXML
     private TableView<Cleaner> ReadBinToTableView;
     @FXML
@@ -76,6 +76,8 @@ public class CleanerTaskController implements Initializable {
     private TableColumn<Cleaner, String> doneUndoneStatusCol;
     @FXML
     private TableColumn<Cleaner, Integer> TaskCodeCol;
+    
+    private ObservableList<Client> orderlist;
 
     /**
      * Initializes the controller class.
@@ -84,6 +86,7 @@ public class CleanerTaskController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         CleanerList = FXCollections.observableArrayList();
+        orderlist = FXCollections.observableArrayList();
 
         unassignedTaskCombobox.getItems().addAll();
         selectWorkerTypeComboBox.getItems().addAll("Cleaner", "Washer", "Dryer", "Ironer", "Householder");
@@ -93,7 +96,11 @@ public class CleanerTaskController implements Initializable {
     }
 
     @FXML
-    private void TaskLoaderOFUnassignedTaskButton(ActionEvent event) {
+    private void TaskLoaderOFUnassignedTaskButton(ActionEvent event) throws IOException {
+                Client dummyReq = new Client("" , null , "", " ", "", "", "", null, 0);
+                orderlist = (ObservableList<Client>) ReadWrite.readObjectToFile("Place Order.bin", dummyReq);
+        
+                tableViewUnassignedTask.getItems().addAll(orderlist);
     }
 
     @FXML
@@ -122,32 +129,7 @@ public class CleanerTaskController implements Initializable {
         workerTypeSubmissionComboBox.setValue(null);
         checkBoxOfTaskSubmission.isDisabled();
         
-        
-        File f = null;
-        ObjectOutputStream oos = null;
-        FileOutputStream fos = null;
 
-        try {
-            f = new File("worker.bin");
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
-            }
-            oos.writeObject(worker);
-        } catch (IOException ex) {
-
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-                }
-            } catch (IOException ex) {
-            }
-        }
     }
 
     @FXML
@@ -156,23 +138,8 @@ public class CleanerTaskController implements Initializable {
 
     @FXML
     private void readFromBinTOTableView(ActionEvent event) throws IOException {
-                ObjectInputStream ois=null;
-         try {
-            Cleaner c;
-            ois = new ObjectInputStream(new FileInputStream("worker.bin"));
-            c = (Cleaner) ois.readObject();
-            ReadBinToTableView.getItems().add(c);
-            
-        } catch (Exception ex) {
-            try {
-                if(ois!=null)
-                    ois.close();
-            } 
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            ex.printStackTrace();
-        }        
+
+             
     }
     
 }

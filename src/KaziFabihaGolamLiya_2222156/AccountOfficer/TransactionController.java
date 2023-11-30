@@ -86,9 +86,6 @@ public class TransactionController implements Initializable {
 
     }
 
-    @FXML
-    private void SendToHRButton(ActionEvent event) {
-    }
 
     @FXML
     private void addToTransactionRecord(ActionEvent event) {
@@ -103,14 +100,20 @@ public class TransactionController implements Initializable {
 
         //Transaction.add(Employee1);
         ReadWrite.writeObjectToFile("Transaction.bin", Employee1);
+        
         TransactionList.add(Employee1);
         readTransactionList.add(Employee1);
+        
         causeOfBill.setValue(null);
         billAmount.clear();
         BillingDateForAdd.setValue(null);
         nameTextField.clear();
         codeTextField.clear();
 
+    }
+
+    @FXML
+    private void createPDFButtonOnClick(ActionEvent event) {
     }
 
 }

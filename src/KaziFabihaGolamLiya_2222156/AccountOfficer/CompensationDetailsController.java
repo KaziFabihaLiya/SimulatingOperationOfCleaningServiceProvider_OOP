@@ -51,16 +51,16 @@ public class CompensationDetailsController implements Initializable {
         amountCol.setCellValueFactory(new PropertyValueFactory<Request, Integer>("amountReq"));
         statusCol.setCellValueFactory(new PropertyValueFactory<Request, Boolean>("status"));
 
-        Request ReqOne = new Request("", 0, "Pending");
-
-        try {
-            ObservableList<Request> reqlist= (ObservableList<Request>) ReadWrite.readObjectToFile("request.bin", ReqOne);
-        } catch (IOException ex) {
-            Logger.getLogger(CompensationDetailsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for (Request req : reqlist) {
-            compensationTableView.getItems().addAll(reqlist);
-        }
+//        Request ReqOne = new Request("", 0, "Pending");
+//
+//        try {
+//            ObservableList<Request> reqlist= (ObservableList<Request>) ReadWrite.readObjectToFile("request.bin", ReqOne);
+//        } catch (IOException ex) {
+//            Logger.getLogger(CompensationDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        for (Request req : reqlist) {
+//            compensationTableView.getItems().addAll(reqlist);
+//        }
 
     }
 
@@ -102,7 +102,27 @@ public class CompensationDetailsController implements Initializable {
     }
 
     @FXML
-    private void readFromBin(ActionEvent event) {
+    private void readFromBin(ActionEvent event) throws IOException {
+        
+//                timePerformanceModel performancedummy = new timePerformanceModel("", "", "", 0, 0);
+//
+//        readperfList = (ObservableList<timePerformanceModel>) ReadWrite.readObjectToFile("PerformanceList.bin", performancedummy);
+//
+//        //System.out.println(readperfList.size());
+//        String add = "";
+//        for (timePerformanceModel perf : readperfList) {
+//            //System.out.println(perf.toString());
+//            add += perf.toString();
+//
+//        }
+       // performanceTextArea.appendText(add);
+        
+        Request dummyReq = new Request("",0, "Pending");
+        updatereqlist = (ObservableList<Request>) ReadWrite.readObjectToFile("request.bin", dummyReq);
+        
+        compensationTableView.getItems().addAll(updatereqlist);
+        
+        
     }
 
 }

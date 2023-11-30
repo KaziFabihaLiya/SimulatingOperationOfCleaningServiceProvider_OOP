@@ -21,7 +21,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="600.0" style="-fx-background-color: #0c2431;">
                <children>
-                  <Button layoutX="60.0" layoutY="44.0" mnemonicParsing="false" onAction="#showTransactionButton" prefHeight="27.0" prefWidth="297.0" style="-fx-background-color: #e1dad2;" text="Show Transaction Records" textFill="#194a50" wrapText="true">
+                  <Button layoutX="50.0" layoutY="44.0" mnemonicParsing="false" onAction="#showTransactionButton" prefHeight="42.0" prefWidth="273.0" style="-fx-background-color: #e1dad2;" text="Show Transaction Records" textFill="#194a50" wrapText="true">
                      <font>
                         <Font name="Segoe UI Black Italic" size="19.0" />
                      </font>
@@ -35,7 +35,7 @@
                       <TableColumn fx:id="DateofBillCol" minWidth="0.0" prefWidth="134.0" text="Date of Billing" />
                     </columns>
                   </TableView>
-                  <Button layoutX="381.0" layoutY="44.0" mnemonicParsing="false" onAction="#SendToHRButton" prefHeight="42.0" prefWidth="155.0" style="-fx-background-color: #e1dad2;" text="Send to HR" textFill="#194a50" wrapText="true">
+                  <Button layoutX="362.0" layoutY="44.0" mnemonicParsing="false" onAction="#createPDFButtonOnClick" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: #e1dad2;" text="Download PDF" textFill="#194a50" wrapText="true">
                      <font>
                         <Font name="Segoe UI Black Italic" size="19.0" />
                      </font>
