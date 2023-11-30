@@ -37,6 +37,8 @@ public class ProfitScalingController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -55,16 +57,16 @@ public class ProfitScalingController implements Initializable {
     private void loadBarChartButton(ActionEvent event) {
         
         int cost = Integer.parseInt(costTextField.getText());
-        int rev = Integer.parseInt(RevenueTextField.getText());
+
         String month = monthComboBox.getValue();
         
         
-         XYChart.Series<String,Number> series = new XYChart.Series<String,Number>();
-        series.getData().add(new XYChart.Data<String,Number>(month,cost));
-        series.getData().add(new XYChart.Data<String,Number>(month,cost));
-        series.getData().add(new XYChart.Data<String,Number>(month,cost));
-        series.getData().add(new XYChart.Data<String,Number>(month,cost));
-        series.setName("Profit Scaling");
+         XYChart.Series<String,Number> series = new XYChart.Series<String, Number>();
+        series.getData().add(new XYChart.Data<String, Number>(month,cost));
+        series.getData().add(new XYChart.Data<String, Number>(month,cost));
+        series.getData().add(new XYChart.Data<String, Number>(month,cost));
+        series.getData().add(new XYChart.Data<String, Number>(month,cost));
+        series.setName(month);
         barChartProfit.getData().add(series);
         
     }
