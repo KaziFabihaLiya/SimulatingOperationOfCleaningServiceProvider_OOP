@@ -15,11 +15,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -41,15 +46,27 @@ public class Monthly_maintenance_programController implements Initializable {
     private TableColumn<monthlyMaintenanceModel, LocalDate> expectedDateTableColumn;
     private ObservableList<monthlyMaintenanceModel> tableList;
     private ObservableList<monthlyMaintenanceModel> readtableList;
+    @FXML
+    private ComboBox<String> maintenanceOptionCombobox1;
+    @FXML
+    private TextField budgetTextField;
+    @FXML
+    private BarChart<String, Number> barChart;
+    @FXML
+    private NumberAxis budgetYAxis;
+    @FXML
+    private CategoryAxis maintenaceXaxis;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         maintenanceOptionCombobox.getItems().addAll("Plumbing", "Electrical", "Pump", "Generator", "Elevator");
+        maintenanceOptionCombobox1.getItems().addAll("Plumbing", "Electrical", "Pump", "Generator", "Elevator");
         tableList = FXCollections.observableArrayList();
         readtableList = FXCollections.observableArrayList();
         maintenanceNeedTableColumn.setCellValueFactory(new PropertyValueFactory<monthlyMaintenanceModel, String>("maintenanceneeded"));
         expectedDateTableColumn.setCellValueFactory(new PropertyValueFactory<monthlyMaintenanceModel, LocalDate>("expectedDate"));
-
+        maintenaceXaxis.setLabel("Maintenance Needed");
+        budgetYAxis.setLabel("Allocated budget");
     }
 
     @FXML
@@ -80,6 +97,22 @@ public class Monthly_maintenance_programController implements Initializable {
         }
         
         
+    }
+
+    @FXML
+    private void ShowBarChartButtonOnClicked(ActionEvent event) {
+        String maintain = maintenanceOptionCombobox1.getValue();
+        int budget = Integer.parseInt(budgetTextField.getText());
+        
+        
+         XYChart.Series<String,Number> series = new XYChart.Series<String, Number>();
+        series.getData().add(new XYChart.Data<String, Number>(maintain,budget));
+        series.getData().add(new XYChart.Data<String, Number>(maintain,budget));
+        series.getData().add(new XYChart.Data<String, Number>(maintain,budget));
+        series.getData().add(new XYChart.Data<String, Number>(maintain,budget));
+        series.getData().add(new XYChart.Data<String, Number>(maintain,budget));
+        series.setName(maintain);
+        barChart.getData().add(series);
     }
 
 }
