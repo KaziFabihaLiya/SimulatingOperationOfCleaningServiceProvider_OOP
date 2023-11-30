@@ -3,9 +3,10 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="486.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.AccOfficerDashboardController">
+<BorderPane fx:id="borderPaneId" prefHeight="486.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.AccOfficerDashboardController">
    <top>
       <MenuBar prefHeight="38.0" prefWidth="740.0" BorderPane.alignment="CENTER">
         <menus>
@@ -26,12 +27,21 @@
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" onAction="#switchToLoginSceneButton" text="Log Out">
+            <Menu mnemonicParsing="false" onAction="#switchToLoginSceneButton" text="Others">
                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#applyLeaveMenuItemOnClicked" text="Apply For LEave" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewNoticeMenuItemOnCLlcked" text="View Notice" />
                   <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#logOutMenuItemOnClicked" text="Log Out" />
                </items>
             </Menu>
         </menus>
       </MenuBar>
    </top>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

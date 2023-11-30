@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
@@ -22,6 +23,9 @@ import javafx.stage.Stage;
  * @author kazif
  */
 public class AccOfficerDashboardController implements Initializable {
+
+    @FXML
+    private BorderPane borderPaneId;
 
     /**
      * Initializes the controller class.
@@ -44,7 +48,15 @@ public class AccOfficerDashboardController implements Initializable {
     }
 
     @FXML
-    private void switchToProfileScalingButton(ActionEvent event) {
+    private void switchToProfileScalingButton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ProfitScaling.fxml"));
+        Scene TranScene = new Scene (root);
+        
+        Stage newWin = new Stage ();
+        
+        newWin.setScene(TranScene);
+        newWin.setTitle("Profit Statistic Panel");
+        newWin.show();
     }
 
     @FXML
@@ -61,6 +73,30 @@ public class AccOfficerDashboardController implements Initializable {
 
     @FXML
     private void switchToLoginSceneButton(ActionEvent event) {
+    }
+
+    @FXML
+    private void applyLeaveMenuItemOnClicked(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("AcLeave.fxml"));
+        borderPaneId.setRight(parent);
+    }
+
+    @FXML
+    private void viewNoticeMenuItemOnCLlcked(ActionEvent event) throws IOException {
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("AcViewNotice.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Notice");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
+    }
+
+    @FXML
+    private void logOutMenuItemOnClicked(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("AcLogOut.fxml"));
+        borderPaneId.setBottom(parent);
     }
 
 }
