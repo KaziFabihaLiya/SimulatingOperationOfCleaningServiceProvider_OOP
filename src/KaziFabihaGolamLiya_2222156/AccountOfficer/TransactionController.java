@@ -78,16 +78,7 @@ public class TransactionController implements Initializable {
     @FXML
     private void showTransactionButton(ActionEvent event) throws IOException {
 
-//        String empName = nameTextField.getText();
-//        int empCode = Integer.parseInt(codeTextField.getText());
-//        String billName = causeOfBill.getValue();
-//        int bill = Integer.parseInt(billAmount.getText());
-//        LocalDate billDate = BillingDateForAdd.getValue();
-//        
-//        TransactionModelClass Employee1 = new TransactionModelClass(billDate,billName,bill,empCode," ", " ", null, empName,"", "","","",null,0);
-//        if (!TransactionTableView.getItems().contains(Employee1)) {
-//            TransactionTableView.getItems().add(Employee1);
-//        }
+
         TransactionModelClass dummytransaction = new TransactionModelClass(LocalDate.of(2023, 02, 02), "", 0, 0, " ", " ", LocalDate.of(2023, 02, 02), "", "", "", "", "", LocalDate.of(2023, 02, 02), 0L);
         ObservableList<TransactionModelClass> readTransactionList = (ObservableList<TransactionModelClass>) ReadWrite.readObjectToFile("Transaction.bin", dummytransaction);
 
