@@ -20,11 +20,14 @@ public class Cleaner extends Employee implements Serializable {
     
     String workerType;
     String statusOfWork;
+    String taskName;
 
-    public Cleaner(String workerType, String statusOfWork, int employeeCode, String department, String address, LocalDate dateOfJoining, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
+
+    public Cleaner(String workerType, String statusOfWork, String taskName, int employeeCode, String department, String address, LocalDate dateOfJoining, String name, String gender, String email, String userType, String password, LocalDate dateOfBirth, long contact) {
         super(employeeCode, department, address, dateOfJoining, name, gender, email, userType, password, dateOfBirth, contact);
         this.workerType = workerType;
         this.statusOfWork = statusOfWork;
+        this.taskName = taskName;
     }
 
     public String getWorkerType() {
@@ -43,20 +46,20 @@ public class Cleaner extends Employee implements Serializable {
         this.statusOfWork = statusOfWork;
     }
 
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
     public int getEmployeeCode() {
         return employeeCode;
     }
 
     public void setEmployeeCode(int employeeCode) {
         this.employeeCode = employeeCode;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     public String getName() {
@@ -66,10 +69,7 @@ public class Cleaner extends Employee implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
 
-    
-    
     
     
 }

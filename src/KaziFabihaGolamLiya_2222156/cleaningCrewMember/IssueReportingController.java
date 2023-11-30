@@ -36,6 +36,10 @@ public class IssueReportingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        workerTypeCombobox.getItems().addAll("Cleaner", "Washer", "Dryer", "Ironer", "Householder");
+        pendingTaskCombobox.getItems().addAll("Ironing two clothes","washing curtains","Drying a dress", "Repairing torn cloth", "Stain removal");
+        
         // TODO
     }    
 

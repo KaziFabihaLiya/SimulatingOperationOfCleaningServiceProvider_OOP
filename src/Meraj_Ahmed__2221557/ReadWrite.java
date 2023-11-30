@@ -7,6 +7,7 @@ package Meraj_Ahmed__2221557;
 import KaziFabihaGolamLiya_2222156.AccountOfficer.TransactionModelClass;
 import KaziFabihaGolamLiya_2222156.DummyMeaw.Client;
 import KaziFabihaGolamLiya_2222156.DummyMeaw.Request;
+import KaziFabihaGolamLiya_2222156.cleaningCrewMember.Cleaner;
 import Meraj_Ahmed__2221557.Administration_Officer.bestEmployeeModel;
 import Meraj_Ahmed__2221557.Administration_Officer.developementModel;
 import Meraj_Ahmed__2221557.Administration_Officer.monthlyMaintenanceModel;
@@ -90,6 +91,7 @@ public class ReadWrite {
         ObservableList<TransactionModelClass> transactionData = FXCollections.observableArrayList();
         ObservableList<Request> reqData = FXCollections.observableArrayList();
         ObservableList<Client> orderData = FXCollections.observableArrayList();
+        ObservableList<Cleaner> taskSubmissionData = FXCollections.observableArrayList();
 
         try {
             if (instance instanceof SignupData) {
@@ -287,6 +289,19 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
+            else if (instance instanceof Cleaner) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        taskSubmissionData.add((Cleaner) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Leah Submit Order Request exe");
+                }
+                //  System.out.println("Meraj");               
+            }
         }
         
             catch(Exception e){
@@ -316,6 +331,7 @@ public class ReadWrite {
         else if ( instance instanceof TransactionModelClass ) return transactionData;
         else if ( instance instanceof Request ) return reqData;
         else if ( instance instanceof Client ) return orderData;
+        else if ( instance instanceof Cleaner ) return taskSubmissionData;
         
         return SData;
     }
