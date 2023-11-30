@@ -149,7 +149,7 @@ public class PlaceWashOrderController implements Initializable {
             wash +=  wedCheckBox.getText();
         }
         
-        Client customer = new Client(wash , dateOforder , "", " ", "", "", "", null, 0);
+        Client customer = new Client(wash , dateOforder , "", " ", "", "", "", LocalDate.of(2000,01,01), 0);
         
         ReadWrite.writeObjectToFile("Place Order.bin", customer);
         
@@ -157,16 +157,27 @@ public class PlaceWashOrderController implements Initializable {
         updateList.add(customer);
         
         ironingCheckBox.isDisabled();
+
         LaundryCheckBox.isDisabled();
         stainCheckBox.isDisabled();
         dryCleanCheckBoc.isDisabled();
         wedCheckBox.isDisabled();
         placingDate.setValue(null);
+        clientNameTextField.clear();
+        clientEmailTextField.clear();
+        contactNoTextField.clear();
+        
         //
     }
 
     @FXML
-    private void sendToCleanersButton(ActionEvent event) {
+    private void sendToCleanersButton(ActionEvent event) throws IOException {
+        orderInfoTableView.getItems().clear();
+        Client dummy = new Client("" , LocalDate.of(2000,01,01) , "", " ", "", "", "", LocalDate.of(2000,01,01), 0);
+        ObservableList<Client> updateList  = (ObservableList<Client>) ReadWrite.readObjectToFile("Place Order.bin", dummy);
+
+        orderInfoTableView.getItems().addAll(updateList);
+        
     }
     
 }

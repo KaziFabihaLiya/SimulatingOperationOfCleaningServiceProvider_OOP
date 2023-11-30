@@ -65,7 +65,7 @@ public class CleanerTaskController implements Initializable {
     @FXML
     private TableColumn<Cleaner, LocalDate> OrderDateCol;
 
-    ObservableList<Cleaner> CleanerList;
+    private ObservableList<Cleaner> CleanerList;
     @FXML
     private TableView<Cleaner> ReadBinToTableView;
     @FXML
@@ -97,10 +97,12 @@ public class CleanerTaskController implements Initializable {
 
     @FXML
     private void TaskLoaderOFUnassignedTaskButton(ActionEvent event) throws IOException {
-                Client dummyReq = new Client("" , null , "", " ", "", "", "", null, 0);
+                Client dummyReq = new Client("" , LocalDate.of(2000,01,01) , "", " ", "", "", "", LocalDate.of(2000,01,01), 0);
                 orderlist = (ObservableList<Client>) ReadWrite.readObjectToFile("Place Order.bin", dummyReq);
         
-                tableViewUnassignedTask.getItems().addAll(orderlist);
+                tableViewUnassignedTask.getItems().add(0, dummyReq);
+                tableViewUnassignedTask.getItems().add(1, dummyReq);
+                
     }
 
     @FXML
