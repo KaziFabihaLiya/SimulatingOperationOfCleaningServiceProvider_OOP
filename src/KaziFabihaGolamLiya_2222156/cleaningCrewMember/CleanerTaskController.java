@@ -5,6 +5,7 @@
 package KaziFabihaGolamLiya_2222156.cleaningCrewMember;
 
 import KaziFabihaGolamLiya_2222156.DummyMeaw.Client;
+import KaziFabihaGolamLiya_2222156.DummyMeaw.Task;
 import Meraj_Ahmed__2221557.AppendableObjectOutputStream;
 import Meraj_Ahmed__2221557.ReadWrite;
 
@@ -39,6 +40,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class CleanerTaskController implements Initializable {
 
+    //Apply For Task 
     @FXML
     private ComboBox<String> unassignedTaskCombobox;
     @FXML
@@ -47,48 +49,48 @@ public class CleanerTaskController implements Initializable {
     private TextField employeeCode;
     @FXML
     private ComboBox<String> selectWorkerTypeComboBox;
+
+    //Unassigned Task Loading
     @FXML
-    private TableColumn<Cleaner, String> workerTypeCol;
+    private TableView<Task> TableViewUnassignedTask;
     @FXML
-    private CheckBox checkBoxOfTaskSubmission;
+    private TableColumn<Task, String> ClientNameCol;
+    @FXML
+    private TableColumn<Task, String> ClientEmailCol;
+    @FXML
+    private TableColumn<Task, Integer> ContactCol;
+    @FXML
+    private TableColumn<Task, String> WashTypeCol;
+    @FXML
+    private TableColumn<Task, LocalDate> OrderDateCol;
+
+    // Task Submission 
+    @FXML
+    private TextField workerNameSubTextField;
+    @FXML
+    private TextField workerCodeSubTextField;
     @FXML
     private ComboBox<String> workerTypeSubmissionComboBox;
     @FXML
-    private ComboBox<String> pendingTaskListCombobox;
-    @FXML
-    private TextField workerName;
-    @FXML
-    private TextField workerCode;
-    private TableView<Client> tableViewUnassignedTask;
-    @FXML
-    private TableColumn<Client, LocalDate> OrderDateCol;
+    private ComboBox<String> pendingTaskListSubCombobox;
 
-    private ObservableList<Cleaner> CleanerList;
+    //Table View Of Completed Task
     @FXML
-    private TableView<Cleaner> ReadBinToTableView;
+    private TableView<TaskSubmissionModelClass> CompletedTaskTableView;
     @FXML
-    private TableColumn<Cleaner, String> workerNameCol;
+    private TableColumn<TaskSubmissionModelClass, String> workerNameSubCol;
     @FXML
-    private TableColumn<Cleaner, Integer> workerCodeCol;
+    private TableColumn<TaskSubmissionModelClass, Integer> workerCodeSubCol;
     @FXML
-    private TableColumn<Cleaner, String> doneUndoneStatusCol;
+    private TableColumn<TaskSubmissionModelClass, String> workerTypeSubCol;
     @FXML
-    private TableColumn<Cleaner, String> TaskCodeCol;
+    private TableColumn<TaskSubmissionModelClass, String> TaskSubCol;
 
-    private ObservableList<Client> orderlist;
-    @FXML
-    private TableView<Client> TableViewUnassignedTask;
-    @FXML
-    private TableColumn<Client, String> ClientNameCol;
-    @FXML
-    private TableColumn<Client, String> ClientEmailCol;
-    @FXML
-    private TableColumn<Client, Integer> ContactCol;
-    @FXML
-    private TableColumn<Client, String> WashTypeCol;
+    //private ObservableList<Cleaner> CleanerList;
 
-    private ObservableList<Cleaner> submissionList;
-    private ObservableList<Cleaner> updateList;
+    private ObservableList<Task> orderlist;
+    private ObservableList<TaskSubmissionModelClass> submissionList;
+    private ObservableList<TaskSubmissionModelClass> updateList;
 
     /**
      * Initializes the controller class.
@@ -96,7 +98,7 @@ public class CleanerTaskController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        CleanerList = FXCollections.observableArrayList();
+//        CleanerList = FXCollections.observableArrayList();
         orderlist = FXCollections.observableArrayList();
         updateList = FXCollections.observableArrayList();
         submissionList = FXCollections.observableArrayList();
@@ -104,74 +106,71 @@ public class CleanerTaskController implements Initializable {
         unassignedTaskCombobox.getItems().addAll("Ironing two clothes", "washing curtains", "Drying a dress", "Repairing torn cloth", "Stain removal");
         selectWorkerTypeComboBox.getItems().addAll("Cleaner", "Washer", "Dryer", "Ironer", "Householder");
         workerTypeSubmissionComboBox.getItems().addAll("Cleaner", "Washer", "Dryer", "Ironer", "Householder");
-        pendingTaskListCombobox.getItems().addAll("Ironing two clothes", "washing curtains", "Drying a dress", "Repairing torn cloth", "Stain removal");
+        pendingTaskListSubCombobox.getItems().addAll("Ironing two clothes", "washing curtains", "Drying a dress", "Repairing torn cloth", "Stain removal");
 
-        ClientNameCol.setCellValueFactory(new PropertyValueFactory<Client, String>("name"));
-        ClientEmailCol.setCellValueFactory(new PropertyValueFactory<Client, String>("email"));
-        ContactCol.setCellValueFactory(new PropertyValueFactory<Client, Integer>("contact"));
-        WashTypeCol.setCellValueFactory(new PropertyValueFactory<Client, String>("washType"));
-        OrderDateCol.setCellValueFactory(new PropertyValueFactory<Client, LocalDate>("OrderPlacingDate"));
+        ClientNameCol.setCellValueFactory(new PropertyValueFactory<Task, String>("clientName"));
+        ClientEmailCol.setCellValueFactory(new PropertyValueFactory<Task, String>("email"));
+        ContactCol.setCellValueFactory(new PropertyValueFactory<Task, Integer>("Contact"));
+        WashTypeCol.setCellValueFactory(new PropertyValueFactory<Task, String>("washType"));
+        OrderDateCol.setCellValueFactory(new PropertyValueFactory<Task, LocalDate>("orderDate"));
 
-        workerTypeCol.setCellValueFactory(new PropertyValueFactory<Cleaner, String>("workerType"));
-        workerNameCol.setCellValueFactory(new PropertyValueFactory<Cleaner, String>("name"));
-        workerCodeCol.setCellValueFactory(new PropertyValueFactory<Cleaner, Integer>("employeeCode"));
-        doneUndoneStatusCol.setCellValueFactory(new PropertyValueFactory<Cleaner, String>("statusOfWork"));
-        TaskCodeCol.setCellValueFactory(new PropertyValueFactory<Cleaner, String>("taskName"));
+        workerNameSubCol.setCellValueFactory(new PropertyValueFactory<TaskSubmissionModelClass, String>("cleanerName"));
+        workerCodeSubCol.setCellValueFactory(new PropertyValueFactory<TaskSubmissionModelClass, Integer>("cleanerCode"));
+        workerTypeSubCol.setCellValueFactory(new PropertyValueFactory<TaskSubmissionModelClass, String>("cleanerType"));
+        TaskSubCol.setCellValueFactory(new PropertyValueFactory<TaskSubmissionModelClass, String>("taskName"));
 
     }
 
     @FXML
     private void TaskLoaderOFUnassignedTaskButton(ActionEvent event) throws IOException {
-        Client dummyReq = new Client("", LocalDate.of(2000, 01, 01), "", " ", "", "", "", LocalDate.of(2000, 01, 01), 0);
-        orderlist = (ObservableList<Client>) ReadWrite.readObjectToFile("Place Order.bin", dummyReq);
 
-        tableViewUnassignedTask.getItems().addAll(orderlist);
+        Task dummyReq = new Task("", "", "", 0, LocalDate.of(2023, 02, 02));
+        orderlist = (ObservableList<Task>) ReadWrite.readObjectToFile("PlaceTask.bin", dummyReq);
 
-    }
-
-    @FXML
-    private void TaskSubmitButton(ActionEvent event) throws IOException {
-
-        String name = workerName.getText();
-        int code = Integer.parseInt(workerCode.getText());
-        String type = workerTypeSubmissionComboBox.getValue();
-        //Boolean status = checkBoxOfTaskSubmission.isSelected();
-        String taskName1 = TaskCodeCol.getText();
-        String DoneUndone = "";
-        if (checkBoxOfTaskSubmission.isSelected()) {
-            DoneUndone += "Done";
-        } else if (!checkBoxOfTaskSubmission.isSelected()) {
-            DoneUndone += "Undone";
-
-        }
-
-        Cleaner worker = new Cleaner(type, DoneUndone, taskName1, code, "", "", LocalDate.of(2023, 02, 02), name, "", "", "", "", LocalDate.of(2023, 02, 02), 0);
-
-        ReadWrite.writeObjectToFile("TaskSubmissionDetails.bin", worker);
-
-        updateList.add(worker);
-        submissionList.add(worker);
-
-        CleanerList.add(worker);
-        workerName.setText(null);
-        workerCode.setText(null);
-        workerTypeSubmissionComboBox.setValue(null);
-        checkBoxOfTaskSubmission.isDisabled();
+        TableViewUnassignedTask.getItems().addAll(orderlist);
 
     }
+
 
     @FXML
     private void applyForTaskButton(ActionEvent event) {
     }
 
     @FXML
-    private void readFromBinTOTableView(ActionEvent event) throws IOException {
+    private void TaskSubmitButtonOnClicked(ActionEvent event) {
+        
+        CompletedTaskTableView.getItems().clear();
+        
+        String name = workerNameSubTextField.getText();
+        int code = Integer.parseInt(workerCodeSubTextField.getText());
+        String type = workerTypeSubmissionComboBox.getValue();
+        String taskName1 = pendingTaskListSubCombobox.getValue();
 
-        Cleaner dummy = new Cleaner("", "", "", 0, "", "", LocalDate.of(2023, 02, 02), "", "", "", "", "", LocalDate.of(2023, 02, 02), 0);
-        ObservableList<Cleaner> submissionList = (ObservableList<Cleaner>) ReadWrite.readObjectToFile("TaskSubmissionDetails.bin", dummy);
+        TaskSubmissionModelClass taskSubmit = new TaskSubmissionModelClass(name, code,type, taskName1);
 
-        ReadBinToTableView.getItems().addAll(submissionList);
+        ReadWrite.writeObjectToFile("TaskSubmissionDetails.bin", taskSubmit);
 
+        submissionList.add(taskSubmit);
+        updateList.add(taskSubmit);
+
+        workerCodeSubTextField.clear();
+        workerNameSubTextField.clear();
+        workerTypeSubmissionComboBox.setValue(null);
+        pendingTaskListSubCombobox.setValue(null);
+        
+
+        
+    }
+
+    @FXML
+    private void CompletedTaskTableView(ActionEvent event) throws IOException {
+        TaskSubmissionModelClass dummySub = new TaskSubmissionModelClass("", 0, "", "" );
+        ObservableList<TaskSubmissionModelClass> updateList = (ObservableList<TaskSubmissionModelClass>) ReadWrite.readObjectToFile("TaskSubmissionDetails.bin", dummySub);
+
+        CompletedTaskTableView.getItems().addAll(updateList);
+        
+        //CompletedTaskTableView.getItems().addAll(submissionList);
+        
     }
 
 }

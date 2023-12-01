@@ -33,8 +33,7 @@
           <TableColumn fx:id="emailCol" prefWidth="124.0" text="Email" />
             <TableColumn fx:id="dateCol" prefWidth="123.0" text="Date" />
             <TableColumn fx:id="contactCol" prefWidth="113.0" text="Contact no." />
-            <TableColumn fx:id="washTypeCol" prefWidth="119.0" text="Wash Type" />
-            <TableColumn fx:id="TotalAmountCol" prefWidth="105.0" text="Total Amount" />
+            <TableColumn fx:id="washTypeCol" prefWidth="224.0" text="Wash Type" />
         </columns>
       </TableView>
       <TextArea editable="false" layoutX="488.0" layoutY="124.0" prefHeight="219.0" prefWidth="275.0" style="-fx-background-color: Beige;" text="Ironing - 50 TK&#10;&#10;Laundry Services - 100 TK&#10;&#10;Stain Removal - 300 TK&#10;&#10;Dry Cleaning - 250 TK&#10;&#10;Wedding Dress Cleaning and Preservation - 2000 TK" wrapText="true" />

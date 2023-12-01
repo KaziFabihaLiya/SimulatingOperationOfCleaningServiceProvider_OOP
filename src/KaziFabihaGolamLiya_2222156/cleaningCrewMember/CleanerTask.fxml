@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -59,16 +58,15 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="361.0" prefWidth="789.0">
                      <children>
-                        <CheckBox fx:id="checkBoxOfTaskSubmission" layoutX="229.0" layoutY="250.0" mnemonicParsing="false" text="Mark If it is Done" />
                         <ComboBox fx:id="workerTypeSubmissionComboBox" layoutX="202.0" layoutY="139.0" prefHeight="31.0" prefWidth="185.0" promptText="Select your Type" />
                         <Label layoutX="89.0" layoutY="53.0" text="Worker Name :" />
                         <Label layoutX="92.0" layoutY="100.0" text="Worker Code :" />
                         <Label layoutX="93.0" layoutY="144.0" text="Worker Type :" />
-                        <ComboBox fx:id="pendingTaskListCombobox" layoutX="202.0" layoutY="181.0" prefHeight="31.0" prefWidth="226.0" promptText="Incomplete pending Task" />
-                        <TextField fx:id="workerName" layoutX="202.0" layoutY="48.0" promptText="Enter Name" />
-                        <TextField fx:id="workerCode" layoutX="202.0" layoutY="95.0" promptText="Enter Code" />
+                        <ComboBox fx:id="pendingTaskListSubCombobox" layoutX="202.0" layoutY="181.0" prefHeight="31.0" prefWidth="226.0" promptText="Incomplete pending Task" />
+                        <TextField fx:id="workerNameSubTextField" layoutX="202.0" layoutY="48.0" promptText="Enter Name" />
+                        <TextField fx:id="workerCodeSubTextField" layoutX="202.0" layoutY="95.0" promptText="Enter Code" />
                         <Label layoutX="93.0" layoutY="186.0" text="Select Task :" />
-                        <Button layoutX="150.0" layoutY="290.0" mnemonicParsing="false" onAction="#TaskSubmitButton" prefHeight="31.0" prefWidth="299.0" text="Submit" />
+                        <Button layoutX="150.0" layoutY="290.0" mnemonicParsing="false" onAction="#TaskSubmitButtonOnClicked" prefHeight="31.0" prefWidth="299.0" text="Submit" />
                         <Label layoutX="216.0" layoutY="326.0" prefHeight="21.0" prefWidth="168.0" text="Write Instance to .bin File" textFill="#8d8484" />
                      </children>
                   </AnchorPane>
@@ -78,16 +76,15 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="ReadBinToTableView" layoutX="24.0" layoutY="80.0" prefHeight="201.0" prefWidth="552.0">
+                        <TableView fx:id="CompletedTaskTableView" layoutX="24.0" layoutY="80.0" prefHeight="201.0" prefWidth="552.0">
                           <columns>
-                            <TableColumn fx:id="workerNameCol" prefWidth="124.0" text="Worker Name" />
-                            <TableColumn fx:id="workerCodeCol" prefWidth="144.0" text="Worker Code" />
-                              <TableColumn fx:id="workerTypeCol" prefWidth="108.0" text="Worker Type" />
-                              <TableColumn fx:id="TaskCodeCol" prefWidth="92.0" text="Task Code" />
-                              <TableColumn fx:id="doneUndoneStatusCol" prefWidth="83.0" text="Status" />
+                            <TableColumn fx:id="workerNameSubCol" prefWidth="124.0" text="Worker Name" />
+                            <TableColumn fx:id="workerCodeSubCol" prefWidth="144.0" text="Worker Code" />
+                              <TableColumn fx:id="workerTypeSubCol" prefWidth="140.0" text="Worker Type" />
+                              <TableColumn fx:id="TaskSubCol" prefWidth="143.0" text="Task" />
                           </columns>
                         </TableView>
-                        <Button layoutX="204.0" layoutY="30.0" mnemonicParsing="false" onAction="#readFromBinTOTableView" text="Read from Worker.bin File" />
+                        <Button layoutX="204.0" layoutY="30.0" mnemonicParsing="false" onAction="#CompletedTaskTableView" text="Show Completed Task" />
                      </children>
                   </AnchorPane>
               </content>

@@ -46,27 +46,29 @@ public class PlaceWashOrderController implements Initializable {
     @FXML
     private CheckBox wedCheckBox;
     @FXML
-    private TableView<Client> orderInfoTableView;
+    private TableView<Task> orderInfoTableView;
     @FXML
-    private TableColumn<Client, String> clientNameCol;
+    private TableColumn<Task, String> clientNameCol;
     @FXML
-    private TableColumn<Client, String> emailCol;
+    private TableColumn<Task, String> emailCol;
     @FXML
-    private TableColumn<Client, LocalDate> dateCol;
+    private TableColumn<Task, LocalDate> dateCol;
     @FXML
-    private TableColumn<Client, Integer> contactCol;
+    private TableColumn<Task, Integer> contactCol;
     @FXML
-    private TableColumn<Client, String> washTypeCol;
-    @FXML
-    private TableColumn<Client, Integer> TotalAmountCol;
+    private TableColumn<Task, String> washTypeCol;
     @FXML
     private DatePicker placingDate;
     @FXML
     private TextField contactNoTextField;
-    private ObservableList<Client> clientOrderList;
+    
+    //Used List
+    
+    private ObservableList<Task> clientOrderList;
+    private ObservableList<Task> updateList;
     
     private ObservableList<Client> placeOrderList;
-    private ObservableList<Client> updateList;
+
     
     
 
@@ -80,11 +82,11 @@ public class PlaceWashOrderController implements Initializable {
         placeOrderList = FXCollections.observableArrayList();
         updateList = FXCollections.observableArrayList();
         
-        clientNameCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("name"));
-        emailCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("email"));
-        dateCol.setCellValueFactory(new PropertyValueFactory <Client, LocalDate> ("OrderPlacingDate"));
-        contactCol.setCellValueFactory(new PropertyValueFactory <Client, Integer > ("contact"));
-        washTypeCol.setCellValueFactory(new PropertyValueFactory <Client, String> ("washType"));
+        clientNameCol.setCellValueFactory(new PropertyValueFactory <Task, String> ("clientName"));
+        emailCol.setCellValueFactory(new PropertyValueFactory <Task, String> ("email"));
+        dateCol.setCellValueFactory(new PropertyValueFactory <Task, LocalDate> ("orderDate"));
+        contactCol.setCellValueFactory(new PropertyValueFactory <Task, Integer > ("Contact"));
+        washTypeCol.setCellValueFactory(new PropertyValueFactory <Task, String> ("washType"));
 
     }
 
@@ -96,15 +98,18 @@ public class PlaceWashOrderController implements Initializable {
     @FXML
     private void placeAnOrderButtonOnClicked(ActionEvent event) {
         orderInfoTableView.getItems().clear();
-        String clientName = clientNameTextField.getText();
+        
+        String name = clientNameTextField.getText();
         String emailClient = clientEmailTextField.getText();
+        
         String washType = ironingCheckBox.getText();
         String washType1 = LaundryCheckBox.getText();
         String washType2 = stainCheckBox.getText();
         String washType3 = dryCleanCheckBoc.getText();
         String washType4 = wedCheckBox.getText();
+        
         LocalDate dateOforder = placingDate.getValue();
-        long No = Long.parseLong(contactNoTextField.getText());
+        int contactNo = Integer.parseInt(contactNoTextField.getText());
         
         String wash = "";
         if (ironingCheckBox.isSelected()) {
@@ -120,11 +125,11 @@ public class PlaceWashOrderController implements Initializable {
         }
    
         
-        Client customer = new Client(wash , dateOforder , clientName, " ", emailClient, "", "", LocalDate.of(2000,01,01), No);
-        
-        ReadWrite.writeObjectToFile("Place Order.bin", customer);
+        Task placeTask = new Task(name, emailClient, wash, contactNo, dateOforder);
 
-        clientOrderList.add(customer);
+        ReadWrite.writeObjectToFile("PlaceTask.bin", placeTask);
+        clientOrderList.add(placeTask);
+        updateList.add(placeTask);
         
         orderInfoTableView.getItems().addAll(clientOrderList);
         
@@ -142,9 +147,8 @@ public class PlaceWashOrderController implements Initializable {
 
     @FXML
     private void doneButtononClicked(ActionEvent event) throws IOException {   
-        orderInfoTableView.getItems().clear();
-        Client dummy = new Client("" , LocalDate.of(2000,01,01) , "", " ", "", "", "", LocalDate.of(2000,01,01), 0);
-        ObservableList<Client> updateList  = (ObservableList<Client>) ReadWrite.readObjectToFile("Place Order.bin", dummy);
+        Task dummyTask = new Task("", "", "", 0, LocalDate.of(2023, 02, 02));
+        ObservableList<Task> updateList = (ObservableList<Task>) ReadWrite.readObjectToFile("PlaceTask.bin", dummyTask);
 
         orderInfoTableView.getItems().addAll(updateList);
     }

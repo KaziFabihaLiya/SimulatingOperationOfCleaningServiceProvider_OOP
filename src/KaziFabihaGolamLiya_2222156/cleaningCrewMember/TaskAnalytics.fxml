@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.cleaningCrewMember.TaskAnalyticsController">
-    
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.cleaningCrewMember.TaskAnalyticsController">
+   <children>
+      <Label layoutX="48.0" layoutY="51.0" prefHeight="20.0" prefWidth="118.0" text="Completed Task :" />
+      <TextField layoutX="176.0" layoutY="46.0" prefHeight="31.0" prefWidth="238.0" promptText="Enter number of completed Task" />
+      <Label layoutX="48.0" layoutY="101.0" prefHeight="20.0" prefWidth="118.0" text="Pending Task :" />
+      <TextField layoutX="176.0" layoutY="96.0" prefHeight="31.0" prefWidth="238.0" promptText="Enter number of Pending Task" />
+      <PieChart fx:id="PieChart" layoutX="52.0" layoutY="153.0" prefHeight="400.0" prefWidth="646.0" title="Pie Chart of Task Analytics" />
+      <Button layoutX="490.0" layoutY="62.0" mnemonicParsing="false" onAction="#showPieChartOnButtonClicked" prefHeight="48.0" prefWidth="164.0" text="Show Pie Chart" />
+   </children>
 </AnchorPane>

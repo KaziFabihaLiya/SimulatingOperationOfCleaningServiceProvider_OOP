@@ -5,9 +5,9 @@
 package Meraj_Ahmed__2221557;
 
 import KaziFabihaGolamLiya_2222156.AccountOfficer.TransactionModelClass;
-import KaziFabihaGolamLiya_2222156.DummyMeaw.Client;
 import KaziFabihaGolamLiya_2222156.DummyMeaw.Request;
-import KaziFabihaGolamLiya_2222156.cleaningCrewMember.Cleaner;
+import KaziFabihaGolamLiya_2222156.DummyMeaw.Task;
+import KaziFabihaGolamLiya_2222156.cleaningCrewMember.TaskSubmissionModelClass;
 import Meraj_Ahmed__2221557.Administration_Officer.bestEmployeeModel;
 import Meraj_Ahmed__2221557.Administration_Officer.developementModel;
 import Meraj_Ahmed__2221557.Administration_Officer.monthlyMaintenanceModel;
@@ -90,8 +90,8 @@ public class ReadWrite {
         ObservableList<Employee> employeeinfoData = FXCollections.observableArrayList();
         ObservableList<TransactionModelClass> transactionData = FXCollections.observableArrayList();
         ObservableList<Request> reqData = FXCollections.observableArrayList();
-        ObservableList<Client> orderData = FXCollections.observableArrayList();
-        ObservableList<Cleaner> taskSubmissionData = FXCollections.observableArrayList();
+        ObservableList<Task> orderData = FXCollections.observableArrayList();
+        ObservableList<TaskSubmissionModelClass> taskSubmissionData = FXCollections.observableArrayList();
 
         try {
             if (instance instanceof SignupData) {
@@ -276,26 +276,26 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
-            else if (instance instanceof Client) {
+            else if (instance instanceof Task) {
                 f = new File(fileName);
                 fw = new FileInputStream(f);
                 ois = new ObjectInputStream(fw);
                 try {
                     while (true) {
-                        orderData.add((Client) ois.readObject());
+                        orderData.add((Task) ois.readObject());
                     }
                 } catch (Exception e) {
                     System.out.println("Leah Order Request exe");
                 }
                 //  System.out.println("Meraj");               
             }
-            else if (instance instanceof Cleaner) {
+            else if (instance instanceof TaskSubmissionModelClass) {
                 f = new File(fileName);
                 fw = new FileInputStream(f);
                 ois = new ObjectInputStream(fw);
                 try {
                     while (true) {
-                        taskSubmissionData.add((Cleaner) ois.readObject());
+                        taskSubmissionData.add((TaskSubmissionModelClass) ois.readObject());
                     }
                 } catch (Exception e) {
                     System.out.println("Leah Submit Order Request exe");
@@ -330,8 +330,8 @@ public class ReadWrite {
         else if ( instance instanceof Employee ) return employeeinfoData;
         else if ( instance instanceof TransactionModelClass ) return transactionData;
         else if ( instance instanceof Request ) return reqData;
-        else if ( instance instanceof Client ) return orderData;
-        else if ( instance instanceof Cleaner ) return taskSubmissionData;
+        else if ( instance instanceof Task ) return orderData;
+        else if ( instance instanceof TaskSubmissionModelClass ) return taskSubmissionData;
         
         return SData;
     }
