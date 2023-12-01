@@ -39,8 +39,7 @@ public class LoginSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         selectUserComboBox.getItems().addAll("Administration Officer",
-                "HR Manager", "Accounts Officer", "Cleaning Crew Member",
-                "Maintenance Officer", "Client");
+                "HR Manager", "Accounts Officer", "Cleaning Crew Member", "Client");
         Image background = new Image("/Icons/BackgroundImageLogin.jpg");
         ImageView.setImage(background);
         
@@ -60,6 +59,34 @@ public class LoginSceneController implements Initializable {
 
                     SceneSwitching newScene = new SceneSwitching();
                     newScene.sceneSwitchingWithoutDataPassing(stage,"/Meraj_Ahmed__2221557/HR_Manager/HR_Manager_DashBoard.fxml");
+                }
+                else if (user.equals("Administration Officer")) {
+                   
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    SceneSwitching newScene = new SceneSwitching();
+                    newScene.sceneSwitchingWithoutDataPassing(stage,"/Meraj_Ahmed__2221557/Administration_Officer/Administration_Officer_Dashboard.fxml");  
+                }
+                else if (user.equals("Accounts Officer")) {
+                   
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    SceneSwitching newScene = new SceneSwitching();
+                    newScene.sceneSwitchingWithoutDataPassing(stage,"/KaziFabihaGolamLiya_2222156/AccountOfficer/AccOfficerDashboard.fxml");  
+                }
+                else if (user.equals("Cleaning Crew Member")) {
+                   
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    SceneSwitching newScene = new SceneSwitching();
+                    newScene.sceneSwitchingWithoutDataPassing(stage,"/KaziFabihaGolamLiya_2222156/cleaningCrewMember/CleaningCrewMemberDashboard.fxml");  
+                }
+                else if (user.equals("Client")) {
+                   
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    SceneSwitching newScene = new SceneSwitching();
+                    newScene.sceneSwitchingWithoutDataPassing(stage,"/KaziFabihaGolamLiya_2222156/DummyMeaw/PlaceWashOrder.fxml");  
                 }
             }
 

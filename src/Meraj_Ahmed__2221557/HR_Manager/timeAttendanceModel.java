@@ -4,16 +4,17 @@
  */
 package Meraj_Ahmed__2221557.HR_Manager;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author ahmed
  */
-public class timeAttendanceModel {
+public class timeAttendanceModel implements Serializable {
     public String name, department;
     public int checkin,checkout, code, workhours;
-    LocalDate doe;
+    public LocalDate doe;
 
     public timeAttendanceModel(String name, String department, int checkin, int checkout, int code, int workhours, LocalDate doe) {
         this.name = name;

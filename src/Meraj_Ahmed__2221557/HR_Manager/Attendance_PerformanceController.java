@@ -70,7 +70,8 @@ public class Attendance_PerformanceController implements Initializable {
         PerformanceScoreCombobox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         checkInCombobox.getItems().addAll(9, 10, 11, 12, 13, 14, 15, 16, 17);
         checkOutCombobox.getItems().addAll(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22);
-        monthComboBox.getItems().addAll("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        monthComboBox.getItems().addAll("January", "February", "March", "April", "May", "June", "July", "August", 
+                                        "September", "October", "November", "December");
         perfList = FXCollections.observableArrayList();
         timeList = FXCollections.observableArrayList();
         readperfList = FXCollections.observableArrayList();
@@ -117,14 +118,14 @@ public class Attendance_PerformanceController implements Initializable {
         int chkout = checkOutCombobox.getValue();
         String dept = departmentCombobox.getValue();
         LocalDate entry = dateOfEntry.getValue();
-        int work = chkout - chkin;      //Integer.parseInt(workingHoursTextField.getText());
+        int work = Math.abs(chkout - chkin);      //Integer.parseInt(workingHoursTextField.getText());
 
         timeAttendanceModel Attendance = new timeAttendanceModel(name, dept, chkin, chkout, code, work, entry);
         ReadWrite.writeObjectToFile("AttendanceList.bin", Attendance);
         timeList.add(Attendance);
        
 
-            
+            //attendanceTextArea.
 
 
 

@@ -86,16 +86,27 @@ public class LeaveRequestController implements Initializable {
                 throw new RuntimeException("Table Selection cannot be empty.");
             }
             for ( HRLeaveModel leaveReqData : reqlist ) {
-                if ( leaveReqData == leaveRequestsTableView.getSelectionModel().getSelectedItem() ){
+                if(leaveReqData.equals(reqlist.get(0))){
+                    ReadWrite.overWriteObjectToFile("ApplyLeave.bin", leaveReqData);
+                    //System.out.println(leaveReqData);
+                }
+                else if ( leaveReqData == leaveRequestsTableView.getSelectionModel().getSelectedItem() ){
                     leaveReqData.setPermissionStatus("Accepted");
-                    break;
+                   ReadWrite.writeObjectToFile("ApplyLeave.bin", leaveReqData);
+                    //System.out.println(leaveReqData);
+                }
+                else{
+                    ReadWrite.writeObjectToFile("ApplyLeave.bin", leaveReqData);
+                    //System.out.println(leaveReqData);
                 }
             }
+            
             refreshTable();
         }
         catch (RuntimeException e){
             GenerateAlerts.unsuccessfulAlert(e.toString());
         }
+        
     }
 
     @FXML
@@ -105,10 +116,19 @@ public class LeaveRequestController implements Initializable {
                 throw new RuntimeException("Table Selection cannot be empty.");
             }
             for ( HRLeaveModel leaveReqData : reqlist ) {
-                if ( leaveReqData == leaveRequestsTableView.getSelectionModel().getSelectedItem() ){
-                    leaveReqData.setPermissionStatus("Rejected");
-                    break;
+                 if(leaveReqData.equals(reqlist.get(0))){
+                    ReadWrite.overWriteObjectToFile("ApplyLeave.bin", leaveReqData);
+                    //System.out.println(leaveReqData);
                 }
+                else if ( leaveReqData == leaveRequestsTableView.getSelectionModel().getSelectedItem() ){
+                    leaveReqData.setPermissionStatus("Rejected");
+                    ReadWrite.writeObjectToFile("ApplyLeave.bin", leaveReqData);
+                    //System.out.println(leaveReqData);
+                }
+                 else{
+                    ReadWrite.writeObjectToFile("ApplyLeave.bin", leaveReqData);
+                    //System.out.println(leaveReqData);
+                }   
             }
             refreshTable();
         }

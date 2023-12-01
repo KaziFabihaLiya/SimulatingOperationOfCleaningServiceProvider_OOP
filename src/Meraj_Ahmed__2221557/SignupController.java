@@ -83,6 +83,7 @@ public class SignupController implements Initializable {
         String name = nameTextField.getText();
         String email =emailTextField.getText();
         String pass = passwordTextField.getText();
+        
         if ( validationAndVerificaton.isValidEmail(email) ){}
         else {
             GenerateAlerts.unsuccessfulAlert("Invalid Email");
@@ -100,7 +101,7 @@ public class SignupController implements Initializable {
         long contact=Long.parseLong(contactTextField.getText());
         String gender;
                 if (maleRadioBtn.isSelected()){ gender = "Male";}
-                  else{ gender = "Female";}
+                  else gender = "Female";
                 
         SignupData data = new SignupData(contact,name,email,User,pass,dateOfBirth.getValue());
         //System.out.println(data.toString());
