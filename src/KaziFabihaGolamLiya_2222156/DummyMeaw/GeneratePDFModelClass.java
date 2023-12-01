@@ -12,6 +12,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Text;
 import static java.awt.SystemColor.text;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,7 +31,7 @@ import javafx.stage.FileChooser;
  */
 public class GeneratePDFModelClass {
     
-    public static void generatePdf(String text){
+    public static void generatePdf(String text,String titleText){
         try{
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
@@ -47,6 +48,13 @@ public class GeneratePDFModelClass {
 
                 Paragraph textParagraph = new Paragraph(text);
                 doc.add(textParagraph);
+                
+                Text Title = new Text(titleText);
+                
+               
+                Paragraph pageTitle = new Paragraph(titleText);
+                pageTitle.setBold();
+                doc.add(pageTitle);
  
                 /*
 //adding table to the pdf
