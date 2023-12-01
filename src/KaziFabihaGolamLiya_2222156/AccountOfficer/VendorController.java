@@ -4,8 +4,10 @@
  */
 package KaziFabihaGolamLiya_2222156.AccountOfficer;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.GeneratePDFModelClass;
 import Meraj_Ahmed__2221557.GenerateAlerts;
 import Meraj_Ahmed__2221557.ReadWrite;
+import static java.awt.SystemColor.text;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -156,126 +158,24 @@ public class VendorController implements Initializable {
     @FXML
     private void DownloadPDFButton(ActionEvent event) {
         
-//    @FXML
-//    private void DownloadPDFButton(ActionEvent event) throws FileNotFoundException {
-//        try{
-//           
-//            FileChooser fc = new FileChooser();
-//            fc.getExtensionFilters().add(new ExtensionFilter("PDF files", "*.pdf"));
-//            fc.getExtensionFilters().add(new ExtensionFilter("Image files", "*.jpg", "*.bmp", "*.png"));
-//            File f = fc.showSaveDialog(null);
-//            if(f!=null){              
-//                PdfWriter pw = new PdfWriter(new FileOutputStream(f));
-//                //PdfWriter pw = new PdfWriter(new FileOutputStream("testPDF.pdf"));
-//                PdfDocument pdf =  new PdfDocument(pw);
-//                pdf.addNewPage();
-//                Document doc = new Document(pdf);
-//                doc.setLeftMargin(70);
-//                //----------------------------------------------------
-//                //adding paragrapg to the pdf
-//                String newline = "\n";
-//                Paragraph lineSpace = new Paragraph(newline);
-//                lineSpace.setHeight(8);
-//                
-//                String paraText1 
-//                        = "This is line 1 of the paragraph, and the line continue....\n"
-//                        + "This is line 2 of the paragraph, and the line continue....\n"
-//                        + "This is line 3 of the paragraph, and the line continue....\n"
-//                        + "This is line 4 of the paragraph, and the line continue....\n";
-//                Paragraph para1 = new Paragraph(paraText1);
-//                
-//                Text titleText = new Text("This is the TITLE of the pdf");
-//                
-//                titleText.setFontSize(18f);
-//                Paragraph pageTitle = new Paragraph(titleText);
-//                pageTitle.setBold();    //OR titleText.setBold();
-//
-//                //PdfFont font2 = PdfFontFactory.createFont(FontConstants.TIMES_ROMAN);
-//                //PdfFont fontBold = PdfFontFactory.createFont(FontConstants.TIMES_BOLD);
-////                Text title = new Text("Thinking in Java (4th Ed)").setFont(fontBold);
-////                Text author = new Text("Bruce Eckel").setFont(font2);
-//                //author.setFontColor(Color.RED);
-//                //Paragraph bookInfo = new Paragraph().add(title).add(" -- by ").add(author);
-//                
-//                doc.add(pageTitle);
-//                doc.add(lineSpace);
-//                doc.add(para1);
-//                doc.add(lineSpace);
-//                //doc.add(bookInfo);
-//                doc.add(lineSpace);
-//                
-//                //----------------------------------------------------
-//                
-//                //adding a list
-//                List progLangList = new List();
-//                progLangList.add("C");
-//                progLangList.add("C++");
-//                progLangList.add("Java");
-//                progLangList.add("Python");
-//                progLangList.add("C#");          
-//                doc.add(progLangList);
-//                doc.add(lineSpace);
-//                
-//                //----------------------------------------------------
-//                //adding an image
-////                Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-////                a.setContentText("Do you want to add an Image?");
-////                Optional<ButtonType> result = a.showAndWait();
-////                if(result.get() == ButtonType.OK){ 
-////                    File imageFile = fc.showOpenDialog(null);
-////                    String imagePath = imageFile.getAbsolutePath();
-////                    ImageData data = ImageDataFactory.create(imagePath);
-////                    Image image = new Image(data);  
-////                    image.setAutoScale(true);
-////                    
-////                    doc.add(image);
-////                    doc.add(lineSpace);
-////                    GenerateAlerts.successfulAlert("Successfully added");
-////                }
-//                //----------------------------------------------------
-//                
-//                //adding table in pdf
-//                float colWidthArr[] = {70f, 200f, 100f};
-//                Table pdfTable = new Table(colWidthArr); 
-//                
-//                //adding header row
-////                Cell cell_00 = new Cell(); 
-////                cell_00.add("Product ID");
-////                cell_00.setBackgroundColor(Color.YELLOW);
-////                pdfTable.addCell(cell_00);
-////                pdfTable.addCell(new Cell().setBackgroundColor(Color.YELLOW).add("Product Name"));
-////                pdfTable.addCell(new Cell().setBackgroundColor(Color.YELLOW).add("Price"));
-////                
-////                //adding content row
-////                pdfTable.addCell(new Cell().add("111"));
-////                pdfTable.addCell(new Cell().add("Lux Soap"));
-////                pdfTable.addCell(new Cell().add("34.0"));
-////                
-////                //adding content row
-////                pdfTable.addCell(new Cell().add("222"));
-////                pdfTable.addCell(new Cell().add("Aarong Yougart"));
-////                pdfTable.addCell(new Cell().add("75.0"));
-////                
-////                //adding content row
-////                pdfTable.addCell(new Cell().add("333"));
-////                pdfTable.addCell(new Cell().add("Brown Bread"));
-////                pdfTable.addCell(new Cell().add("85.0"));
-//
-//                doc.add(pdfTable);
-//                
-//                doc.close();
-//                
-//             GenerateAlerts.successfulAlert("Succesfully Done");
-//            }
-//            else{
-//             GenerateAlerts.unsuccessfulAlert("Something went wrong...");             
-//            }
-//        }
-//        catch(Exception e){
-//             GenerateAlerts.unsuccessfulAlert("Something went wrong...");
-//            //System.out.println("Something went wrong...");
-//            //System.out.println(e);
-//        }                           
-//    }
+        String status = "";
+        if (activeIinactiveCheckbox.isSelected()) {
+            status += "Active";
+        } else {
+            status += "Inactive";
+        }
+        
+        
+        
+        String AllVendorInfo = ("Name of the Vendor is : " + nameTextField.getText() + "\n"
+                + "Email : " + emailTextField.getText() + "\n"
+                + "Vendor's Type is : " + categoryCombBox.getValue() + "\n"
+                + "Is the Vendor Inactive or Active ? --- " + status + "\n" + 
+                "Date of registration : " + datePicker.getValue());
+                
+        
+        
+//     String text = riskTextArea.getText();
+        GeneratePDFModelClass.generatePdf(AllVendorInfo);
     }
 }
