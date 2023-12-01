@@ -23,7 +23,7 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
         Image background = new Image("/Icons/BackgroundImageLogin.jpg");
         
         stage.getIcons().add(image);
-        
+        stage.setTitle("Laundry Cheese");
         stage.setScene(scene);
         stage.show();
     }
