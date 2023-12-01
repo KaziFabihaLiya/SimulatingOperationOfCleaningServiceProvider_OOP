@@ -4,6 +4,7 @@
  */
 package Meraj_Ahmed__2221557.Administration_Officer;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.GeneratePDFModelClass;
 import Meraj_Ahmed__2221557.GenerateAlerts;
 import Meraj_Ahmed__2221557.ReadWrite;
 import java.io.IOException;
@@ -124,6 +125,8 @@ public class SendNoticeController implements Initializable {
 
     @FXML
     private void downloadPdfButtonOnClicked(ActionEvent event) {
+        String n =loadNoticeTextArea.getText();
+        GeneratePDFModelClass.generatePdf(n,"NOTICE");
     }
 
     @FXML

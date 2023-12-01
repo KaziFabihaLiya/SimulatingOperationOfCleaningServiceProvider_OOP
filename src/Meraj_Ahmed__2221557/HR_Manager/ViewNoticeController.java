@@ -4,6 +4,7 @@
  */
 package Meraj_Ahmed__2221557.HR_Manager;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.GeneratePDFModelClass;
 import Meraj_Ahmed__2221557.Administration_Officer.sendNoticeModel;
 import Meraj_Ahmed__2221557.GenerateAlerts;
 import Meraj_Ahmed__2221557.ReadWrite;
@@ -89,6 +90,8 @@ public class ViewNoticeController implements Initializable {
 
     @FXML
     private void downloadPdfButtonOnClicked(ActionEvent event) {
+        String n =loadNoticeTextArea.getText();
+        GeneratePDFModelClass.generatePdf(n,"NOTICE");
     }
 
     @FXML

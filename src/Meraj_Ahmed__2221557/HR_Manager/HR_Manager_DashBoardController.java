@@ -97,14 +97,6 @@ public class HR_Manager_DashBoardController implements Initializable {
 
     @FXML
     private void complaintsMenuItemOnClick(ActionEvent event) throws IOException {
-        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("paySalaries.fxml"));
-        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
-        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Stage newWindow = new Stage();
-
-        newWindow.setTitle("Pay Salaries");
-        newWindow.setScene(fileChooserViewScene);
-        newWindow.show();
     }
 
     @FXML
@@ -115,18 +107,6 @@ public class HR_Manager_DashBoardController implements Initializable {
         Stage newWindow = new Stage();
 
         newWindow.setTitle("Attendance");
-        newWindow.setScene(fileChooserViewScene);
-        newWindow.show();
-    }
-
-    @FXML
-    private void performanceMenuItemOnClick(ActionEvent event) throws IOException {
-        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("Attendance_Performance.fxml"));
-        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
-        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Stage newWindow = new Stage();
-
-        newWindow.setTitle("Performance");
         newWindow.setScene(fileChooserViewScene);
         newWindow.show();
     }
@@ -144,7 +124,15 @@ public class HR_Manager_DashBoardController implements Initializable {
     }
 
     @FXML
-    private void viewNoticeMenuItemOnClick(ActionEvent event) {
+    private void viewNoticeMenuItemOnClick(ActionEvent event) throws IOException {
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("viewNotice.fxml"));
+        Scene fileChooserViewScene = new Scene(fileChooserViewParent);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("View Notice");
+        newWindow.setScene(fileChooserViewScene);
+        newWindow.show();
     }
 
     @FXML

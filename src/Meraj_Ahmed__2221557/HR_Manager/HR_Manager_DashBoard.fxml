@@ -27,9 +27,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Time Management">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#timeAttendanceMenuItemOnClick" text="Time &amp; Attendance." />
-                  <MenuItem mnemonicParsing="false" onAction="#performanceMenuItemOnClick" text="Performance Score." />
-                  <MenuItem mnemonicParsing="false" onAction="#performanceMenuItemOnClick" text="Request for leave" />
+              <MenuItem mnemonicParsing="false" onAction="#timeAttendanceMenuItemOnClick" text="Attendance &amp; Performance" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Others">
