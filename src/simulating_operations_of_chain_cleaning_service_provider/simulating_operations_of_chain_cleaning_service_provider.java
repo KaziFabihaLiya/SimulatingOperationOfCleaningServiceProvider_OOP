@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -18,6 +19,10 @@ public class simulating_operations_of_chain_cleaning_service_provider extends Ap
         Parent root = FXMLLoader.load(getClass().getResource("/Meraj_Ahmed__2221557/LoginScene.fxml"));
         
         Scene scene = new Scene(root);
+        Image image = new Image("/Icons/MeawLogo.png");
+        Image background = new Image("/Icons/BackgroundImageLogin.jpg");
+        
+        stage.getIcons().add(image);
         
         stage.setScene(scene);
         stage.show();

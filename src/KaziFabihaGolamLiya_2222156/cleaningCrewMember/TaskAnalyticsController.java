@@ -4,6 +4,7 @@
  */
 package KaziFabihaGolamLiya_2222156.cleaningCrewMember;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.Task;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -12,6 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -22,7 +26,13 @@ public class TaskAnalyticsController implements Initializable {
 
     @FXML
     private PieChart PieChart;
-
+    @FXML
+    private TextField NoOfCompletedTaskTextField;
+    @FXML
+    private TextField NoOfPendingTaskTextField;
+;
+    @FXML
+    private Label LabelOfRatio;
     /**
      * Initializes the controller class.
      */
@@ -34,20 +44,37 @@ public class TaskAnalyticsController implements Initializable {
     @FXML
     private void showPieChartOnButtonClicked(ActionEvent event) {
         
+        int numOfCom = Integer.parseInt(NoOfCompletedTaskTextField.getText());
+        int numOfPend = Integer.parseInt(NoOfPendingTaskTextField.getText());
         
-        
+
         
         ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList(
-                new PieChart.Data("Accounts",  25000),
-                new PieChart.Data("Cleaning Crew",  10000),
-                new PieChart.Data("Human Resource",  30000),
-                new PieChart.Data("Administration",  50000));
+                new PieChart.Data("Completed Task",  numOfCom),
+                new PieChart.Data("Pending Task",  numOfPend));
                 
-        //pieChartSalary.setData(piechartData);
-        //pieChartSalary.setTitle("User's Salary Pie Chart");
+        PieChart.setData(piechartData);
+        PieChart.setTitle("Task Analytics has been showed");
 
         
         
+    }
+
+    @FXML
+    private void OnHoveredOverArea(MouseEvent event) {
+        
+        int numOfCom = Integer.parseInt(NoOfCompletedTaskTextField.getText());
+        int numOfPend = Integer.parseInt(NoOfPendingTaskTextField.getText());
+        
+        if (numOfCom>numOfPend){
+        
+             LabelOfRatio.setText("You have completed more task than the current pending Task");
+        } else if (numOfPend>numOfCom) {
+            LabelOfRatio.setText("You have more pending more task than the completed Task, Complete more Task !");
+        } else {
+
+        }
+       
     }
     
 }

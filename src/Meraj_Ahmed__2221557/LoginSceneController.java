@@ -16,6 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -31,12 +33,17 @@ public class LoginSceneController implements Initializable {
     private TextField getPasswordTextField;
     @FXML
     private ComboBox<String> selectUserComboBox;
+    @FXML
+    private ImageView ImageView;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         selectUserComboBox.getItems().addAll("Administration Officer",
                 "HR Manager", "Accounts Officer", "Cleaning Crew Member",
                 "Maintenance Officer", "Client");
+        Image background = new Image("/Icons/BackgroundImageLogin.jpg");
+        ImageView.setImage(background);
+        
     }
 
     @FXML
