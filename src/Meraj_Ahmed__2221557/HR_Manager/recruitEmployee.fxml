@@ -18,11 +18,10 @@
       <TextField fx:id="salaryRangeTextField" layoutX="171.0" layoutY="210.0" />
       <TextField fx:id="descriptionTextField" layoutX="171.0" layoutY="116.0" />
       <TextField fx:id="requirementTextField" layoutX="171.0" layoutY="166.0" />
-      <Button layoutX="456.0" layoutY="327.0" mnemonicParsing="false" onAction="#showPostButtonOnClicked" prefHeight="45.0" prefWidth="89.0" text="Show Post" />
+      <Button layoutX="478.0" layoutY="355.0" mnemonicParsing="false" onAction="#showPostButtonOnClicked" prefHeight="45.0" prefWidth="89.0" text="Show Post" />
       <Button layoutX="433.0" layoutY="72.0" mnemonicParsing="false" onAction="#recruitmentPostButtonOnClicked" prefHeight="157.0" prefWidth="134.0" text="Recruitment Post" />
       <ComboBox fx:id="departmentComboBox" layoutX="171.0" layoutY="67.0" prefHeight="31.0" prefWidth="187.0" promptText="Select Department" />
-      <TextArea fx:id="outputTextArea" layoutX="14.0" layoutY="318.0" prefHeight="119.0" prefWidth="401.0" />
-      <Button layoutX="454.0" layoutY="396.0" mnemonicParsing="false" onAction="#dashboardButtonOnClicked" text="Dashboard" />
+      <TextArea fx:id="outputTextArea" layoutX="14.0" layoutY="318.0" prefHeight="119.0" prefWidth="451.0" />
       <Line endX="463.0" layoutX="115.0" layoutY="275.0" startX="-100.0" />
       <Label layoutX="189.0" layoutY="14.0" prefHeight="31.0" prefWidth="222.0" text="Add Job Recruitment Post">
          <font>

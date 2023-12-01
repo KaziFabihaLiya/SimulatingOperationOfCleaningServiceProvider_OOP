@@ -4,6 +4,7 @@
  */
 package Meraj_Ahmed__2221557.HR_Manager;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.GeneratePDFModelClass;
 import Meraj_Ahmed__2221557.ReadWrite;
 import java.io.IOException;
 import java.net.URL;
@@ -80,12 +81,11 @@ public class RecruitEmployeeController implements Initializable {
        
     }
 
-    @FXML
-    private void dashboardButtonOnClicked(ActionEvent event) {
-    }
 
     @FXML
     private void downloadPdfButtonOnClicked(ActionEvent event) {
+        String a =outputTextArea.getText();
+        GeneratePDFModelClass.generatePdf(a,"Job Required");
     }
     
 }

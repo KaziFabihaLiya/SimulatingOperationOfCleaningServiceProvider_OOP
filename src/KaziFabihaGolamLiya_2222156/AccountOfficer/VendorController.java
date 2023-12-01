@@ -176,6 +176,6 @@ public class VendorController implements Initializable {
         
         
 //     String text = riskTextArea.getText();
-        GeneratePDFModelClass.generatePdf(AllVendorInfo);
+        GeneratePDFModelClass.generatePdf(AllVendorInfo,"Vendor Information");
     }
 }
