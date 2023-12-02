@@ -172,10 +172,7 @@ public class VendorController implements Initializable {
                 + "Vendor's Type is : " + categoryCombBox.getValue() + "\n"
                 + "Is the Vendor Inactive or Active ? --- " + status + "\n" + 
                 "Date of registration : " + datePicker.getValue());
-                
-        
-        
-//     String text = riskTextArea.getText();
+               
         GeneratePDFModelClass.generatePdf(AllVendorInfo,"Vendor Information");
     }
 }

@@ -9,8 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="626.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="KaziFabihaGolamLiya_2222156.cleaningCrewMember.InventoryTrackingAndReportingBackController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.cleaningCrewMember.InventoryTrackingAndReportingBackController">
    <children>
       <Button id="bevel" layoutX="149.0" layoutY="453.0" mnemonicParsing="false" onAction="#ReportToAdminButtonOnClicked" prefHeight="69.0" prefWidth="306.0" stylesheets="@stylesheet.css" text="Report to Administration" />
       <Label layoutX="65.0" layoutY="70.0" text="Item needed :" />
@@ -19,7 +18,7 @@
       <ComboBox fx:id="ItemNameComboBox" layoutX="167.0" layoutY="65.0" prefHeight="31.0" prefWidth="168.0" />
       <DatePicker fx:id="IssueDatePicker" layoutX="167.0" layoutY="157.0" prefHeight="31.0" prefWidth="168.0" />
       <Label layoutX="64.0" layoutY="162.0" text="Issue Date :" />
-      <TableView layoutX="26.0" layoutY="227.0" prefHeight="200.0" prefWidth="574.0">
+      <TableView fx:id="tableView" layoutX="26.0" layoutY="227.0" prefHeight="200.0" prefWidth="574.0">
         <columns>
           <TableColumn fx:id="ItemNeededCol" prefWidth="232.0" text="Item needed" />
           <TableColumn fx:id="ItemQuantityCol" prefWidth="121.0" text="Item Quantity" />

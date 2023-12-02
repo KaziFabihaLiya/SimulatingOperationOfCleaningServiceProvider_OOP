@@ -7,6 +7,7 @@ package Meraj_Ahmed__2221557;
 import KaziFabihaGolamLiya_2222156.AccountOfficer.TransactionModelClass;
 import KaziFabihaGolamLiya_2222156.DummyMeaw.Request;
 import KaziFabihaGolamLiya_2222156.DummyMeaw.Task;
+import KaziFabihaGolamLiya_2222156.cleaningCrewMember.Inventory;
 import KaziFabihaGolamLiya_2222156.cleaningCrewMember.TaskSubmissionModelClass;
 import Meraj_Ahmed__2221557.Administration_Officer.bestEmployeeModel;
 import Meraj_Ahmed__2221557.Administration_Officer.developementModel;
@@ -92,6 +93,7 @@ public class ReadWrite {
         ObservableList<Request> reqData = FXCollections.observableArrayList();
         ObservableList<Task> orderData = FXCollections.observableArrayList();
         ObservableList<TaskSubmissionModelClass> taskSubmissionData = FXCollections.observableArrayList();
+        ObservableList<Inventory> inventoryData = FXCollections.observableArrayList();
 
         try {
             if (instance instanceof SignupData) {
@@ -302,6 +304,19 @@ public class ReadWrite {
                 }
                 //  System.out.println("Meraj");               
             }
+            else if (instance instanceof Inventory) {
+                f = new File(fileName);
+                fw = new FileInputStream(f);
+                ois = new ObjectInputStream(fw);
+                try {
+                    while (true) {
+                        inventoryData.add((Inventory) ois.readObject());
+                    }
+                } catch (Exception e) {
+                    System.out.println("Inventory exe");
+                }
+                //  System.out.println("Meraj");               
+            }
         }
         
             catch(Exception e){
@@ -332,6 +347,7 @@ public class ReadWrite {
         else if ( instance instanceof Request ) return reqData;
         else if ( instance instanceof Task ) return orderData;
         else if ( instance instanceof TaskSubmissionModelClass ) return taskSubmissionData;
+        else if ( instance instanceof Inventory ) return inventoryData;
         
         return SData;
     }

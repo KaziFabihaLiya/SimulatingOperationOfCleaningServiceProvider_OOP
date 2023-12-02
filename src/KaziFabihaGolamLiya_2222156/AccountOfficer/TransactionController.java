@@ -4,6 +4,7 @@
  */
 package KaziFabihaGolamLiya_2222156.AccountOfficer;
 
+import KaziFabihaGolamLiya_2222156.DummyMeaw.GeneratePDFModelClass;
 import Meraj_Ahmed__2221557.ReadWrite;
 import java.io.IOException;
 import java.net.URL;
@@ -114,6 +115,14 @@ public class TransactionController implements Initializable {
 
     @FXML
     private void createPDFButtonOnClick(ActionEvent event) {
+        
+                String Bill = ("Name of the Employee is : " + nameTextField.getText() + "\n"
+                + "Email : " + codeTextField.getText() + "\n"
+                + "Cause of Bill : " + causeOfBill.getValue() + "\n"
+                + "Bill Amount " + billAmount.getText() + "\n" + 
+                "Date of billing : " + BillingDateForAdd.getValue());
+                
+                GeneratePDFModelClass.generatePdf(Bill,"Bill Information\b");
     }
 
 }
