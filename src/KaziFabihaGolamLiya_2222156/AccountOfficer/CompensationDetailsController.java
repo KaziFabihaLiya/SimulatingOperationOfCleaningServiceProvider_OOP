@@ -51,34 +51,42 @@ public class CompensationDetailsController implements Initializable {
         amountCol.setCellValueFactory(new PropertyValueFactory<Request, Integer>("amountReq"));
         statusCol.setCellValueFactory(new PropertyValueFactory<Request, Boolean>("status"));
 
-//        Request ReqOne = new Request("", 0, "Pending");
-//
-//        try {
-//            ObservableList<Request> reqlist= (ObservableList<Request>) ReadWrite.readObjectToFile("request.bin", ReqOne);
-//        } catch (IOException ex) {
-//            Logger.getLogger(CompensationDetailsController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        for (Request req : reqlist) {
-//            compensationTableView.getItems().addAll(reqlist);
-//        }
-
+       Request dummyIns = new Request("",0,""); 
+        
+        try {
+            reqlist = (ObservableList<Request>) ReadWrite.readObjectToFile("ApplyLeave.bin", dummyIns);
+        } catch (IOException ex) {
+            Logger.getLogger(CompensationDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       ///for ( HRLeaveModel xv : reqlist  ){
+            //System.out.println(xv.toString());
+        //}
+        
+        compensationTableView.getItems().addAll(reqlist);
     }
 
     @FXML
     private void approveButton(ActionEvent event) {
-
           try { 
-                for (Request ReqData : reqlist) {
-
-                    if (ReqData == compensationTableView.getSelectionModel().getSelectedItem()) {
-
-                        ReqData.setStatus("Approved");
-
-                        break;
-
-                    }
-
+            if ( compensationTableView.getSelectionModel().getSelectedItem() == null ){
+                throw new RuntimeException("Table Selection cannot be empty.");
+            }
+            for ( Request ReqData : reqlist ) {
+                if(ReqData.equals(reqlist.get(0))){
+                    ReadWrite.overWriteObjectToFile("request.bin", ReqData);
+                    //System.out.println(leaveReqData);
                 }
+                else if ( ReqData == compensationTableView.getSelectionModel().getSelectedItem() ){
+                     ReqData.setStatus("Approved");
+                   ReadWrite.writeObjectToFile("request.bin", ReqData);
+                    //System.out.println(leaveReqData);
+                }
+                else{
+                    ReadWrite.writeObjectToFile("request.bin", ReqData);
+                    //System.out.println(leaveReqData);
+                }
+            }
+           refreshTable();
         }
         catch (RuntimeException e){
             GenerateAlerts.unsuccessfulAlert(e.toString());
@@ -88,15 +96,30 @@ public class CompensationDetailsController implements Initializable {
     @FXML
     private void rejectButton(ActionEvent event) {
         
-        for (Request ReqData : reqlist) {
-            
-            if (ReqData == compensationTableView.getSelectionModel().getSelectedItem()) {
-                
-                ReqData.setStatus("Rejected");
-                
-                break;
+       try { 
+            if ( compensationTableView.getSelectionModel().getSelectedItem() == null ){
+                throw new RuntimeException("Table Selection cannot be empty.");
             }
-            
+            for ( Request ReqData : reqlist ) {
+                if(ReqData.equals(reqlist.get(0))){
+                    ReadWrite.overWriteObjectToFile("request.bin", ReqData);
+                    //System.out.println(leaveReqData);
+                }
+                else if ( ReqData == compensationTableView.getSelectionModel().getSelectedItem() ){
+                     ReqData.setStatus("Rejected");
+                   ReadWrite.writeObjectToFile("request.bin", ReqData);
+                    //System.out.println(leaveReqData);
+                }
+                else{
+                    ReadWrite.writeObjectToFile("request.bin", ReqData);
+                    //System.out.println(leaveReqData);
+                }
+            }
+            refreshTable();
+           
+        }
+        catch (RuntimeException e){
+            GenerateAlerts.unsuccessfulAlert(e.toString());
         }
         
     }
@@ -118,10 +141,17 @@ public class CompensationDetailsController implements Initializable {
        // performanceTextArea.appendText(add);
         
         Request dummyReq = new Request("",0, "Pending");
-        updatereqlist = (ObservableList<Request>) ReadWrite.readObjectToFile("request.bin", dummyReq);
+        reqlist = (ObservableList<Request>) ReadWrite.readObjectToFile("request.bin", dummyReq);
         
-        compensationTableView.getItems().addAll(updatereqlist);
+        compensationTableView.getItems().addAll(reqlist);
         
+        
+    }
+    private void refreshTable(){
+        // updatereqlist.clear();
+        compensationTableView.getItems().clear();
+        //updatereqlist = HR_Manager.acceptOrRejectPendingPermission(updatereqlist);//
+        compensationTableView.getItems().addAll(reqlist);
         
     }
 
