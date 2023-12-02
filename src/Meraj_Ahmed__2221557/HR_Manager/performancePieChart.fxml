@@ -17,10 +17,9 @@
          </font></Label>
       <PieChart fx:id="performancePieChart" layoutX="333.0" layoutY="86.0" prefHeight="417.0" prefWidth="461.0" />
       <Button layoutX="32.0" layoutY="456.0" mnemonicParsing="false" onAction="#showPieChartButtonOnClicked" prefHeight="31.0" prefWidth="251.0" text="Show Pie Chart " />
-      <TextField fx:id="performanceNameTextField" layoutX="69.0" layoutY="279.0" promptText="Enter Name" />
-      <ComboBox fx:id="PerformanceScoreCombobox" layoutX="87.0" layoutY="330.0" prefWidth="150.0" promptText="Score" />
-      <Button layoutX="104.0" layoutY="394.0" mnemonicParsing="false" onAction="#addemployeeButtonOnClicked" text="Add employee" />
+      <TextField fx:id="performanceNameTextField" layoutX="70.0" layoutY="320.0" promptText="Enter Name" />
+      <ComboBox fx:id="PerformanceScoreCombobox" layoutX="88.0" layoutY="382.0" prefWidth="150.0" promptText="Score" />
       <Button layoutX="61.0" layoutY="46.0" mnemonicParsing="false" onAction="#showPerformanceScoreButtonOnClicked" text="Show performance Scores" />
-      <TextArea fx:id="performanceTextArea" layoutX="11.0" layoutY="86.0" prefHeight="175.0" prefWidth="301.0" />
+      <TextArea fx:id="performanceTextArea" layoutX="11.0" layoutY="86.0" prefHeight="211.0" prefWidth="301.0" />
    </children>
 </AnchorPane>

@@ -53,6 +53,9 @@ public class PerformancePieChartController implements Initializable {
         
         performancePieChart.getData().add(perfpiechartData);
         performancePieChart.setTitle("Performance Pie Chart");
+        
+        performanceNameTextField.clear();
+        PerformanceScoreCombobox.setValue(null);
     }
 
     @FXML
@@ -71,8 +74,5 @@ public class PerformancePieChartController implements Initializable {
         performanceTextArea.appendText(add);
     }
 
-    @FXML
-    private void addemployeeButtonOnClicked(ActionEvent event) {
-    }
 
 }
