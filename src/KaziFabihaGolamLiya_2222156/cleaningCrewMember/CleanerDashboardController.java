@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
@@ -26,6 +27,8 @@ public class CleanerDashboardController implements Initializable {
 
     @FXML
     private TextArea dashBoardTextArea;
+    @FXML
+    private BorderPane borderPaneId;
 
     /**
      * Initializes the controller class.
@@ -33,7 +36,7 @@ public class CleanerDashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void GoToApplyBtn(ActionEvent event) throws IOException {
@@ -71,7 +74,6 @@ public class CleanerDashboardController implements Initializable {
         newWindow.show();
     }
 
-
     @FXML
     private void goToNoticeBoradBTN(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("NoticeBoardForCleaners.fxml"));
@@ -86,7 +88,7 @@ public class CleanerDashboardController implements Initializable {
 
     @FXML
     private void switchToInventoryMenuItemOnClicked(ActionEvent event) throws IOException {
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("InventoryTrackingAndReportingBack.fxml"));
         Scene rootScene = new Scene(root);
         //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -96,5 +98,19 @@ public class CleanerDashboardController implements Initializable {
         newWindow.setScene(rootScene);
         newWindow.show();
     }
-    
+
+    @FXML
+    private void applyLeaveMenuItemOnClicked(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("CleaningLeave.fxml"));
+        borderPaneId.setRight(parent);
+
+    }
+
+    @FXML
+    private void logOutMenuItemOnClicked(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("CleaningLogOut.fxml"));
+        borderPaneId.setBottom(parent);
+
+    }
+
 }
