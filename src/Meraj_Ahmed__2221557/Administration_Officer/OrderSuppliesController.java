@@ -9,6 +9,7 @@ import Meraj_Ahmed__2221557.ReadWrite;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -45,14 +46,15 @@ public class OrderSuppliesController implements Initializable {
     private TableColumn<Inventory, LocalDate> IssueDateCol;
     @FXML
     private TextArea OrderOutputTextArea;
-    private ObservableList<Inventory> updateList;
+    private ObservableList<Inventory> InventoryList;
+    private ArrayList<applyOrderSupplies> orderList;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        updateList = FXCollections.observableArrayList();
+        orderList=new ArrayList<applyOrderSupplies>();
+        InventoryList = FXCollections.observableArrayList();
         ItemNameComboBox.getItems().addAll("Detergent", "Garments", "Chemical", "Bleach", "Stain Remover");
 
         ItemNeededCol.setCellValueFactory(new PropertyValueFactory<Inventory, String>("ItemNeeded"));
@@ -63,13 +65,27 @@ public class OrderSuppliesController implements Initializable {
     @FXML
     private void showTableButtonOnClicked(ActionEvent event) throws IOException {
         Inventory dummyInventory = new Inventory("",  0, LocalDate.of(2023, 02, 02));
-        ObservableList<Inventory> updateList = (ObservableList<Inventory>) ReadWrite.readObjectToFile("Inventory.bin", dummyInventory);
-
-        tableView.getItems().addAll(updateList);
+        InventoryList = (ObservableList<Inventory>) ReadWrite.readObjectToFile("Inventory.bin", dummyInventory);
+        tableView.getItems().addAll(InventoryList);
     }
 
     @FXML
     private void doneButtonOnClicked(ActionEvent event) {
+        String name = ItemNameComboBox.getValue();
+        int quan = Integer.parseInt(ItemQuantityTextField.getText());
+        
+        applyOrderSupplies order = new applyOrderSupplies(name,quan);
+        orderList.add(order);
+        ItemNameComboBox.setValue(null);
+        ItemQuantityTextField.clear();
+        String add="";
+        for (applyOrderSupplies x: orderList){
+            //System.out.println(x.toString());
+            add += x.toString();
+        }
+        
+            OrderOutputTextArea.setText(add);
+        
     }
 
     @FXML
