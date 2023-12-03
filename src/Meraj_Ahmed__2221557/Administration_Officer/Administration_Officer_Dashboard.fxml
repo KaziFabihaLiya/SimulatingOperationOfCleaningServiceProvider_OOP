@@ -10,7 +10,7 @@
 
 <BorderPane fx:id="borderPaneId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="537.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.Administration_Officer.Administration_Officer_DashboardController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar id="bevel" prefHeight="48.0" prefWidth="537.0" style="-fx-background-color: #278763;" stylesheets="@../../KaziFabihaGolamLiya_2222156/cleaningCrewMember/stylesheet.css" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Employee Section">
             <items>
@@ -61,7 +61,7 @@
          </children></AnchorPane>
    </center>
    <bottom>
-      <AnchorPane prefHeight="100.0" prefWidth="537.0" style="-fx-background-color: #a4bcb3;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="86.0" prefWidth="537.0" style="-fx-background-color: #a4bcb3;" BorderPane.alignment="CENTER" />
    </bottom>
    <right>
       <AnchorPane prefHeight="300.0" prefWidth="200.0" style="-fx-background-color: #a4bcb3;" BorderPane.alignment="CENTER" />
