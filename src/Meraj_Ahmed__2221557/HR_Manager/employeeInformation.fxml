@@ -19,7 +19,7 @@
         <tabs>
           <Tab text="Add new employee Information">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #dec4fc;">
                      <children>
                         <Label layoutX="14.0" layoutY="54.0" text="Name         :" />
                         <Label layoutX="14.0" layoutY="102.0" text="Address      : " />
@@ -57,7 +57,7 @@
           </Tab>
           <Tab text="Check existent Employee information ">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: beige;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #dec4fc;">
                      <children>
                         <Label layoutX="249.0" layoutY="29.0" prefHeight="33.0" prefWidth="413.0" text="This table will show every employee details &amp; Information">
                            <font>

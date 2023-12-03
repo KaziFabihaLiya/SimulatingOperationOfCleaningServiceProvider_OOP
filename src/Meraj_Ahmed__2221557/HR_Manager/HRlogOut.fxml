@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="107.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.HR_Manager.HRlogOutController">
+<AnchorPane id="AnchorPane" prefHeight="107.0" prefWidth="638.0" style="-fx-background-color: #dec4fc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.HR_Manager.HRlogOutController">
    <children>
       <Button id="sale" layoutX="257.0" layoutY="38.0" mnemonicParsing="false" onAction="#logOutButtonOnClicked" prefHeight="27.0" prefWidth="122.0" stylesheets="@../../KaziFabihaGolamLiya_2222156/cleaningCrewMember/stylesheet.css" text="Log Out" />
    </children>

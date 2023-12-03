@@ -21,7 +21,7 @@
         <tabs>
           <Tab text="Add a maintenance program">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="681.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="681.0" style="-fx-background-color: #a4bcb3;">
                      <children>
                         <Label layoutX="95.0" layoutY="141.0" text="Maintenance needed  :" />
                         <ComboBox fx:id="maintenanceOptionCombobox" layoutX="266.0" layoutY="136.0" prefWidth="150.0" />
@@ -46,7 +46,7 @@
           </Tab>
           <Tab text="Show Bar chart">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #a4bcb3;">
                      <children>
                         <Label layoutX="176.0" layoutY="29.0" text="Maintenance needed  :" />
                         <ComboBox fx:id="maintenanceOptionCombobox1" layoutX="348.0" layoutY="24.0" prefWidth="150.0" />

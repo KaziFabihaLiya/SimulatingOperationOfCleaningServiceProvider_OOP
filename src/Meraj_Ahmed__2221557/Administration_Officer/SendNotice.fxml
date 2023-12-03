@@ -17,7 +17,7 @@
         <tabs>
           <Tab text="Send Notice">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="382.0" prefWidth="650.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="382.0" prefWidth="650.0" style="-fx-background-color: #a4bcb3;">
                      <children>
                         <Label layoutX="8.0" layoutY="22.0" text="Notice Name  :" />
                         <Label layoutX="339.0" layoutY="22.0" text="Notice Date :" />
@@ -36,7 +36,7 @@
           </Tab>
           <Tab text="View Notices">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #a4bcb3;">
                      <children>
                         <Button layoutX="276.0" layoutY="161.0" mnemonicParsing="false" onAction="#loadNoticeButtonOnClicked" text="Load notice " />
                         <Button layoutX="496.0" layoutY="275.0" mnemonicParsing="false" onAction="#downloadPdfButtonOnClicked" prefHeight="31.0" prefWidth="129.0" text="Download PDF" />
