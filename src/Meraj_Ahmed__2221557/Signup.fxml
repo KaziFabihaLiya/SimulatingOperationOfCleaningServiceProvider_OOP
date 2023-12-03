@@ -17,13 +17,13 @@
       <Label layoutX="28.0" layoutY="158.0" text="Contact No           :" />
       <Label layoutX="28.0" layoutY="200.0" text="Date of birth         :" />
       <Label layoutX="376.0" layoutY="70.0" prefHeight="21.0" prefWidth="75.0" text="Gender   :" />
-      <Label layoutX="25.0" layoutY="290.0" text="Select User Type    :" />
+      <Label layoutX="25.0" layoutY="290.0" text="User Type              :" />
       <RadioButton fx:id="maleRadioBtn" layoutX="452.0" layoutY="70.0" mnemonicParsing="false" text="Male " />
-      <ComboBox fx:id="selectUserCombobox" layoutX="165.0" layoutY="285.0" prefWidth="150.0" />
+      <ComboBox fx:id="selectUserCombobox" layoutX="165.0" layoutY="285.0" prefWidth="150.0" promptText="select" />
       <RadioButton fx:id="femaleRadioBtn" layoutX="452.0" layoutY="106.0" mnemonicParsing="false" text="Female" />
       <Button layoutX="451.0" layoutY="267.0" mnemonicParsing="false" onAction="#createAccountButtonONClick" prefHeight="54.0" prefWidth="107.0" text="Create Account" textAlignment="CENTER" wrapText="true" />
-      <TextField fx:id="nameTextField" layoutX="165.0" layoutY="65.0" />
-      <TextField fx:id="emailTextField" layoutX="165.0" layoutY="111.0" />
+      <TextField fx:id="nameTextField" layoutX="165.0" layoutY="65.0" promptText="Name" />
+      <TextField fx:id="emailTextField" layoutX="165.0" layoutY="111.0" promptText="abc@gmail.com" />
       <TextField fx:id="contactTextField" layoutX="165.0" layoutY="153.0" />
       <DatePicker fx:id="dateOfBirth" layoutX="165.0" layoutY="195.0" prefHeight="31.0" prefWidth="187.0" />
       <Label layoutX="25.0" layoutY="27.0" prefHeight="31.0" prefWidth="394.0" text="Fill up the fields to create an account." textAlignment="CENTER" wrapText="true">
@@ -33,6 +33,13 @@
       </Label>
       <Label layoutX="29.0" layoutY="243.0" prefHeight="21.0" prefWidth="125.0" text="Password              :" />
       <Button layoutX="451.0" layoutY="332.0" mnemonicParsing="false" onAction="#backToLoginButtonONClick" prefHeight="54.0" prefWidth="107.0" text="Back to Login page" textAlignment="CENTER" wrapText="true" />
-      <PasswordField fx:id="passwordTextField" layoutX="165.0" layoutY="238.0" />
+      <PasswordField fx:id="passwordTextField" layoutX="165.0" layoutY="238.0" promptText="Must be 8 character" />
+      <Label layoutX="8.0" layoutY="332.0" prefHeight="21.0" prefWidth="168.0" text="Password Format">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="8.0" layoutY="351.0" text="Must contain a special character,Uppercase" />
+      <Label layoutX="8.0" layoutY="376.0" text="Lowercase and a number" />
+      <Label layoutX="178.0" layoutY="376.0" text="example : @Abc@400" />
    </children>
 </AnchorPane>
