@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.cleaningCrewMember.CleanerDashboardController">
+<AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="628.0" style="-fx-background-color: #FFFADD;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.cleaningCrewMember.CleanerDashboardController">
    <children>
-      <MenuBar prefHeight="32.0" prefWidth="600.0">
+      <MenuBar id="shiny" layoutX="24.0" layoutY="21.0" prefHeight="54.0" prefWidth="574.0" style="-fx-background-color: #E0F4FF;" stylesheets="@stylesheet.css">
         <menus>
           <Menu mnemonicParsing="false" text="My Information">
             <items>
@@ -22,7 +22,7 @@
               <MenuItem mnemonicParsing="false" onAction="#GoToApplyBtn" text="Apply" />
                   <MenuItem mnemonicParsing="false" onAction="#GoToUnassignedTaskBTN" text="Unassigned Task" />
                   <MenuItem mnemonicParsing="false" onAction="#GoToTaskAnalyticsBtn" text="Task Analytics" />
-                  <MenuItem mnemonicParsing="false" onAction="#taskSUbmitBTn" text="Task Submission" />
+                  <MenuItem mnemonicParsing="false" onAction="#GoToUnassignedTaskBTN" text="Task Submission" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Notice Board">
@@ -30,6 +30,11 @@
               <MenuItem mnemonicParsing="false" onAction="#goToNoticeBoradBTN" text="Show Notice" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Inventory">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#switchToInventoryMenuItemOnClicked" text="Inventory Details and Report" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Logout">
                <items>
                   <MenuItem mnemonicParsing="false" text="Go back" />
@@ -37,16 +42,18 @@
             </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="40.0" layoutY="59.0" prefHeight="47.0" prefWidth="520.0" text="Welcome to Cleaners Dashboard">
+      <Label layoutX="111.0" layoutY="102.0" prefHeight="47.0" prefWidth="379.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" stylesheets="@stylesheet.css" text="Welcome to Cleaners Dashboard">
          <font>
-            <Font name="Consolas Bold" size="32.0" />
+            <Font name="Cambria Bold" size="25.0" />
          </font>
       </Label>
-      <TextArea fx:id="dashBoardTextArea" layoutX="40.0" layoutY="251.0" prefHeight="107.0" prefWidth="241.0" />
-      <Label layoutX="40.0" layoutY="204.0" prefHeight="47.0" prefWidth="147.0" text="Ongoing Task">
+      <TextArea id="bevel" fx:id="dashBoardTextArea" layoutX="40.0" layoutY="251.0" prefHeight="107.0" prefWidth="241.0" style="-fx-background-color: #87C4FF;" stylesheets="@stylesheet.css" />
+      <Label layoutX="40.0" layoutY="204.0" prefHeight="47.0" prefWidth="147.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Ongoing Task">
          <font>
-            <Font name="Gadugi Bold" size="21.0" />
+            <Font name="Cambria Math" size="21.0" />
          </font>
       </Label>
+      <AnchorPane layoutX="598.0" layoutY="25.0" prefHeight="47.0" prefWidth="23.0" />
+      <AnchorPane layoutY="25.0" prefHeight="47.0" prefWidth="23.0" />
    </children>
 </AnchorPane>

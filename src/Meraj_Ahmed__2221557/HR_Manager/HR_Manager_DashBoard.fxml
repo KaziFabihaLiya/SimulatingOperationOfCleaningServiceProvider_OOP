@@ -46,12 +46,12 @@
       </MenuBar>
    </top>
    <center>
-      <AnchorPane prefHeight="278.0" prefWidth="465.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="278.0" prefWidth="465.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER" />
    </center>
    <right>
-      <AnchorPane prefHeight="296.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="296.0" prefWidth="200.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <AnchorPane prefHeight="119.0" prefWidth="656.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="119.0" prefWidth="656.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

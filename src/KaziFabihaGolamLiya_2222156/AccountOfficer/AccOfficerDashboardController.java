@@ -100,15 +100,61 @@ public class AccOfficerDashboardController implements Initializable {
     }
 
     @FXML
-    private void GoToCompensationMenuItemButton(ActionEvent event) {
+    private void GoToCompensationMenuItemButton(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("CompensationDetails.fxml"));
+        Scene CompensationScene = new Scene(root);
+
+        Stage newWin = new Stage();
+
+        newWin.setScene(CompensationScene);
+        newWin.setTitle("Compensation Panel");
+        newWin.show();
+        
     }
 
     @FXML
-    private void switchToProfileScalingMeniItemButton(ActionEvent event) {
+    private void switchToProfileScalingMeniItemButton(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("ProfitScaling.fxml"));
+        Scene profitScene = new Scene(root);
+
+        Stage newWin = new Stage();
+
+        newWin.setScene(profitScene);
+        newWin.setTitle("Profit Scaling Panel");
+        newWin.show();
     }
 
     @FXML
     private void switchToVendorpanelButton(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void switchToNetSalaryButton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("EmployeeSalaryCalculator.fxml"));
+        Scene profitScene = new Scene(root);
+
+        Stage newWin = new Stage();
+
+        newWin.setScene(profitScene);
+        newWin.setTitle("Net Salary Panel");
+        newWin.show();
+    }
+
+    @FXML
+    private void switchToPieChartButtonOnClicked(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("SalaryPieChart.fxml"));
+        Scene salary = new Scene(root);
+
+        Stage newWin = new Stage();
+
+        newWin.setScene(salary);
+        newWin.setTitle("Salary Pie Chart");
+        newWin.show();
+        
     }
 
 }

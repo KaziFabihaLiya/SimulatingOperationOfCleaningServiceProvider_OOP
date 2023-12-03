@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.VendorController">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="706.0" style="-fx-background-color: #FFF6BF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.VendorController">
    <children>
       <TableView fx:id="vendorTableView" layoutX="19.0" layoutY="67.0" prefHeight="200.0" prefWidth="666.0">
         <columns>
@@ -23,26 +23,26 @@
             <TableColumn fx:id="DateCol" prefWidth="139.0" text="Registeration Date" />
         </columns>
       </TableView>
-      <Label layoutX="33.0" layoutY="26.0" text="Vendor Information :">
+      <Label layoutX="33.0" layoutY="26.0" text="Vendor Information :" textFill="#e26868">
          <font>
-            <Font name="SansSerif Bold" size="24.0" />
+            <Font name="Cambria Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="60.0" layoutY="469.0" mnemonicParsing="false" onAction="#addingVendorButtonOnCLicked" text="Add New Vendor Details" />
-      <Button layoutX="529.0" layoutY="284.0" mnemonicParsing="false" onAction="#deleteExistingInfoButton" prefHeight="31.0" prefWidth="112.0" text="Delete" />
-      <Button layoutX="548.0" layoutY="485.0" mnemonicParsing="false" onAction="#switchToBackButton" text="Go Back" />
-      <Button layoutX="510.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadButtononClicked" prefHeight="31.0" prefWidth="175.0" text="Load Information" />
+      <Button id="sale" layoutX="60.0" layoutY="469.0" mnemonicParsing="false" onAction="#addingVendorButtonOnCLicked" style="-fx-background-color: E26868;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Add New Vendor Details" />
+      <Button id="sale" layoutX="530.0" layoutY="291.0" mnemonicParsing="false" onAction="#deleteExistingInfoButton" prefHeight="31.0" prefWidth="112.0" style="-fx-background-color: E26868;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Delete" />
+      <Button id="red" layoutX="549.0" layoutY="477.0" mnemonicParsing="false" onAction="#switchToBackButton" style="-fx-background-color: black;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Go Back" />
+      <Button id="red" layoutX="510.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadButtononClicked" prefHeight="31.0" prefWidth="171.0" style="-fx-background-color: #E26868;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Load Information" />
       <Label layoutX="29.0" layoutY="293.0" text="Vendor Name :" />
       <Label layoutX="29.0" layoutY="379.0" text="Category :" />
       <Label layoutX="29.0" layoutY="335.0" text="Vendor email :" />
-      <CheckBox fx:id="activeIinactiveCheckbox" layoutX="307.0" layoutY="363.0" mnemonicParsing="false" selected="true" text="Active" />
-      <TextField fx:id="nameTextField" layoutX="141.0" layoutY="288.0" prefHeight="31.0" prefWidth="136.0" />
-      <TextField fx:id="emailTextField" layoutX="141.0" layoutY="330.0" prefHeight="31.0" prefWidth="136.0" />
-      <ComboBox fx:id="categoryCombBox" layoutX="141.0" layoutY="373.0" prefHeight="31.0" prefWidth="136.0" />
-      <DatePicker fx:id="datePicker" layoutX="141.0" layoutY="419.0" prefHeight="31.0" prefWidth="136.0" />
+      <CheckBox fx:id="activeIinactiveCheckbox" layoutX="328.0" layoutY="363.0" mnemonicParsing="false" selected="true" text="Active" />
+      <TextField id="bevel" fx:id="nameTextField" layoutX="141.0" layoutY="288.0" prefHeight="31.0" prefWidth="136.0" stylesheets="@../cleaningCrewMember/stylesheet.css" />
+      <TextField id="bevel" fx:id="emailTextField" layoutX="141.0" layoutY="330.0" prefHeight="31.0" prefWidth="136.0" stylesheets="@../cleaningCrewMember/stylesheet.css" />
+      <ComboBox id="red" fx:id="categoryCombBox" layoutX="141.0" layoutY="373.0" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: E26868;" stylesheets="@../cleaningCrewMember/stylesheet.css" />
+      <DatePicker id="bevel" fx:id="datePicker" layoutX="141.0" layoutY="419.0" prefHeight="31.0" prefWidth="136.0" stylesheets="@../cleaningCrewMember/stylesheet.css" />
       <Label layoutX="29.0" layoutY="424.0" text="Select Date :" />
-      <Line endX="15.0" endY="147.0" layoutX="454.0" layoutY="370.0" startX="15.0" startY="-82.0" />
-      <Button layoutX="522.0" layoutY="408.0" mnemonicParsing="false" onAction="#binFileCreateButton" prefHeight="53.0" prefWidth="127.0" text=".bin File Create" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="529.0" layoutY="335.0" mnemonicParsing="false" onAction="#DownloadPDFButton" prefHeight="53.0" prefWidth="112.0" text="Download PDF" textAlignment="CENTER" wrapText="true" />
+      <Line endX="15.0" endY="147.0" layoutX="454.0" layoutY="370.0" startX="15.0" startY="-82.0" stroke="#f81f1f" />
+      <Button id="sale" layoutX="511.0" layoutY="411.0" mnemonicParsing="false" onAction="#binFileCreateButton" prefHeight="47.0" prefWidth="150.0" style="-fx-background-color: E26868;" stylesheets="@../cleaningCrewMember/stylesheet.css" text=".bin File Create" textAlignment="CENTER" wrapText="true" />
+      <Button id="sale" layoutX="511.0" layoutY="347.0" mnemonicParsing="false" onAction="#DownloadPDFButton" prefHeight="53.0" prefWidth="150.0" style="-fx-background-color: #E26868;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Download PDF" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

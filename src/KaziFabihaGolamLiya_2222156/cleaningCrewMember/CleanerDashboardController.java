@@ -54,7 +54,7 @@ public class CleanerDashboardController implements Initializable {
         //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Stage newWindow = new Stage();
 
-        newWindow.setTitle("Apply for Task");
+        newWindow.setTitle("Unassigned Task");
         newWindow.setScene(rootScene);
         newWindow.show();
     }
@@ -71,10 +71,6 @@ public class CleanerDashboardController implements Initializable {
         newWindow.show();
     }
 
-    @FXML
-    private void taskSUbmitBTn(ActionEvent event) {
-
-    }
 
     @FXML
     private void goToNoticeBoradBTN(ActionEvent event) throws IOException {
@@ -84,6 +80,19 @@ public class CleanerDashboardController implements Initializable {
         Stage newWindow = new Stage();
 
         newWindow.setTitle("Cleaners Notice Board");
+        newWindow.setScene(rootScene);
+        newWindow.show();
+    }
+
+    @FXML
+    private void switchToInventoryMenuItemOnClicked(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("InventoryTrackingAndReportingBack.fxml"));
+        Scene rootScene = new Scene(root);
+        //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage newWindow = new Stage();
+
+        newWindow.setTitle("Inventory Panel");
         newWindow.setScene(rootScene);
         newWindow.show();
     }

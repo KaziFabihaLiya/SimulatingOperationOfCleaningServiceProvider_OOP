@@ -9,9 +9,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.ProfitScalingController">
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="880.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.ProfitScalingController">
    <children>
-      <BarChart fx:id="barChartProfit" layoutX="331.0" layoutY="45.0" title="Profit Scaling">
+      <BarChart id="sale" fx:id="barChartProfit" layoutX="331.0" layoutY="45.0" stylesheets="@../cleaningCrewMember/stylesheet.css" title="Profit Scaling">
         <xAxis>
           <CategoryAxis label="Month" side="BOTTOM" fx:id="xAxisMonth" />
         </xAxis>
@@ -19,10 +19,10 @@
           <NumberAxis fx:id="yAxisNumber" side="LEFT" />
         </yAxis>
       </BarChart>
-      <TextField fx:id="costTextField" layoutX="74.0" layoutY="180.0" />
-      <ComboBox fx:id="monthComboBox" layoutX="72.0" layoutY="97.0" prefWidth="150.0" />
-      <Label layoutX="72.0" layoutY="66.0" text="Select month :" />
-      <Label layoutX="72.0" layoutY="149.0" text="Select Cost :" />
-      <Button layoutX="80.0" layoutY="368.0" mnemonicParsing="false" onAction="#loadBarChartButton" prefHeight="52.0" prefWidth="135.0" text="Load Bar Chart" />
+      <TextField id="windows8" fx:id="costTextField" layoutX="75.0" layoutY="267.0" prefHeight="31.0" prefWidth="195.0" promptText="Enter Cost" stylesheets="@../cleaningCrewMember/stylesheet.css" />
+      <ComboBox id="windows8" fx:id="monthComboBox" layoutX="73.0" layoutY="184.0" prefHeight="31.0" prefWidth="187.0" promptText="Choose one" stylesheets="@../cleaningCrewMember/stylesheet.css" />
+      <Label layoutX="73.0" layoutY="153.0" text="Select month :" />
+      <Label layoutX="73.0" layoutY="236.0" text="Select Cost :" />
+      <Button id="sale" layoutX="89.0" layoutY="353.0" mnemonicParsing="false" onAction="#loadBarChartButton" prefHeight="52.0" prefWidth="156.0" style="-fx-background-color: #FD841F;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Load Bar Chart" />
    </children>
 </AnchorPane>

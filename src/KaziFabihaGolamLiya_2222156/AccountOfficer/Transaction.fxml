@@ -19,14 +19,14 @@
   <tabs>
     <Tab text="View Transactions">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="600.0" style="-fx-background-color: #0c2431;">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="600.0" style="-fx-background-color: #FFFAD7;">
                <children>
-                  <Button layoutX="50.0" layoutY="44.0" mnemonicParsing="false" onAction="#showTransactionButton" prefHeight="42.0" prefWidth="273.0" style="-fx-background-color: #e1dad2;" text="Show Transaction Records" textFill="#194a50" wrapText="true">
+                  <Button id="sale" layoutX="50.0" layoutY="44.0" mnemonicParsing="false" onAction="#showTransactionButton" prefHeight="42.0" prefWidth="273.0" style="-fx-background-color: #FF9FAD8E709F;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Show Transaction Records" textFill="#194a50" wrapText="true">
                      <font>
                         <Font name="Segoe UI Black Italic" size="19.0" />
                      </font>
                   </Button>
-                  <TableView fx:id="TransactionTableView" layoutX="18.0" layoutY="116.0" prefHeight="200.0" prefWidth="562.0">
+                  <TableView id="bevel" fx:id="TransactionTableView" layoutX="18.0" layoutY="116.0" prefHeight="200.0" prefWidth="562.0" style="-fx-background-color: #FCDDB0;" stylesheets="@../cleaningCrewMember/stylesheet.css">
                     <columns>
                       <TableColumn fx:id="EmployeeNameCol" prefWidth="126.0" text="Employee Name" />
                         <TableColumn fx:id="EmployeeCodeCol" prefWidth="60.0" text="Code" />
@@ -35,7 +35,7 @@
                       <TableColumn fx:id="DateofBillCol" minWidth="0.0" prefWidth="134.0" text="Date of Billing" />
                     </columns>
                   </TableView>
-                  <Button layoutX="362.0" layoutY="44.0" mnemonicParsing="false" onAction="#createPDFButtonOnClick" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: #e1dad2;" text="Download PDF" textFill="#194a50" wrapText="true">
+                  <Button id="sale" layoutX="362.0" layoutY="44.0" mnemonicParsing="false" onAction="#createPDFButtonOnClick" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: # #FF9FAD8E709F;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Download PDF" textFill="#194a50" wrapText="true">
                      <font>
                         <Font name="Segoe UI Black Italic" size="19.0" />
                      </font>
@@ -47,7 +47,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #f5ece0;">
                <children>
-                  <Button layoutX="161.0" layoutY="251.0" mnemonicParsing="false" onAction="#addToTransactionRecord" prefHeight="76.0" prefWidth="287.0" style="-fx-background-color: #7f675b;" text="Add to Transaction Record" textAlignment="CENTER" textFill="#f5ece0" wrapText="true">
+                  <Button id="sale" layoutX="161.0" layoutY="251.0" mnemonicParsing="false" onAction="#addToTransactionRecord" prefHeight="76.0" prefWidth="287.0" style="-fx-background-color: #FF9FAD8E709F;" stylesheets="@../cleaningCrewMember/stylesheet.css" text="Add to Transaction Record" textAlignment="CENTER" textFill="#f5ece0" wrapText="true">
                      <font>
                         <Font name="Segoe UI Bold" size="19.0" />
                      </font>

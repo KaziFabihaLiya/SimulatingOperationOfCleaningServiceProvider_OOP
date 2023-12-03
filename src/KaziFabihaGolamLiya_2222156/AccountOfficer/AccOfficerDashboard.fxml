@@ -14,17 +14,15 @@
 
 <BorderPane fx:id="borderPaneId" prefHeight="486.0" prefWidth="740.0" style="-fx-background-color: #E8D3CE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziFabihaGolamLiya_2222156.AccountOfficer.AccOfficerDashboardController">
    <top>
-      <MenuBar prefHeight="38.0" prefWidth="740.0" BorderPane.alignment="CENTER">
+      <MenuBar id="blue" prefHeight="39.0" prefWidth="740.0" style="-fx-background-color: #C69774;" stylesheets="@../cleaningCrewMember/stylesheet.css" BorderPane.alignment="CENTER">
         <menus>
-            <Menu mnemonicParsing="false" text="My Information Panel" />
           <Menu mnemonicParsing="false" text="Transactions">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#GoToCompensationMenuItemButton" text="Compensation Details" />
-                  <MenuItem mnemonicParsing="false" onAction="#switchToTransactionButton" text="Net Salary Calculator" />
-                  <MenuItem mnemonicParsing="false" onAction="#switchToTransactionButton" text="Generate receipt" />
-                  <MenuItem mnemonicParsing="false" text="Show pie chart salary" />
-                  <MenuItem mnemonicParsing="false" text="Add Bill to Transaction" />
-                  <MenuItem mnemonicParsing="false" text="Show Transaction Records" />
+                  <MenuItem mnemonicParsing="false" onAction="#switchToNetSalaryButton" text="Net Salary Calculator" />
+                  <MenuItem mnemonicParsing="false" onAction="#switchToPieChartButtonOnClicked" text="Show pie chart salary" />
+                  <MenuItem mnemonicParsing="false" onAction="#switchToTransactionButton" text="Add Bill to Transaction" />
+                  <MenuItem mnemonicParsing="false" onAction="#switchToTransactionButton" text="Show Transaction Records" />
                </items></Menu>
           <Menu mnemonicParsing="false" text="Profit Scaling">
             <items>
@@ -38,9 +36,8 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Others">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#applyLeaveMenuItemOnClicked" text="Apply For LEave" />
+                  <MenuItem mnemonicParsing="false" onAction="#applyLeaveMenuItemOnClicked" text="Apply For Leave" />
                   <MenuItem mnemonicParsing="false" onAction="#viewNoticeMenuItemOnCLlcked" text="View Notice" />
-                  <MenuItem mnemonicParsing="false" text="About" />
                   <MenuItem mnemonicParsing="false" onAction="#logOutMenuItemOnClicked" text="Log Out" />
                </items>
             </Menu>
@@ -48,13 +45,13 @@
       </MenuBar>
    </top>
    <right>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFBF5;" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFBF5;" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <AnchorPane prefHeight="395.0" prefWidth="713.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="395.0" prefWidth="713.0" style="-fx-background-color: #F7EFE5;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="143.0" layoutY="14.0" prefHeight="33.0" prefWidth="284.0" text="Account Officer Dashboard">
                <font>

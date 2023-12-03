@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="376.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.Administration_Officer.QualityControlController">
+<AnchorPane id="AnchorPane" prefHeight="376.0" prefWidth="486.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Meraj_Ahmed__2221557.Administration_Officer.QualityControlController">
    <children>
       <Label layoutX="37.0" layoutY="51.0" text="Quality check inspection">
          <font>
