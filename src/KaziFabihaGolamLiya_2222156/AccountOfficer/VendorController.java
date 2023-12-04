@@ -90,6 +90,7 @@ public class VendorController implements Initializable {
 
     @FXML
     private void addingVendorButtonOnCLicked(ActionEvent event) {
+        
         String vendorNam = nameTextField.getText();
         String email = emailTextField.getText();
         String vendorType = categoryCombBox.getValue();
@@ -125,6 +126,8 @@ public class VendorController implements Initializable {
 
     @FXML
     private void loadButtononClicked(ActionEvent event) {
+        
+        vendorTableView.getItems().clear();
 
         vendorTableView.getItems().addAll(vendorList);
 
